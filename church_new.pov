@@ -35,7 +35,7 @@ camera {
   location <4,2,-4>
   right <-4/3,0,0>
   up <0,1,0>
-  direction <0,0,2>
+  direction <0,0,4>
   look_at < 0,.5,0>
 }
 light_source { <10,6,-10> color rgb <1,1,1>}
