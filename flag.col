@@ -1,0 +1,7 @@
+//Produced by slp2pov v2.0
+//
+//Color file for FLAG
+//
+#declare COLOR_0 = texture { pigmentWhite    }
+#declare COLOR_1 = texture { Gray60  }
+#declare COLOR_2 = texture { T_Gold }

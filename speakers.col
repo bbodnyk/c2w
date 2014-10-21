@@ -1,0 +1,6 @@
+//Produced by slp2pov v2.0
+//
+//Color file for SPEAKERS
+//
+#declare COLOR_0 = texture { T_White    }
+#declare COLOR_1 = texture { pigment { color BakersChoc }  }

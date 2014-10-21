@@ -1,0 +1,9 @@
+//Produced by slp2pov v2.0
+//
+//Color file for PULPIT_CLOTH
+//
+#declare COLOR_0 = texture {                                       
+        pigment { image_map { jpeg "pulpit_fall.jpg" } translate <.5,-.325,0> rotate <0,90,0> scale <1,30,25> }
+        finish { ambient GLOBAL_AMBIENT diffuse .6 }
+        }
+#declare COLOR_1 = texture { T_Gold  }

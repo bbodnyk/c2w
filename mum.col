@@ -1,0 +1,7 @@
+//Produced by slp2pov v2.0
+//
+//Color file for MUM
+//
+#declare COLOR_0 = texture { pigment {color T_Yellow   }}
+#declare COLOR_1 = texture { pigment {color CoolCopper  }}
+#declare COLOR_2 = texture { pigment {color DarkGreen    }}

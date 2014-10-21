@@ -1,0 +1,9 @@
+//Produced by slp2pov v2.0
+//
+//Color file for PIANO
+//
+#declare COLOR_0 = texture { pigment { color rgb <.1,.1,.1> } finish { reflection .001 } }
+#declare COLOR_1 = texture { T_Wood1 rotate <90,0,-45> scale <5,5,5>  }
+#declare COLOR_2 = texture { T_Wood1 rotate <90,0,0> scale <5,5,5>  }
+#declare COLOR_3 = texture { T_Gray05  }
+#declare COLOR_4 = texture { T_Gold  }

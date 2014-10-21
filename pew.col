@@ -1,0 +1,21 @@
+//Produced by slp2pov v2.0
+//
+//Color file for PEW
+//
+#declare T_PEWS = 
+pigment {
+    wood
+    turbulence 0.2
+    octaves 6
+    scale <0.075, .075, 1>
+    color_map {
+        [0.1 rgb <0.30, 0.10, 0.050>]
+        [0.3 rgb <0.25, 0.07, 0.038>] 
+        [0.9 rgb <0.25, 0.07, 0.038>]
+    }
+}
+
+#declare COLOR_0 = texture { T_White    }
+#declare COLOR_1 = texture { DMFWood5 scale <1/12,1/12,1/12> scale <.5,.5,.5>}
+//#declare COLOR_2 = texture { T_SemiSweetChoc  }
+#declare COLOR_2 = texture { DMFWood5 scale <4,4,4>  }

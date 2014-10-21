@@ -1,0 +1,6 @@
+//Produced by slp2pov v2.0
+//
+//Color file for CARD
+//
+#declare COLOR_0 = texture { pigment { color red 1.000 green 1.000 blue 0.000 }}
+#declare COLOR_0 = texture { pigment { image_map { jpeg "giving_card.jpg" } rotate <0,0,0> scale <7,7,7> } finish { ambient .1 } translate <-1.75,3.5,0> }

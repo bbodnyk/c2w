@@ -1,0 +1,6 @@
+//Produced by slp2pov v2.0
+//
+//Color file for BAPTISM_FONT
+//
+#declare COLOR_0 = texture { T_DarkWoodTrim  }
+#declare COLOR_1 = texture { T_White    }

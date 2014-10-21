@@ -1,0 +1,8 @@
+//Produced by slp2pov v2.0
+//
+//Color file for CEILING
+//
+#declare COLOR_0 = texture { T_CEILING  }
+#declare COLOR_1 = texture { T_White    }
+#declare COLOR_2 = texture { T_Brass_1A  }
+#declare COLOR_3 = texture { T_SemiSweetChoc  }

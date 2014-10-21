@@ -1,0 +1,9 @@
+//Produced by slp2pov v2.0
+//
+//Color file for PEW_BIBLE
+//
+//#declare COLOR_0 = texture { pigment { color red 0.011 green 0.012 blue 1.000 }}
+#declare COLOR_0 = texture { pigment { image_map { jpeg "pew_bible.jpg" } rotate <0,90,0> translate <0,0.05,.5> scale <10,10,8> } finish { ambient .1 } }
+                                                              
+
+#declare COLOR_1 = texture { pigment { color red 0.956 green 0.623 blue 0.105 }}

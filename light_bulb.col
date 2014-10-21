@@ -1,0 +1,20 @@
+//Produced by slp2pov v2.0
+//
+//Color file for LIGHT_BULB
+//
+//#declare COLOR_0 = texture { T_Gray75  }
+
+#declare F_BULB =
+  finish {
+    specular 1
+    roughness 0.002
+    ambient 0.5
+    diffuse 0.3
+    brilliance 5
+//    reflection { 0.01}
+    conserve_energy
+  }
+  
+#declare COLOR_0 = texture { pigment { color rgbt <1,1,1, .99> } finish { F_BULB } }
+
+                                                
