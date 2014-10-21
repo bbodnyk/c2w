@@ -170,6 +170,8 @@ texture {
 texture {                        
   pigment { color rgb <1,1,1> }
   finish {
+    ambient ROOM_AMBIENT          // ambient surface reflection color [0.1]
+    diffuse ROOM_DIFFUSE          // amount [0.6]
 //    ambient 0.15          // ambient surface reflection color [0.1]
     diffuse 0.6          // amount [0.6]
     brilliance 1.0       // tightness of diffuse illumination [1.0]    

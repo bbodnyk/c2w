@@ -4,7 +4,7 @@
 //light_source { <30,30,0> color rgb 1 }
 
 #if(SUNLIGHT=1)
-light_source { <1,1,1> color rgb 10 area_light <-100,-100,0> <100,100,0> 16, 8  adaptive 1 jitter translate <400,175,-400>}
+//light_source { <1,1,1> color rgb 10 area_light <-100,-100,0> <100,100,0> 16, 8  adaptive 1 jitter translate <400,175,-400>}
 
 light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,4,0> 8, 16 adaptive 1 jitter rotate <0,60,0> translate <7,4.71,-30>     translate <5,0,0> }
 light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,4,0> 8, 16 adaptive 1 jitter rotate <0,60,0> translate <20.92,4.71,-30> translate <5,0,0> }
