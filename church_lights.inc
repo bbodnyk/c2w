@@ -4,19 +4,16 @@
 //light_source { <30,30,0> color rgb 1 }
 
 #if(SUNLIGHT=1)
-light_source { <0,0,0> color rgb 10 area_light <-100,-100,0> <100,100,0> 64, 16  adaptive 1 jitter translate <900,175,-400>}
-//light_source { <20,20,-100> color rgb 1 }
+light_source { <1,1,1> color rgb 10 area_light <-100,-100,0> <100,100,0> 16, 8  adaptive 1 jitter translate <400,175,-400>}
 
-//light_source { <20,20,-75> color rgb SUNLIGHT area_light <-30,0,0> <30,10,0> 64, 32 adaptive 1 jitter}
-
-light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,20,0> 8, 16 adaptive 1 jitter rotate <0,60,0> translate <7,4.71,-30>     translate <5,0,0> }
-light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,20,0> 8, 16 adaptive 1 jitter rotate <0,60,0> translate <20.92,4.71,-30> translate <5,0,0> }
+light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,4,0> 8, 16 adaptive 1 jitter rotate <0,60,0> translate <7,4.71,-30>     translate <5,0,0> }
+light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,4,0> 8, 16 adaptive 1 jitter rotate <0,60,0> translate <20.92,4.71,-30> translate <5,0,0> }
 light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,20,0> 8, 16 adaptive 1 jitter rotate <0,60,0> translate <27.92,4.71,-30> translate <5,0,0> }
 light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,20,0> 8, 16 adaptive 1 jitter rotate <0,60,0> translate <34.92,4.71,-30> translate <5,0,0> }
 light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,20,0> 8, 16 adaptive 1 jitter rotate <0,60,0> translate <41.92,4.71,-30> translate <5,0,0> }
-//light_source { <0,0,0> color rgb SUNLIGHT_LEFT area_light <-3.25,-5,0> <3.25,5,0> 4, 8 adaptive 1 jitter translate <27.92,4.71,30> }
-//light_source { <0,0,0> color rgb SUNLIGHT_LEFT area_light <-3.25,-5,0> <3.25,5,0> 4, 8 adaptive 1 jitter translate <34.92,4.71,30> }
-//light_source { <0,0,0> color rgb SUNLIGHT_LEFT area_light <-3.25,-5,0> <3.25,5,0> 4, 8 adaptive 1 jitter translate <41.92,4.71,30> }
+light_source { <0,0,0> color rgb SUNLIGHT_LEFT area_light <-3.25,-5,0> <3.25,5,0> 4, 8 adaptive 1 jitter translate <27.92,4.71,30> }
+light_source { <0,0,0> color rgb SUNLIGHT_LEFT area_light <-3.25,-5,0> <3.25,5,0> 4, 8 adaptive 1 jitter translate <34.92,4.71,30> }
+light_source { <0,0,0> color rgb SUNLIGHT_LEFT area_light <-3.25,-5,0> <3.25,5,0> 4, 8 adaptive 1 jitter translate <41.92,4.71,30> }
 #end
 
 //light_source { <0,0,0> color rgb <2,2,2> area_light <-30,10,0> <30,10,0> 8, 4 adaptive 1 jitter translate <30,10, 50> }
@@ -56,13 +53,14 @@ light_source {
 //
 light_source {
   <4,17.8,0>                 // light's position (translated below)
-  color rgb <1,.75,.60>       // light's color
-  area_light <-1,0,-1><1,0,1> 2,2 adaptive 1 jitter 
+  color rgb <1.25,.6,.35>       // light's color
+  area_light <-2,0,-2><2,0,2> 3,3 adaptive 1 jitter 
   spotlight               // this kind of light source
-  point_at <0,14, 0>      // direction of spotlight
-  radius 180                // hotspot (inner, in degrees)
-  tightness 10            // tightness of falloff (1...100) lower is softer, higher is tighter
-  falloff 210              // intensity falloff radius (outer, in degrees)
+  point_at <0,16, 0>      // direction of spotlight
+  radius 70                // hotspot (inner, in degrees)
+// tightness 50            // tightness of falloff (1...100) lower is softer, higher is tighter
+  falloff 100              // intensity falloff radius (outer, in degrees)
+  fade_distance 5 fade_power 2
 }
 
 //
@@ -71,24 +69,24 @@ light_source {
 
 light_source {
   <14.25,11.5,-24>                 // light's position (translated below)                                                   
-  color rgb <1,.75,.60>       // light's color
+  color rgb <1.25,.6,.35>       // light's color
   spotlight               // this kind of light source
   point_at <0, 6, -22>      // direction of spotlight
   radius 80                // hotspot (inner, in degrees)
   tightness 10            // tightness of falloff (1...100) lower is softer, higher is tighter
   falloff 120               // intensity falloff radius (outer, in degrees)
-  fade_distance 10 fade_power 2
+  fade_distance 7 fade_power 2
 }
 
 light_source {
   <14.25,11.5,24>                 // light's position (translated below)                                                   
-  color rgb <1,.75,.60>       // light's color
+  color rgb <1.25,.6,.35>       // light's color
   spotlight               // this kind of light source
   point_at <0, 6, 22>      // direction of spotlight
   radius 80                // hotspot (inner, in degrees)
   tightness 10            // tightness of falloff (1...100) lower is softer, higher is tighter
   falloff 120               // intensity falloff radius (outer, in degrees)
-  fade_distance 10 fade_power 2
+  fade_distance 7 fade_power 2
 }  
 #end
 //

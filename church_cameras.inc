@@ -1,7 +1,7 @@
 // Back left camera
 #if(CAMERA = 1)                                                                                                                                                       
 camera {
-  perspective
+  #if(PERSPECTIVE=1)perspective #end
   location <56,4,21>
   right <-4/3,0,0>
   up <0,1,0>
@@ -17,7 +17,7 @@ light_source { < 56, 4, 21> color rgb <1,1,1> fade_distance 20 fade_power 3}
 // Back center camera
 #if(CAMERA = 2)
 camera {
-  perspective
+  #if(PERSPECTIVE=1)perspective #end
   location <56,4,0>
   right <-4/3,0,0>
   up <0,1,0>
@@ -32,7 +32,7 @@ light_source { < 56, 4, 0> color rgb <1,1,1> fade_distance 20 fade_power 3}
 // center middle camera
 #if(CAMERA = 3)
 camera {
-  perspective
+  #if(PERSPECTIVE=1)perspective #end
   location <50,4,0>
   right <-4/3,0,0>          
   up <0,1,0>
@@ -47,7 +47,7 @@ light_source { < 50, 4, 0> color rgb <1,1,1> fade_distance 20 fade_power 3}
 // front left camera
 #if(CAMERA = 4)
 camera {
-  perspective
+  #if(PERSPECTIVE=1)perspective #end
   location <25,4,21>
   right <-4/3,0,0>          
   up <0,1,0>
@@ -61,7 +61,7 @@ light_source { < 25, 4, 21> color rgb <1,1,1> fade_distance 20 fade_power 3}
 
 #if(CAMERA = 5)
 camera {
-  perspective
+  #if(PERSPECTIVE=1)perspective #end
   location CAMERA5_LOCATION
   right <-4/3,0,0>          
   up <0,1,0>

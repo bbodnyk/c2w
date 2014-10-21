@@ -9,9 +9,11 @@
 #declare FRONTCOLOR =  color rgb <1,1,1>;
 #declare CURTAINCOLOR = color rgb <248/255,231/255,184/255>;
 #declare FLOORCOLOR = color rgb <87/255,44/255,51/255>;
-#declare SUNLIGHT_RIGHT = <1,1,1>;
-#declare SUNLIGHT_LEFT = <.25,.25,.25>;
+#declare SUNLIGHT_RIGHT = <.4,.4,.4>;
+#declare SUNLIGHT_LEFT = <.125,.125,.125>;
 #declare MURAL = 0;
+#declare RADIOSITY = 0;
+#declare PERSPECTIVE = 0;
 //
 // Include Files
 //
@@ -37,18 +39,19 @@
 // 5 - User Defined
 //
 #declare CAMERA = 2;                    // 1 THRU 5
-#declare CAMERAZOOM = .75;                // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
+#declare CAMERAZOOM = .9;                // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
 //
 // Camera 5 Setup
 //
 #declare CAMERA5_LOCATION = <20,5,0>;    // <13,4,6>
 #declare CAMERA5_LOOKAT =  <0,2,0>;      // <3,2,0>
 #declare CAMERA5_FADE = 20;              // Distance Camera flash is at full intensity
+#declare PERSPECTIVE = 0;
 //
 // Amount of Ambient Light
 //
-#declare GLOBAL_AMBIENT = <.2,.2,.2>;
-#declare ROOM_AMBIENT = <.2,.2,.2>;
+#declare GLOBAL_AMBIENT = <.1,.1,.1>;
+#declare ROOM_AMBIENT = <.1,.1,.1>;
 #declare ROOM_DIFFUSE = .6;
 
 #include "church_texture.inc"
@@ -84,12 +87,12 @@
 //
 // DEBUG Mode
 //
-#declare CAMERAFLASH = 1;       // 0 (off) or 1 (on)
-#declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
+#declare CAMERAFLASH = 0;       // 0 (off) or 1 (on)
+#declare SUNLIGHT = 1;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 1;         // 0 (off) or 1 (on)
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on)
 #declare SIDEWALLLIGHTS = 0;    // 0 (off) or 1 (on)
-#declare CEILINGLIGHTS = 1;     // 0 (off) or 1 (on) (Needs CHANDELIER=1 )
+#declare CEILINGLIGHTS = 0;     // 0 (off) or 1 (on) (Needs CHANDELIER=1 )
 #declare BACKLIGHTS = 1;        // Can be turned off if doing closeups of front 
 #declare AREA_LITES = 1;
 
@@ -100,11 +103,11 @@
 #declare ALTERSTUFF = 0;        // 0 (off) or 1 (on)
 #declare PEWS = 0;              // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 0;        // 0 (off) or 1 (on)
-#declare RAILINGS = 1;          // 0 (off) or 1 (on)
+#declare RAILINGS = 0;          // 0 (off) or 1 (on)
 #declare HYMNALS = 0;           // 0 (off) or 1 (on)
 #declare HYMN_BOARD = 0;        // 0 (off) or 1 (on)
 #declare LIGHTFIXTURES =0;     // 0 (off) or 1 (on)
-#declare CHANDELIER = 1;        // 0 (off) or 1 (on)
+#declare CHANDELIER = 0;        // 0 (off) or 1 (on)
 #declare JESUS = 0;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN = 0;             // 0 (off) or 1 (on)
 #end
@@ -187,6 +190,7 @@ background { color Black }
 #include "rad_def.inc"
 global_settings {
   assumed_gamma 1.0
+  #if (RADIOSITY=1)
   radiosity {
     //Rad_Settings(Radiosity_Default, off, off)
     //Rad_Settings(Radiosity_Debug, off, off)
@@ -198,10 +202,11 @@ global_settings {
     //Rad_Settings(Radiosity_OutdoorLQ, off, off)
     //Rad_Settings(Radiosity_OutdoorHQ, off, off)
     //Rad_Settings(Radiosity_OutdoorLight, off, off)
-    Rad_Settings(Radiosity_IndoorLQ, off, off)
+    //Rad_Settings(Radiosity_IndoorLQ, off, off)
     //Rad_Settings(Radiosity_IndoorHQ, off, off)
 
   }
+  #end
 }
   
 #include "church_cameras.inc"
