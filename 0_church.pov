@@ -2,12 +2,12 @@
 //
 // Set to 1 for debugging
 //
-#declare DEBUG = 1;
+#declare DEBUG = 0;
 //
 // Amount of Ambient Light
 //
-#declare GLOBAL_AMBIENT = <.1,.1,.1>;
-#declare ROOM_AMBIENT = <.1,.1,.1>;
+#declare GLOBAL_AMBIENT = <.05,.05,.05>;
+#declare ROOM_AMBIENT = <.05,.05,.05>;
 #declare ROOM_DIFFUSE = .6;
 #declare SUNLIGHT_RIGHT = <.2,.2,.2>;
 #declare SUNLIGHT_LEFT = <.125,.125,.125>;
