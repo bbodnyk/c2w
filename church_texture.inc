@@ -138,7 +138,7 @@ texture {
 
 #declare T_Goldenrod = texture { pigment { color rgb CURTAINCOLOR } finish { ambient ROOM_AMBIENT diffuse ROOM_DIFFUSE } }
 
-#declare T_Gold      = texture { T_Gold_3C }
+#declare T_Gold      = texture { T_Gold_3C  finish { ambient ROOM_AMBIENT diffuse ROOM_DIFFUSE }}
 
 #declare T_Gray05    = texture { pigment { color Gray05 }}
 #declare T_Gray10    = texture { pigment { color Gray10 }}

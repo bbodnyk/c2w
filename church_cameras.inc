@@ -3,7 +3,7 @@
 camera {
   #if(PERSPECTIVE=1)perspective #end
   location <56,4,21>
-  right <-4/3,0,0>
+  right <-image_width/image_height,0,0>
   up <0,1,0>
   direction <0,0,CAMERAZOOM>
 //  look_at < 0,18,0>
@@ -19,7 +19,7 @@ light_source { < 56, 4, 21> color rgb <1,1,1> fade_distance 20 fade_power 3}
 camera {
   #if(PERSPECTIVE=1)perspective #end
   location <56,4,0>
-  right <-4/3,0,0>
+  right <-image_width/image_height,0,0>
   up <0,1,0>
   direction <0,0,CAMERAZOOM>                                                          
   look_at < 0,6,0>
@@ -34,7 +34,7 @@ light_source { < 56, 4, 0> color rgb <1,1,1> fade_distance 20 fade_power 3}
 camera {
   #if(PERSPECTIVE=1)perspective #end
   location <50,4,0>
-  right <-4/3,0,0>          
+  right <-image_width/image_height,0,0>          
   up <0,1,0>
   direction <0,0,CAMERAZOOM>                                                          
   look_at < 0,4,0>
@@ -49,7 +49,7 @@ light_source { < 50, 4, 0> color rgb <1,1,1> fade_distance 20 fade_power 3}
 camera {
   #if(PERSPECTIVE=1)perspective #end
   location <25,4,21>
-  right <-4/3,0,0>          
+  right <-image_width/image_height,0,0>          
   up <0,1,0>
   direction <0,0,CAMERAZOOM>                                                          
   look_at < 0,4,0>
@@ -63,7 +63,7 @@ light_source { < 25, 4, 21> color rgb <1,1,1> fade_distance 20 fade_power 3}
 camera {
   #if(PERSPECTIVE=1)perspective #end
   location CAMERA5_LOCATION
-  right <-4/3,0,0>          
+  right <-image_width/image_height,0,0>          
   up <0,1,0>
   direction <0,0,CAMERAZOOM>                                                          
   look_at CAMERA5_LOOKAT
