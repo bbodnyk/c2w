@@ -53,7 +53,7 @@ light_source {
 //
 light_source {
   <4,17.8,0>                 // light's position (translated below)
-  color rgb <1.25,.6,.35>       // light's color
+  color SPOTLIGHTCOLOR       // light's color
   area_light <-2,0,-2><2,0,2> 3,3 adaptive 1 jitter 
   spotlight               // this kind of light source
   point_at <0,16, 0>      // direction of spotlight
@@ -69,7 +69,7 @@ light_source {
 
 light_source {
   <14.25,11.5,-24>                 // light's position (translated below)                                                   
-  color rgb <1.25,.6,.35>       // light's color
+  color SPOTLIGHTCOLOR       // light's color
   spotlight               // this kind of light source
   point_at <0, 6, -22>      // direction of spotlight
   radius 80                // hotspot (inner, in degrees)
@@ -80,7 +80,7 @@ light_source {
 
 light_source {
   <14.25,11.5,24>                 // light's position (translated below)                                                   
-  color rgb <1.25,.6,.35>       // light's color
+  color SPOTLIGHTCOLOR       // light's color
   spotlight               // this kind of light source
   point_at <0, 6, 22>      // direction of spotlight
   radius 80                // hotspot (inner, in degrees)
@@ -93,22 +93,21 @@ light_source {
 // Lights along side of the ceiling
 //
 #if (SIDECEILINGLIGHTS = 1)
-#if (AREA_LITES = 1)
-light_source { <0,0,0> color rgb 1 area_light <-2,0,-.5><2,0,0.5> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless rotate<45,0,0> translate <7.5, 13.25, -24>}
- 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,-.5><2,0,0.5> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless rotate<45,0,0> translate <9.5, 13.25, -24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,-.5><2,0,0.5> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless rotate<45,0,0> translate <11.5, 13.25, -24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,-.5><2,0,0.5> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless rotate<45,0,0> translate <13.5, 13.25, -24>}               
+#if (AREA_LITES = 1 )
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <7.5, 13.5, -23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <9.5, 13.5, -23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <11.5, 13.5, -23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <13.5, 13.5, -23.5>}               
 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,-.5><2,0,0.5> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless rotate<-45,0,0> translate <7.5, 13.25, 24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,-.5><2,0,0.5> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless rotate<-45,0,0> translate <9.5, 13.25, 24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,-.5><2,0,0.5> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless rotate<-45,0,0> translate <11.5, 13.25, 24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,-.5><2,0,0.5> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless rotate<-45,0,0> translate <13.5, 13.25, 24>}     
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 rotate<-45,0,0> translate <7.5, 13.25, 23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 rotate<-45,0,0> translate <9.5, 13.25, 23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 rotate<-45,0,0> translate <11.5, 13.25, 23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 rotate<-45,0,0> translate <13.5, 13.25, 23.5>}     
 #else
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <7.5, 13.25, -24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <9.5, 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <11.5, 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <13.5, 13.25, -24>}               
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <7.5, 13.25, -24>} 
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <9.5, 13.25, -24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <11.5, 13.25, -24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <13.5, 13.25, -24>}               
 
 light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <7.5, 13.25, 24>} 
 light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <9.5, 13.25, 24>}
@@ -118,85 +117,85 @@ light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <13.5,
 
 #if (BACKLIGHTS = 1)
 #if (AREA_LITES = 1)
-light_source { <0,0,0> color rgb 1 area_light <-2,0,-.5><2,0,0.5> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <18., 13.25, -24>} 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,-.5><2,0,0.5> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <20., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,-.5><2,0,0.5> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <22., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,-.5><2,0,0.5> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <24., 13.25, -24>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <18., 13.5, -23.5>} 
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <20., 13.5, -23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <22., 13.5, -23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <24., 13.5, -23.5>}
 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <18., 13.25, 24>} 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <20., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <22., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <24., 13.25, 24>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <18., 13.25, 23.5>} 
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <20., 13.25, 23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <22., 13.25, 23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <24., 13.25, 23.5>}
 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <28., 13.25, -24>} 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <30., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <32., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <34., 13.25, -24>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <28., 13.25, -23.5>} 
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <30., 13.25, -23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <32., 13.25, -23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <34., 13.25, -23.5>}
 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <28., 13.25, 24>} 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <30., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <32., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <34., 13.25, 24>} 
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <28., 13.25, 23.5>} 
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <30., 13.25, 23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <32., 13.25, 23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <34., 13.25, 23.5>} 
 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <38., 13.25, -24>} 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <40., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <42., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <44., 13.25, -24>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <38., 13.25, -23.5>} 
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <40., 13.25, -23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <42., 13.25, -23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <44., 13.25, -23.5>}
 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <38., 13.25, 24>} 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <40., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <42., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <44., 13.25, 24>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <38., 13.25, 23.5>} 
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <40., 13.25, 23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <42., 13.25, 23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <44., 13.25, 23.5>}
 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <48., 13.25, -24>} 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <50., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <52., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <54., 13.25, -24>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <48., 13.25, -23.5>} 
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <50., 13.25, -23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <52., 13.25, -23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <54., 13.25, -23.5>}
 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <48., 13.25, 24>} 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <50., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <52., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,0,0> 4, 1 adaptive 1 jitter fade_distance 2 fade_power 2 shadowless translate <54., 13.25, 24>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <48., 13.25, 23.5>} 
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <50., 13.25, 23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <52., 13.25, 23.5>}
+light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <54., 13.25, 23.5>}
 #else
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <18., 13.25, -24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <20., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <22., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <24., 13.25, -24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <18., 13.25, -24>} 
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <20., 13.25, -24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <22., 13.25, -24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <24., 13.25, -24>}
 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <18., 13.25, 24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <20., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <22., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <24., 13.25, 24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <18., 13.25, 24>} 
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <20., 13.25, 24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <22., 13.25, 24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <24., 13.25, 24>}
 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <28., 13.25, -24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <30., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <32., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <34., 13.25, -24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <28., 13.25, -24>} 
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <30., 13.25, -24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <32., 13.25, -24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <34., 13.25, -24>}
 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <28., 13.25, 24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <30., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <32., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <34., 13.25, 24>} 
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <28., 13.25, 24>} 
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <30., 13.25, 24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <32., 13.25, 24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <34., 13.25, 24>} 
 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <38., 13.25, -24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <40., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <42., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <44., 13.25, -24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <38., 13.25, -24>} 
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <40., 13.25, -24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <42., 13.25, -24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <44., 13.25, -24>}
 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <38., 13.25, 24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <40., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <42., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <44., 13.25, 24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <38., 13.25, 24>} 
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <40., 13.25, 24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <42., 13.25, 24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <44., 13.25, 24>}
 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <48., 13.25, -24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <50., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <52., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <54., 13.25, -24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <48., 13.25, -24>} 
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <50., 13.25, -24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <52., 13.25, -24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <54., 13.25, -24>}
 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <48., 13.25, 24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <50., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <52., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 shadowless translate <54., 13.25, 24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <48., 13.25, 24>} 
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <50., 13.25, 24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <52., 13.25, 24>}
+light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <54., 13.25, 24>}
 #end
 #end
 #end

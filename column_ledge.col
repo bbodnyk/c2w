@@ -2,4 +2,4 @@
 //
 //Color file for COLUMN_LEDGE
 //
-#declare COLOR_0 = texture { WHITE_WALLS }
+#declare COLOR_0 = texture { T_White    }
