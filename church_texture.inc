@@ -43,7 +43,8 @@ color_map {
 */
 //
 //
-#declare T_BakersChoc      = texture { pigment { color BakersChoc }}
+#declare T_BakersChoc      = texture { pigment { color BakersChoc }
+                                       finish { ambient ROOM_AMBIENT diffuse ROOM_DIFFUSE }}
 #declare T_NewTan      = texture { pigment { color NewTan }}
 #declare T_Blue      = texture { pigment { color Blue }}
 #declare T_Copper      = texture { pigment { color Copper }}
@@ -135,7 +136,7 @@ texture {
 
 
 
-#declare T_Goldenrod = texture { pigment { color rgb CURTAINCOLOR }}
+#declare T_Goldenrod = texture { pigment { color rgb CURTAINCOLOR } finish { ambient ROOM_AMBIENT diffuse ROOM_DIFFUSE } }
 
 #declare T_Gold      = texture { T_Gold_3C }
 

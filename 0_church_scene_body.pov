@@ -273,9 +273,10 @@ object { CHANDELIER scale <1/12,1/12,1/12> scale 1.5 rotate <0,0,0> translate <5
 //
 // Pew Hymnals, Bibles, Cards and Pencils
 //
-// hymnal_percent     - % of hymnals in pews
-// bible_percent      - % of bibles in pews
-// card_percent       - % of cards in pews
+// hymnal_percent     - % of hymnals not in pews
+// bible_percent      - % of bibles not in pews
+// card_percent       - % of cards not in pews
+// pencil_percent     - % of pencils not in pews
 //
 #if(HYMNALS = 1)
 #include "hymnal.inc"
@@ -287,14 +288,14 @@ object { CHANDELIER scale <1/12,1/12,1/12> scale 1.5 rotate <0,0,0> translate <5
 #declare zdiff = 0;
 #declare rot = 0;
 #declare hynm_percent = 0.15;
-#declare bible_percent = 0.1;
+#declare bible_percent = 0.05;
 #declare card_percent = 0.25;
 #declare pencil_percent = 0.33;
 
-#declare hymnal_seed = seed(1); // Hymnals
-#declare bible_seed = seed(1); // Bibles
-#declare card_seed = seed(1); // Bibles
-#declare pencil_seed = seed(1); // Bibles
+#declare hymnal_seed = seed(1); // Hymnals seed
+#declare bible_seed = seed(1);  // Bibles seed
+#declare card_seed = seed(1);   // Card seed
+#declare pencil_seed = seed(1); // Pencil seed
 
 #while (Count < 12 )
 #declare xdiff = Count * 3.0;

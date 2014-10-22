@@ -6,11 +6,21 @@
 //
 // Amount of Ambient Light
 //
-#declare GLOBAL_AMBIENT = <.05,.05,.05>;
-#declare ROOM_AMBIENT = <.05,.05,.05>;
+#declare GLOBAL_AMBIENT = <.005,.005,.005>;
+#declare ROOM_AMBIENT = <.005,.005,.005>;
 #declare ROOM_DIFFUSE = .6;
-#declare SUNLIGHT_RIGHT = <.2,.2,.2>;
-#declare SUNLIGHT_LEFT = <.125,.125,.125>;
+//
+// Lighting Colors
+//
+#declare SUNLIGHTCOLOR = <4,4,4>;                 // Direct SUnlight
+#declare SUNLIGHT_RIGHT = <.3,.3,.3>;             // Diffuse Sunlight
+#declare SUNLIGHT_LEFT = <.125,.125,.125>;        // Diffuse Sunlight
+//#declare SPOTLIGHTCOLOR = <1.25,.6,.35>;        // Yellow Orange
+#declare SPOTLIGHTCOLOR = <.75,.75,.5>;           // Yellow
+#declare SIDECEILINGLIGHTCOLOR = <1,1,150/255>;
+#declare SIDEWALLLIGHTCOLOR = <1,1,150/255>;
+#declare CHANDELIERLIGHTCOLOR = <1,1,150/255>;
+
 //
 //=================== Scene Control =========================
 //
@@ -23,13 +33,13 @@
 // 5 - User Defined
 //
 #declare CAMERA = 2;                    // 1 THRU 5
-#declare CAMERAZOOM = .9;               // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
+#declare CAMERAZOOM = .8;               // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
 #declare PERSPECTIVE = 0;               // Set to 1 for perspective camera
 //
 // Camera 5 Setup
 //
-#declare CAMERA5_LOCATION = <20,5,0>;    // <13,4,6>
-#declare CAMERA5_LOOKAT =  <0,2,0>;      // <3,2,0>
+#declare CAMERA5_LOCATION = <56,4,24>;    // <13,4,6>
+#declare CAMERA5_LOOKAT =  <20,8,-24>;      // <3,2,0>
 #declare CAMERA5_FADE = 20;              // Distance Camera flash is at full intensity
 
 //

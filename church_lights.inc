@@ -4,7 +4,7 @@
 //light_source { <30,30,0> color rgb 1 }
 
 #if(SUNLIGHT=1)
-//light_source { <1,1,1> color rgb 10 area_light <-100,-100,0> <100,100,0> 16, 8  adaptive 1 jitter translate <400,175,-400>}
+light_source { <1,1,1> color SUNLIGHTCOLOR area_light <-100,-100,0> <100,100,0> 16, 8  adaptive 1 jitter translate <400,175,-400>}
 
 light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,4,0> 8, 16 adaptive 1 jitter rotate <0,60,0> translate <7,4.71,-30>     translate <5,0,0> }
 light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,4,0> 8, 16 adaptive 1 jitter rotate <0,60,0> translate <20.92,4.71,-30> translate <5,0,0> }
@@ -94,108 +94,108 @@ light_source {
 //
 #if (SIDECEILINGLIGHTS = 1)
 #if (AREA_LITES = 1 )
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <7.5, 13.5, -23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <9.5, 13.5, -23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <11.5, 13.5, -23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <13.5, 13.5, -23.5>}               
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <7.5, 13.5, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <9.5, 13.5, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <11.5, 13.5, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <13.5, 13.5, -23.5>}               
 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 rotate<-45,0,0> translate <7.5, 13.25, 23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 rotate<-45,0,0> translate <9.5, 13.25, 23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 rotate<-45,0,0> translate <11.5, 13.25, 23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 rotate<-45,0,0> translate <13.5, 13.25, 23.5>}     
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 rotate<-45,0,0> translate <7.5, 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 rotate<-45,0,0> translate <9.5, 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 rotate<-45,0,0> translate <11.5, 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 rotate<-45,0,0> translate <13.5, 13.25, 23.5>}     
 #else
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <7.5, 13.25, -24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <9.5, 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <11.5, 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <13.5, 13.25, -24>}               
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <7.5, 13.25, -24>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <9.5, 13.25, -24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <11.5, 13.25, -24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <13.5, 13.25, -24>}               
 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <7.5, 13.25, 24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <9.5, 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <11.5, 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <13.5, 13.25, 24>}     
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <7.5, 13.25, 24>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <9.5, 13.25, 24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <11.5, 13.25, 24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <13.5, 13.25, 24>}     
 #end
 
 #if (BACKLIGHTS = 1)
 #if (AREA_LITES = 1)
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <18., 13.5, -23.5>} 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <20., 13.5, -23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <22., 13.5, -23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <24., 13.5, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <18., 13.5, -23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <20., 13.5, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <22., 13.5, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <24., 13.5, -23.5>}
 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <18., 13.25, 23.5>} 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <20., 13.25, 23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <22., 13.25, 23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <24., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <18., 13.25, 23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <20., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <22., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <24., 13.25, 23.5>}
 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <28., 13.25, -23.5>} 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <30., 13.25, -23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <32., 13.25, -23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <34., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <28., 13.25, -23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <30., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <32., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <34., 13.25, -23.5>}
 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <28., 13.25, 23.5>} 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <30., 13.25, 23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <32., 13.25, 23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <34., 13.25, 23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <28., 13.25, 23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <30., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <32., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <34., 13.25, 23.5>} 
 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <38., 13.25, -23.5>} 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <40., 13.25, -23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <42., 13.25, -23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <44., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <38., 13.25, -23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <40., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <42., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <44., 13.25, -23.5>}
 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <38., 13.25, 23.5>} 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <40., 13.25, 23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <42., 13.25, 23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <44., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <38., 13.25, 23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <40., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <42., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <44., 13.25, 23.5>}
 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <48., 13.25, -23.5>} 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <50., 13.25, -23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <52., 13.25, -23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <54., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <48., 13.25, -23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <50., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <52., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <54., 13.25, -23.5>}
 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <48., 13.25, 23.5>} 
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <50., 13.25, 23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <52., 13.25, 23.5>}
-light_source { <0,0,0> color rgb 1 area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <54., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <48., 13.25, 23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <50., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <52., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <54., 13.25, 23.5>}
 #else
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <18., 13.25, -24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <20., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <22., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <24., 13.25, -24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <18., 13.25, -24>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <20., 13.25, -24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <22., 13.25, -24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <24., 13.25, -24>}
 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <18., 13.25, 24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <20., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <22., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <24., 13.25, 24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <18., 13.25, 24>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <20., 13.25, 24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <22., 13.25, 24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <24., 13.25, 24>}
 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <28., 13.25, -24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <30., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <32., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <34., 13.25, -24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <28., 13.25, -24>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <30., 13.25, -24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <32., 13.25, -24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <34., 13.25, -24>}
 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <28., 13.25, 24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <30., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <32., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <34., 13.25, 24>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <28., 13.25, 24>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <30., 13.25, 24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <32., 13.25, 24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <34., 13.25, 24>} 
 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <38., 13.25, -24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <40., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <42., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <44., 13.25, -24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <38., 13.25, -24>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <40., 13.25, -24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <42., 13.25, -24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <44., 13.25, -24>}
 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <38., 13.25, 24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <40., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <42., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <44., 13.25, 24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR1 fade_distance 2 fade_power 2 translate <38., 13.25, 24>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <40., 13.25, 24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <42., 13.25, 24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <44., 13.25, 24>}
 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <48., 13.25, -24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <50., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <52., 13.25, -24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <54., 13.25, -24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <48., 13.25, -24>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <50., 13.25, -24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <52., 13.25, -24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <54., 13.25, -24>}
 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <48., 13.25, 24>} 
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <50., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <52., 13.25, 24>}
-light_source { <0,0,0> color rgb 1 fade_distance 2 fade_power 2 translate <54., 13.25, 24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <48., 13.25, 24>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <50., 13.25, 24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <52., 13.25, 24>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <54., 13.25, 24>}
 #end
 #end
 #end
@@ -265,32 +265,32 @@ blob {
 //
 #if (SIDEWALLLIGHTS = 1)
 #include "light_bulb.inc"
-light_source { <0,0,0> color rgb <1,1,150/255> fade_distance 1 fade_power 2 shadowless translate <17.42,6.6,-23.89> }
+light_source { <0,0,0> color SIDEWALLLIGHTCOLOR fade_distance 1 fade_power 2 shadowless translate <17.42,6.6,-23.89> }
 object { LIGHT_BULB hollow scale <.1,.1,.1> translate <17.42,6.55,-23.89>}                                                                                                                    
 object { FLAME scale <1/12,1/12,1/12> translate <17.42,6.625,-23.89>}
-light_source { <0,0,0> color rgb <1,1,150/255> fade_distance 1 fade_power 2 shadowless  translate <24.42,6.6,-23.89> }
+light_source { <0,0,0> color SIDEWALLLIGHTCOLOR fade_distance 1 fade_power 2 shadowless  translate <24.42,6.6,-23.89> }
 object { LIGHT_BULB hollow scale <.1,.1,.1> translate <24.42,6.55,-23.89>}
 object { FLAME scale <1/12,1/12,1/12> translate <24.42,6.625,-23.89>}
-light_source { <0,0,0> color rgb <1,1,150/255> fade_distance 1 fade_power 2 shadowless  translate <31.42,6.6,-23.89> }
+light_source { <0,0,0> color SIDEWALLLIGHTCOLOR fade_distance 1 fade_power 2 shadowless  translate <31.42,6.6,-23.89> }
 object { LIGHT_BULB hollow scale <.1,.1,.1> translate <31.42,6.55,-23.89>}
 object { FLAME scale <1/12,1/12,1/12> translate <31.42,6.625,-23.89>}
-light_source { <0,0,0> color rgb <1,1,150/255> fade_distance 1 fade_power 2 shadowless  translate <38.42,6.6,-23.89> }
+light_source { <0,0,0> color SIDEWALLLIGHTCOLOR fade_distance 1 fade_power 2 shadowless  translate <38.42,6.6,-23.89> }
 object { LIGHT_BULB hollow scale <.1,.1,.1> translate <38.42,6.55,-23.89>}
 object { FLAME scale <1/12,1/12,1/12> translate <38.42,6.625,-23.89>}
-light_source { <0,0,0> color rgb <1,1,150/255> fade_distance 1 fade_power 2 shadowless  translate <45.42,6.6,-23.89> }
+light_source { <0,0,0> color SIDEWALLLIGHTCOLOR fade_distance 1 fade_power 2 shadowless  translate <45.42,6.6,-23.89> }
 object { LIGHT_BULB hollow scale <.1,.1,.1> translate <45.42,6.55,-23.89>}
 object { FLAME scale <1/12,1/12,1/12> translate <45.42,6.625,-23.89>}
 
-light_source { <0,0,0> color rgb <1,1,150/255> fade_distance 1 fade_power 2 shadowless  translate <24.42,6.6,23.89> }
+light_source { <0,0,0> color SIDEWALLLIGHTCOLOR fade_distance 1 fade_power 2 shadowless  translate <24.42,6.6,23.89> }
 object { LIGHT_BULB hollow scale <.1,.1,.1> translate <24.42,6.55,23.89>}
 object { FLAME scale <1/12,1/12,1/12> translate <24.42,6.625,23.89>}
-light_source { <0,0,0> color rgb <1,1,150/255> fade_distance 1 fade_power 2 shadowless  translate <31.42,6.6,23.89> }
+light_source { <0,0,0> color SIDEWALLLIGHTCOLOR fade_distance 1 fade_power 2 shadowless  translate <31.42,6.6,23.89> }
 object { LIGHT_BULB hollow scale <.1,.1,.1> translate <31.42,6.55,23.89>}
 object { FLAME scale <1/12,1/12,1/12> translate <31.42,6.625,23.89>}
-light_source { <0,0,0> color rgb <1,1,150/255> fade_distance 1 fade_power 2 shadowless  translate <38.42,6.6,23.89> }
+light_source { <0,0,0> color SIDEWALLLIGHTCOLOR fade_distance 1 fade_power 2 shadowless  translate <38.42,6.6,23.89> }
 object { LIGHT_BULB hollow scale <.1,.1,.1> translate <38.42,6.55,23.89>}
 object { FLAME scale <1/12,1/12,1/12> translate <38.42,6.625,23.89>}
-light_source { <0,0,0> color rgb <1,1,150/255> fade_distance 1 fade_power 2 shadowless  translate <45.42,6.6,23.89> }
+light_source { <0,0,0> color SIDEWALLLIGHTCOLOR fade_distance 1 fade_power 2 shadowless  translate <45.42,6.6,23.89> }
 object { LIGHT_BULB hollow scale <.1,.1,.1> translate <45.42,6.55,23.89>}
 object { FLAME scale <1/12,1/12,1/12> translate <45.42,6.625,23.89>}
 #end

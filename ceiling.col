@@ -4,6 +4,6 @@
 //
 #declare COLOR_0 = texture { T_CEILING }
 #declare COLOR_1 = texture { T_White    }
-#declare COLOR_2 = texture { T_Gold  }
-#declare COLOR_3 = texture { T_SemiSweetChoc  }
-#declare COLOR_4 = texture { T_SemiSweetChoc  }
+#declare COLOR_2 = texture { pigment {color Gold} finish { ambient ROOM_AMBIENT diffuse ROOM_DIFFUSE } }
+#declare COLOR_3 = texture { pigment {color Black} finish { ambient ROOM_AMBIENT diffuse ROOM_DIFFUSE } }
+#declare COLOR_4 = texture { pigment {color Black} finish { ambient ROOM_AMBIENT diffuse ROOM_DIFFUSE } }

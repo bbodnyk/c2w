@@ -17,20 +17,6 @@
 #include "golds.inc"
 #include "church_texture.inc"
 
-
-global_settings {
-  assumed_gamma 1.0
-  ambient_light <.2,.2,.2>    
-  max_trace_level 16
-  radiosity {             // --- Settings 2 (medium quality) ---
-    pretrace_start 0.08
-    pretrace_end   0.01
-    count 120
-    error_bound 0.25
-    recursion_limit 1
-  }
- }
-
 camera {
   location <4,2,-4>
   right <-4/3,0,0>
@@ -38,11 +24,11 @@ camera {
   direction <0,0,4>
   look_at < 0,.5,0>
 }
-light_source { <10,6,-10> color rgb <1,1,1>}
+light_source { <4,2,-4> color rgb <1,1,1>}
 
 //light_source { <0,20,0> color rgb <1,1,1>}
 
 background { color Black }
 
-#include "bread_basket.inc"                                                        
-object { BREAD_BASKET scale <1/12,1/12,1/12> }
+#include "alter_flower_stand.inc"
+object { ALTER_FLOWER_STAND  scale <1/12,1/12,1/12> }

@@ -3,4 +3,4 @@
 //Color file for SPEAKERS
 //
 #declare COLOR_0 = texture { T_White    }
-#declare COLOR_1 = texture { pigment { color BakersChoc }  }
+#declare COLOR_1 = texture { T_BakersChoc }
