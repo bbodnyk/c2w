@@ -1,10 +1,29 @@
 #version 3.7;
 //
-// Set to 1 for debugging
+// Rendering of Chambers Hill United Methodist Church
 //
-#declare DEBUG = 1;
+// This is the top level scene file for rendering. It contains various
+// switches for setting colors of certain objects and lights and locations
+// of cameras
+//
+// NOTE: Most of the configuration files use feet units. On the other hand,
+// many of the objects are defined in inches. Objects defined in inches
+// are scaled by 1/12 to convert their units to feet.
+//
+//=================== Scene Control =========================
+//
+// Debug mode is normally used for testing lighting configurations
+// where most of the scene objects are turned off to speed up the rendering time.
+//
+#declare DEBUG = 0;  // Set to 1 for debugging
 //
 // Amount of Ambient Light
+//
+// Ambient light is the amount of illumination an object receives when it
+// is not directly illuminated by light.
+
+// NOTE: These values have been carefully tweeked by illuminating the church
+// with just sunlight. They normally should be left as is.
 //
 #declare GLOBAL_AMBIENT = <.005,.005,.005>;
 #declare ROOM_AMBIENT = <.005,.005,.005>;
@@ -12,17 +31,17 @@
 //
 // Lighting Colors
 //
-#declare SUNLIGHTCOLOR = <4,4,4>;                 // Direct SUnlight
-#declare SUNLIGHT_RIGHT = <.3,.3,.3>;             // Diffuse Sunlight
-#declare SUNLIGHT_LEFT = <.125,.125,.125>;        // Diffuse Sunlight
-//#declare SPOTLIGHTCOLOR = <1.25,.6,.35>;        // Yellow Orange
-#declare SPOTLIGHTCOLOR = <.75,.75,.5>;           // Yellow
-#declare SIDECEILINGLIGHTCOLOR = <1,1,150/255>;
-#declare SIDEWALLLIGHTCOLOR = <1,1,150/255>;
-#declare CHANDELIERLIGHTCOLOR = <1,1,150/255>;
-
+// These settings control the colors of the various light sources
+// in the scene. Colors are defined with rgb values which can be
+// scaled to increase or decrease the light intensity.
 //
-//=================== Scene Control =========================
+#declare SUNLIGHTCOLOR =         <1,1,1>*4.0;          // Direct Sunlight
+#declare SUNLIGHT_RIGHT =        <1,1,1>*0.3;          // Diffuse Sunlight
+#declare SUNLIGHT_LEFT =         <1,1,1>*0.125;        // Diffuse Sunlight
+#declare SPOTLIGHTCOLOR =        <.75,.75,.5>*1.0;     // Spotlights in front of church
+#declare SIDECEILINGLIGHTCOLOR = <1,1,150/255>*1.0;    // Side Ceiling light color
+#declare SIDEWALLLIGHTCOLOR =    <1,1,150/255>*1.0;    // Wall sconces light color
+#declare CHANDELIERLIGHTCOLOR =  <1,1,150/255>*1.0;    // Chandelier light color
 //
 // Camera Control
 //
@@ -32,16 +51,17 @@
 // 4 - Front - Left
 // 5 - User Defined
 //
-#declare CAMERA = 2;                    // 1 THRU 5
-#declare CAMERAZOOM = 1;               // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
-#declare PERSPECTIVE = 0;               // Set to 1 for perspective camera
+// The scene has 4 default camera locations and one user definable camera.
+//
+#declare CAMERA = 2;                      // 1 THRU 5
+#declare CAMERAZOOM = 1;                  // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
+#declare CAMERA5_FADE = 20;               // Distance Camera flash is at full intensity
+#declare PERSPECTIVE = 0;                 // Set to 1 for perspective camera
 //
 // Camera 5 Setup
 //
 #declare CAMERA5_LOCATION = <20,10,10>;    // <13,4,6>
 #declare CAMERA5_LOOKAT =  <5.0, 10.0, 10.0>;      // <3,2,0>
-#declare CAMERA5_FADE = 20;              // Distance Camera flash is at full intensity
-
 //
 // Turn front mural off by default
 //
@@ -67,6 +87,9 @@
 //                           
 // Light Controls - No Debugging
 //
+// The following switches control what lights are turned on in a
+// scene.
+//
 #if(DEBUG = 0)
 #declare CAMERAFLASH = 0;       // 0 (off) or 1 (on) - Camara Flash
 #declare SUNLIGHT = 1;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
@@ -75,9 +98,7 @@
 #declare SIDEWALLLIGHTS = 1;    // 0 (off) or 1 (on) - Wall sconces
 #declare CEILINGLIGHTS = 1;     // 0 (off) or 1 (on) - Chandekiers (Needs CHANDELIER=1 )
 #declare BACKLIGHTS = 1;        // Can be turned off if doing closeups of front 
-#declare AREA_LITES = 1;
-//#declare SUNLIGHT_LEFT = <1,1,1>;    // Outside sunlight intensity
-//#declare SUNLIGHT_RIGHT = <2,2,2>;    // Outside sunlight intensity
+#declare AREA_LITES = 1;        // Replaces area_lights with point light sources for test purposes.
 //                       
 // Object Controls - No Debugging                                                                  
 //                                       
@@ -86,11 +107,10 @@
 #declare PEWS_CHOIR = 1;        // 0 (off) or 1 (on)
 #declare RAILINGS = 1;          // 0 (off) or 1 (on)
 #declare HYMNALS = 1;           // 0 (off) or 1 (on)
-#declare HYMN_BOARD = 1;        // 0 (off) or 1 (on)
-#declare LIGHTFIXTURES =1;     // 0 (off) or 1 (on)
+#declare LIGHTFIXTURES =1;      // 0 (off) or 1 (on)
 #declare CHANDELIER = 1;        // 0 (off) or 1 (on)
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
-#declare SCREEN = 1;             // 0 (off) or 1 (on)
+#declare SCREEN = 1;            // 0 (off) or 1 (on)
 #else
 //
 // Light Controls - DEBUG Mode
@@ -111,7 +131,6 @@
 #declare PEWS_CHOIR = 0;        // 0 (off) or 1 (on)
 #declare RAILINGS = 0;          // 0 (off) or 1 (on)
 #declare HYMNALS = 0;           // 0 (off) or 1 (on)
-#declare HYMN_BOARD = 0;        // 0 (off) or 1 (on)
 #declare LIGHTFIXTURES =0;     // 0 (off) or 1 (on)
 #declare CHANDELIER = 0;        // 0 (off) or 1 (on)
 #declare JESUS = 0;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
@@ -120,6 +139,13 @@
 
 //
 // Only use on final render
+//
+// Radiosity is a technique to more accurately model ambient light. Many times
+// the effect of turning radiosity on are subtle and the effects can only be
+// noticed by carefully comparing two identical images; one without radiosity and
+// another with it. Ambient light is automatically turned off when using radiosity.
+//
+// WARNING: Turning Radiosity on can dramatically increase rendering times.
 //
 #declare RADIOSITY = 0;
 
@@ -144,5 +170,7 @@ global_settings {
   }
   #end
 }
-  
+//
+// Load Main body of the scene
+//  
 #include "0_church_scene_body.pov"
