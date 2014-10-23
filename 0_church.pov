@@ -15,7 +15,11 @@
 // Debug mode is normally used for testing lighting configurations
 // where most of the scene objects are turned off to speed up the rendering time.
 //
-#declare DEBUG = 0;  // Set to 1 for debugging
+#declare DEBUG = 1;  // Set to 1 for debugging
+//
+// Animation Control - Set to 0 for single renderings.
+//
+#declare ANIMATION = 1;
 //
 // Amount of Ambient Light
 //
@@ -50,6 +54,7 @@
 // 3 - Middle - Center
 // 4 - Front - Left
 // 5 - User Defined
+// 6 - Motion Camera
 //
 // The scene has 4 default camera locations and one user definable camera.
 //
@@ -62,6 +67,7 @@
 //
 #declare CAMERA5_LOCATION = <20,10,10>;    // <13,4,6>
 #declare CAMERA5_LOOKAT =  <5.0, 10.0, 10.0>;      // <3,2,0>
+
 //
 // Turn front mural off by default
 //
@@ -117,7 +123,7 @@
 //
 #declare CAMERAFLASH = 1;       // 0 (off) or 1 (on)
 #declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
-#declare SPOTLIGHT = 1;         // 0 (off) or 1 (on)
+#declare SPOTLIGHT = 0;         // 0 (off) or 1 (on)
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on)
 #declare SIDEWALLLIGHTS = 0;    // 0 (off) or 1 (on)
 #declare CEILINGLIGHTS = 0;     // 0 (off) or 1 (on) (Needs CHANDELIER=1 )
@@ -126,7 +132,7 @@
 //                       
 // Object Controls - DEBUG Mode                                                                  
 //                                       
-#declare ALTERSTUFF = 1;        // 0 (off) or 1 (on)
+#declare ALTERSTUFF = 0;        // 0 (off) or 1 (on)
 #declare PEWS = 0;              // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 0;        // 0 (off) or 1 (on)
 #declare RAILINGS = 0;          // 0 (off) or 1 (on)
@@ -170,6 +176,49 @@ global_settings {
   }
   #end
 }
+
+//
+// Animation Section
+//
+#if(ANIMATION = 1)
+//
+// Camera 6 is intended to be used for animations, i.e. rendering a sequence of
+// images that when stitched together into an avi can be played back. This is most
+// commonly done by use of the "clock" variable that varies from 0 to 1. Using this
+// variable the cameras location can be made to change between movie frames.
+//
+// Camera moves from back of the church to the front over 1/2 the count
+//
+#declare CAMERA = 6;
+//
+// For the first half - move camera from back to front
+//
+#declare xmove = 0.0;
+#if (clock <= 0.5)
+#declare moveclock = 1.0-(clock*2);
+#declare xmove = (56-30)*moveclock;
+#end
+#declare CAMERA6_LOCATION = <30.0+xmove,4,0>;    // <13,4,6>
+#declare CAMERA6_LOOKAT = < 0,2,0>;      // <3,2,0>
+#declare CAMERA6_ZOOM =  1;
+#declare CAMERA6_FADE = 20;
+#declare CAMERA6_ROTATE = <0,0,0>;
+#end
+//
+// For the 2nd half rotate the camera
+//
+#if (clock>0.5)
+#declare CAMERA6_LOCATION = <30.0,4,0>;
+#declare rotclock = (clock - 0.5)/0.5;
+#declare rotangle = rotclock * 360 * 0.01745;
+#debug concat("Clock =",str(rotclock,1,4)," Angle = ",str(rotangle,1,4),"\n")
+#declare X = 30.0;
+#declare Y = 0.0;
+#declare CAMERA6_LOOKATX = X*cos(rotangle) - Y*sin(rotangle);
+#declare CAMERA6_LOOKATZ = X*sin(rotangle) + Y*cos(rotangle);
+#declare CAMERA6_LOOKAT = <30-CAMERA6_LOOKATX,4,-CAMERA6_LOOKATZ>; 
+#declare CAMERA6_ROTATE = <0,0,0>;
+#end
 //
 // Load Main body of the scene
 //  

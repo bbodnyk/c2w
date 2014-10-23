@@ -72,3 +72,23 @@ camera {
 light_source { CAMERA5_LOCATION color rgb <1,1,1> fade_distance CAMERA5_FADE fade_power 3}
 #end
 #end
+//
+// Motion Camera
+//
+// This camera is intended to be used for creating animations and makes use of the
+// "clock" variable to locate and point the camera during the length of the animation.
+//
+#if(CAMERA = 6)
+camera {
+  #if(PERSPECTIVE=1)perspective #end
+  location CAMERA6_LOCATION
+  right <-image_width/image_height,0,0>          
+  up <0,1,0>
+  direction <0,0,CAMERA6_ZOOM>                                                          
+  look_at CAMERA6_LOOKAT
+//  rotate CAMERA6_ROTATE
+}
+#if(CAMERAFLASH = 1)
+light_source { CAMERA6_LOCATION color rgb <1,1,1> fade_distance CAMERA6_FADE fade_power 3}
+#end
+#end
