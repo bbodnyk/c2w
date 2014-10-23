@@ -41,6 +41,14 @@ color_map {
               
 }
 */
+
+#declare T_DarkWood  =
+texture { 
+        pigment { P_WoodGrain1A  color_map { M_Wood_Pews }}
+        finish {  
+            reflection { 0.005 }        
+        }
+        }
 //
 //
 #declare T_BakersChoc      = texture { pigment { color BakersChoc }
