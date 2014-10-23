@@ -133,10 +133,9 @@ object { PICTURE_ARCH translate <0.5/12,0,0> }
 #include "outside.inc"
 object { OUTSIDE hollow scale <1.25,1,1> translate <-30,-6,-10> }
 
-#if(SCREEN = 1)
-#include "video_screen.inc"     
-object {VIDEO_SCREEN  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
-#end
+
+
+
 
 #if(RAILINGS = 1)
 #include "railing_front.inc"
@@ -167,6 +166,12 @@ object { FRAME scale <1/12,1/12,1/12> scale <1,1.125,1> rotate <0,90,0> translat
 
 #if(ALTERSTUFF = 1)                        
 
+#include "video_screen.inc"     
+object {VIDEO_SCREEN  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
+#if(SCREEN = 1)
+#include "video_screen_image.inc"     
+object {VIDEO_SCREEN_IMAGE  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
+#end
 
 #include "cross.inc"
 object { CROSS scale <1/12,1/12,1/12> translate <0,4,0> }

@@ -2,7 +2,7 @@
 //
 // Set to 1 for debugging
 //
-#declare DEBUG = 0;
+#declare DEBUG = 1;
 //
 // Amount of Ambient Light
 //
@@ -33,13 +33,13 @@
 // 5 - User Defined
 //
 #declare CAMERA = 2;                    // 1 THRU 5
-#declare CAMERAZOOM = .8;               // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
+#declare CAMERAZOOM = 1;               // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
 #declare PERSPECTIVE = 0;               // Set to 1 for perspective camera
 //
 // Camera 5 Setup
 //
-#declare CAMERA5_LOCATION = <56,4,24>;    // <13,4,6>
-#declare CAMERA5_LOOKAT =  <20,8,-24>;      // <3,2,0>
+#declare CAMERA5_LOCATION = <20,10,10>;    // <13,4,6>
+#declare CAMERA5_LOOKAT =  <5.0, 10.0, 10.0>;      // <3,2,0>
 #declare CAMERA5_FADE = 20;              // Distance Camera flash is at full intensity
 
 //
@@ -71,9 +71,9 @@
 #declare CAMERAFLASH = 0;       // 0 (off) or 1 (on) - Camara Flash
 #declare SUNLIGHT = 1;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 1;         // 0 (off) or 1 (on) - Above Jesus, pulpit and lecturn
-#declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on) - Upper side lights along length of church
-#declare SIDEWALLLIGHTS = 0;    // 0 (off) or 1 (on) - Wall sconces
-#declare CEILINGLIGHTS = 0;     // 0 (off) or 1 (on) - Chandekiers (Needs CHANDELIER=1 )
+#declare SIDECEILINGLIGHTS = 1; // 0 (off) or 1 (on) - Upper side lights along length of church
+#declare SIDEWALLLIGHTS = 1;    // 0 (off) or 1 (on) - Wall sconces
+#declare CEILINGLIGHTS = 1;     // 0 (off) or 1 (on) - Chandekiers (Needs CHANDELIER=1 )
 #declare BACKLIGHTS = 1;        // Can be turned off if doing closeups of front 
 #declare AREA_LITES = 1;
 //#declare SUNLIGHT_LEFT = <1,1,1>;    // Outside sunlight intensity
@@ -95,8 +95,8 @@
 //
 // Light Controls - DEBUG Mode
 //
-#declare CAMERAFLASH = 0;       // 0 (off) or 1 (on)
-#declare SUNLIGHT = 1;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
+#declare CAMERAFLASH = 1;       // 0 (off) or 1 (on)
+#declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 1;         // 0 (off) or 1 (on)
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on)
 #declare SIDEWALLLIGHTS = 0;    // 0 (off) or 1 (on)
@@ -106,7 +106,7 @@
 //                       
 // Object Controls - DEBUG Mode                                                                  
 //                                       
-#declare ALTERSTUFF = 0;        // 0 (off) or 1 (on)
+#declare ALTERSTUFF = 1;        // 0 (off) or 1 (on)
 #declare PEWS = 0;              // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 0;        // 0 (off) or 1 (on)
 #declare RAILINGS = 0;          // 0 (off) or 1 (on)

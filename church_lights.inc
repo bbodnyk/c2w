@@ -89,6 +89,14 @@ light_source {
   fade_distance 7 fade_power 2
 }  
 #end
+
+//
+// Video Screen Light
+//
+
+#if(SCREEN = 1)
+light_source { <0,0,0> color rgb <1,1,1> area_light <0,-2.4,-4.5><0,2.4,4.5> 4,4 adaptive 1 jitter fade_distance 1 fade_power 2 translate <5.0, 10.0, 10.0>}
+#end
 //
 // Lights along side of the ceiling
 //
