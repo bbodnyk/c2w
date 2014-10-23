@@ -242,9 +242,7 @@ object { PIANO  scale <1/12,1/12,1/12> rotate <0,-70,0> translate <3.8,0,7.3>}
 
 #include "baptism_font.inc"
 object {BAPTISM_FONT scale <1/12,1/12,1/12> translate <16.584,-1.5,-23.33> }
-#end
 
-#if(HYMN_BOARD = 1)
 #include "hymn_board.inc"
 object { HYMN_BOARD scale <1/12,1/12,1/12> rotate <0,80,0> translate <15.75,6,-23.65> }
 object { HYMN_BOARD scale <1/12,1/12,1/12> rotate <0,120,0> translate <15.75,6,23.65> }
