@@ -7,5 +7,5 @@
 #declare COLOR_0 =  texture {                                       
         pigment { image_map { jpeg "trees.jpg" } translate <0,-.2,0> scale <75,25,10> }
 //        finish { ambient .1 diffuse .6 }
-          finish { ambient 0 diffuse 0 emission 1 }
+          finish { ambient 0 diffuse 0 emission TREE_EMISSION }
         }     

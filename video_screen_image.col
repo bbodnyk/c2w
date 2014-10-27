@@ -2,7 +2,12 @@
 //
 //Color file for VIDEO_SCREEN_IMAGE
 //
-//#declare COLOR_0 = texture { T_White    }
+#if(VIDEO_ON = 0)
+#declare COLOR_0 = texture { T_White    }
+#else #declare COLOR_0 = texture { pigment { image_map { jpeg "2_white.jpg" } scale <110,65,55> translate <-50,-32,0>  } finish { ambient 0 diffuse 0 emission .5} }
+#end
 #declare COLOR_1 = texture { T_Gray15  }
+//
+// Extra
+//
 //#declare COLOR_0 = texture { pigment { image_map { jpeg "left_the_building.jpg" } scale <110,65,55> translate <-50,-32,0>  } finish { ambient 0 diffuse 0 emission .5} } 
-#declare COLOR_0 = texture { pigment { image_map { jpeg "2_white.jpg" } scale <110,65,55> translate <-50,-32,0>  } finish { ambient 0 diffuse 0 emission .5} }

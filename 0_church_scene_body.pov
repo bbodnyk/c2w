@@ -85,6 +85,7 @@ background { color Black }
 #declare CEILINGCOLOR =  color rgb <165/255,247/255,240/255>;
 #declare FRONTCOLOR =  color rgb <255/255,255/255,161/255>;
 #declare CURTAINCOLOR = color rgb <248/255,231/255,184/255>;
+#declare JESUS = 1;
 #end
 //
 // Sistene Chapel Mural
@@ -105,7 +106,24 @@ background { color Black }
 #include "church_texture.inc"
 
 #include "church_cameras.inc"
-#include "church_lights.inc"
+#include "church_lights.inc" 
+
+
+sky_sphere {
+  pigment {
+    gradient y
+      color_map {
+        [ 0.5  color CornflowerBlue ]
+        [ 1.0  color MidnightBlue ]
+        }
+    scale 2
+    translate -1
+    }
+  emission rgb <1,1,1>
+  }
+
+
+
 //
 // Basic Church, Walls, floor and Ceiling
 //
@@ -121,21 +139,19 @@ object { WALL_BACK }
 object { WALL_LEFT }
 #include "wall_right.inc"                                        
 object { WALL_RIGHT }
-
-//box { <20,0,-24><60,16,-24.5> pigment { color White }}
+#include "left_outside.inc"
+object { LEFT_OUTSIDE translate <0,0,2/12>}
+#include "outside.inc"
+object { OUTSIDE hollow scale <1.25,1,1> translate <-30,-6,-10> }
+object { OUTSIDE hollow scale <1.25,1,1> scale <-1,1,1> translate <-30-30,-6,-10> }
+object { OUTSIDE hollow scale <1.25,1,1> scale <-1,1,1> translate <120,-6,-10> }
 
 #include "column_ledge.inc"
 object { COLUMN_LEDGE }
 #include "speakers.inc"
 object { SPEAKERS }
 #include "picture_arch.inc"
-object { PICTURE_ARCH translate <0.5/12,0,0> }
-#include "outside.inc"
-object { OUTSIDE hollow scale <1.25,1,1> translate <-30,-6,-10> }
-
-
-
-
+object { PICTURE_ARCH finish{ ambient GLOBAL_AMBIENT }translate <0.5/12,0,0> }
 
 #if(RAILINGS = 1)
 #include "railing_front.inc"
@@ -163,7 +179,31 @@ object { PICTURE scale <1/12,1/12,1/12> scale <1,1.125,1> rotate <0,90,0> transl
 #include "frame.inc"
 object { FRAME scale <1/12,1/12,1/12> scale <1,1.125,1> rotate <0,90,0> translate <1/12,6.33,0>}
 #end
+//
+// Exploding Light
+//
 
+sphere { <0,14.5,0>,1 
+	pigment{ rgbt 1}
+	interior{ media{ emission rgbf <100, 100, 100, 0.1>
+			 density{ cylindrical color_map{
+			 	  [0 rgb 1]
+			 	  [1 rgb 0]}
+			 	  turbulence 0.15}
+			 	  }
+			 }}
+//
+// Debug Objects
+//
+#if(DEBUG = 1)
+#include "alter.inc"
+object { ALTER scale <1/12,1/12,1/12> rotate <0,90,0> translate <3.37,0,0> }
+#include "cross.inc"
+object { CROSS scale <1/12,1/12,1/12> translate <0,4,0> } 
+#end
+//
+// Alter, Bible, Cross, Pulpit, Lecturn, etc.
+//
 #if(ALTERSTUFF = 1)                        
 
 #include "video_screen.inc"     
@@ -182,11 +222,11 @@ object { SPOTLIGHT scale <1/12,1/12,1/12> translate <4,18,0> }
 #include "hanging_light.inc"
 object { HANGING_LIGHT scale <1/12,1/12,1/12> translate <6,18,0> }
 object { FLAME scale <1/12,1/12,1/12> translate <6, 15.5, 0>}
-light_source { <0,0,0> color rgb <1,1,1> fade_distance .5 fade_power 2 shadowless translate <6,15.5,0> }
+//light_source { <0,0,0> color rgb <1,1,1> fade_distance .5 fade_power 2 shadowless translate <6,15.5,0> }
 
 
-#include "alter.inc"
-object { ALTER scale <1/12,1/12,1/12> rotate <0,90,0> translate <3.37,0,0> }
+//#include "alter.inc"
+//object { ALTER scale <1/12,1/12,1/12> rotate <0,90,0> translate <3.37,0,0> }
 
 #include "alter_cloth.inc"        
 object { ALTER_CLOTH scale <1/12,1/12,1/12> 

@@ -11,7 +11,7 @@
 #declare COLOR_0 =
 texture { 
         pigment { image_map { tiff "christ.tif" } scale <77,105,75> translate <38,0,0> }
-        finish { ambient .1 }
+        finish { ambient GLOBAL_AMBIENT }
 }
          
 #declare PICTURE =

@@ -15,11 +15,12 @@
 // Debug mode is normally used for testing lighting configurations
 // where most of the scene objects are turned off to speed up the rendering time.
 //
-#declare DEBUG = 1;  // Set to 1 for debugging
+#declare DEBUG = 0;  // Set to 1 for debugging
 //
 // Animation Control - Set to 0 for single renderings.
 //
 #declare ANIMATION = 1;
+#declare ANIMATION_SEQUENCE = 0;
 //
 // Amount of Ambient Light
 //
@@ -32,6 +33,7 @@
 #declare GLOBAL_AMBIENT = <.005,.005,.005>;
 #declare ROOM_AMBIENT = <.005,.005,.005>;
 #declare ROOM_DIFFUSE = .6;
+#declare TREE_EMISSION = 1.0;
 //
 // Lighting Colors
 //
@@ -58,15 +60,15 @@
 //
 // The scene has 4 default camera locations and one user definable camera.
 //
-#declare CAMERA = 2;                      // 1 THRU 5
-#declare CAMERAZOOM = 1;                  // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
+#declare CAMERA = 5;                      // 1 THRU 5
+#declare CAMERAZOOM = 4;                  // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
 #declare CAMERA5_FADE = 20;               // Distance Camera flash is at full intensity
 #declare PERSPECTIVE = 0;                 // Set to 1 for perspective camera
 //
 // Camera 5 Setup
 //
-#declare CAMERA5_LOCATION = <20,10,10>;    // <13,4,6>
-#declare CAMERA5_LOOKAT =  <5.0, 10.0, 10.0>;      // <3,2,0>
+#declare CAMERA5_LOCATION = <8,6,0>;    // <13,4,6>
+#declare CAMERA5_LOOKAT =  <0,14.5,0>;      // <3,2,0>
 
 //
 // Turn front mural off by default
@@ -99,10 +101,10 @@
 #if(DEBUG = 0)
 #declare CAMERAFLASH = 0;       // 0 (off) or 1 (on) - Camara Flash
 #declare SUNLIGHT = 1;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
-#declare SPOTLIGHT = 1;         // 0 (off) or 1 (on) - Above Jesus, pulpit and lecturn
-#declare SIDECEILINGLIGHTS = 1; // 0 (off) or 1 (on) - Upper side lights along length of church
-#declare SIDEWALLLIGHTS = 1;    // 0 (off) or 1 (on) - Wall sconces
-#declare CEILINGLIGHTS = 1;     // 0 (off) or 1 (on) - Chandekiers (Needs CHANDELIER=1 )
+#declare SPOTLIGHT = 0;         // 0 (off) or 1 (on) - Above Jesus, pulpit and lecturn
+#declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on) - Upper side lights along length of church
+#declare SIDEWALLLIGHTS = 0;    // 0 (off) or 1 (on) - Wall sconces
+#declare CEILINGLIGHTS = 0;     // 0 (off) or 1 (on) - Chandekiers (Needs CHANDELIER=1 )
 #declare BACKLIGHTS = 1;        // Can be turned off if doing closeups of front 
 #declare AREA_LITES = 1;        // Replaces area_lights with point light sources for test purposes.
 //                       
@@ -117,12 +119,13 @@
 #declare CHANDELIER = 1;        // 0 (off) or 1 (on)
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN = 1;            // 0 (off) or 1 (on)
+#declare VIDEO_ON = 0;
 #else
 //
 // Light Controls - DEBUG Mode
 //
-#declare CAMERAFLASH = 1;       // 0 (off) or 1 (on)
-#declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
+#declare CAMERAFLASH = 0;       // 0 (off) or 1 (on)
+#declare SUNLIGHT = 1;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 0;         // 0 (off) or 1 (on)
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on)
 #declare SIDEWALLLIGHTS = 0;    // 0 (off) or 1 (on)
@@ -139,8 +142,9 @@
 #declare HYMNALS = 0;           // 0 (off) or 1 (on)
 #declare LIGHTFIXTURES =0;     // 0 (off) or 1 (on)
 #declare CHANDELIER = 0;        // 0 (off) or 1 (on)
-#declare JESUS = 0;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
+#declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN = 0;             // 0 (off) or 1 (on)
+#declare VIDEO_ON = 0;
 #end
 
 //
@@ -191,35 +195,199 @@ global_settings {
 //
 #declare CAMERA = 6;
 //
-// For the first half - move camera from back to front
+// Animation Sequence 0 - Lighting Sequence
 //
-#declare xmove = 0.0;
-#if (clock <= 0.5)
-#declare moveclock = 1.0-(clock*2);
-#declare xmove = (56-30)*moveclock;
-#end
-#declare CAMERA6_LOCATION = <30.0+xmove,4,0>;    // <13,4,6>
-#declare CAMERA6_LOOKAT = < 0,2,0>;      // <3,2,0>
-#declare CAMERA6_ZOOM =  1;
+#if ( ANIMATION_SEQUENCE = 0 )
+#declare CAMERA6_LOCATION = <59.3,4,20.5>;
+#declare CAMERA6_ZOOM = 1;
 #declare CAMERA6_FADE = 20;
-#declare CAMERA6_ROTATE = <0,0,0>;
+#declare CAMERA6_LOOKAT = <0,4,0>;
+
+#declare GLOBAL_AMBIENT = <0,0,0>;
+#declare ROOM_AMBIENT = <0,0,0>;
+#declare ROOM_DIFFUSE = .6;
+#declare TREE_EMISSION = 0;
+#declare SUNLIGHTCOLOR =         <1,1,1>*4.0;          // Direct Sunlight
+#declare SUNLIGHT_RIGHT =        <1,1,1>*0.3;          // Diffuse Sunlight
+#declare SUNLIGHT_LEFT =         <1,1,1>*0.125;        // Diffuse Sunlight
+//
+// Sunrise - Start diffuse light first
+//
+#declare SUNLIGHT_RIGHT =        <1,1,1>*0.3*clock;          // Diffuse Sunlight
+#declare SUNLIGHT_LEFT =         <1,1,1>*0.125*clock;        // Diffuse Sunlight
+#declare SUNLIGHTCOLOR =         <0,0,0>;
+//
+// Start direct 1/2 way thru
+//
+#if( clock > 0.5 )
+#declare clock2 = (clock-0.5)/0.5;
+#declare SUNLIGHTCOLOR = <1,1,1>*4.0*clock2;          // Direct Sunlight
+#end
 #end
 //
-// For the 2nd half rotate the camera
+// Animation Sequence 1
 //
-#if (clock>0.5)
-#declare CAMERA6_LOCATION = <30.0,4,0>;
-#declare rotclock = (clock - 0.5)/0.5;
-#declare rotangle = rotclock * 360 * 0.01745;
-#debug concat("Clock =",str(rotclock,1,4)," Angle = ",str(rotangle,1,4),"\n")
-#declare X = 30.0;
-#declare Y = 0.0;
-#declare CAMERA6_LOOKATX = X*cos(rotangle) - Y*sin(rotangle);
-#declare CAMERA6_LOOKATZ = X*sin(rotangle) + Y*cos(rotangle);
-#declare CAMERA6_LOOKAT = <30-CAMERA6_LOOKATX,4,-CAMERA6_LOOKATZ>; 
-#declare CAMERA6_ROTATE = <0,0,0>;
+// Walk from back left to front
+//
+#if( ANIMATION_SEQUENCE = 1 )
+//
+// Path from back left to alter
+//
+#declare LocationSpline =
+spline {
+  cubic_spline
+    -.1, <60,4,20.5>
+    0.00, <59.3,4,20.5>
+    0.25, <46.36,4,20.42>
+    0.50, <31.54,4,20.59>
+    0.60, <19.09,4,16.7>
+    0.70, <20.17,4,9.63>
+    0.75, <20.83,4,6.12>
+    0.80, <20.9,4,2.56>
+    0.90, <15.11,5.6,-.05>
+    1.00, <8,6,0>
+    1.1, <-1,0,0>
+    }
+
+//
+// Camera location determined by spline
+//
+
+#declare CAMERA6_LOCATION = LocationSpline(clock);
+#declare CAMERA6_ZOOM = 1;
+#declare CAMERA6_FADE = 20;
+
+#declare LookAtSpline =
+spline {
+  cubic_spline
+  -.1, <-1,0,1>
+  0.0, <0,4,0>
+  0.5, <28,4,-25>
+  1.0, <56,4,0>
+  1.1, <1,0,1>
+}
+#declare CAMERA6_LOOKAT = <0,4,0>;
+
+
+#if(clock<=0.5) #declare CAMERA6_LOOKAT = <0,4,0>;
+#elseif(clock>0.7)  #declare CAMERA6_LOOKAT = <0,4,0>;
+#else
+#declare lookclock = (0.7 - clock)/0.2;
+#if(lookclock <= 0.5)
+#declare CAMERA6_LOOKAT = LookAtSpline(lookclock*2);
+#else
+#declare CAMERA6_LOOKAT = LookAtSpline((1.0-lookclock)*2);
+#end
+#end
+//#declare text_str = concat(str(clock,4,3)," <",vstr(3,CAMERA6_LOCATION,",",3,3) ,"> <",vstr(3,CAMERA6_LOOKAT,",",3,3),">");
+//#debug text_str
+//#debug "\n"
+#end
+
+//
+// Animation Sequence 2
+//
+// Look up at Jesus
+//
+#if( ANIMATION_SEQUENCE = 2 )
+#declare CAMERA6_FADE = 20;
+#declare CAMERA6_LOCATION = <8,6,0>;
+#declare YLOOKAT = 4 + (clock*9.5);
+#declare CAMERA6_LOOKAT = <0,YLOOKAT,0>;
+#declare CAMERA6_ZOOM = 1+(clock*3);
+#end
+//
+// Light on Jesus Face
+//
+#if( ANIMATION_SEQUENCE = 3 )
+#declare  COLOR_SCHEME = 0;
+//
+// Light Sphere
+//
+#declare LIGHT_SPHERE =
+object{
+  sphere { <0,0,0>,1}
+  hollow
+  pigment{ color rgbf<1,1,1,1>}// clear!
+  finish { ambient 0 diffuse 0 }
+  interior {
+    media {
+      emission 1
+      intervals 9
+      samples 1, 20
+      confidence 0.9999
+      variance 1/100
+      density{ spherical
+               ramp_wave
+//               turbulence 0.15
+               color_map {
+               [0.0 color rgb <0,0,0>]
+               [0.5 color rgb <0,0,0>]
+               [1.0 color rgb <1,1,1>]
+                         } // end color_map
+ //           scale <1,2.5,1>
+          } // end of density
+    }//end of media
+}}
+//
+// Set camera
+//
+#if(clock <= 0.333)
+#declare clock1 = clock/0.333;
+//
+// 1st Third - Move Back as light sphere grows
+//
+#declare CAMERA6_LOCATION = <8+(clock1*22),6+(clock1*-2),0>;
+#declare CAMERA6_LOOKAT = <0,13.5,0>;
+#declare CAMERA6_ZOOM = 4-(clock1*3);
+#declare CAMERA6_FADE = 20;
+//
+// Scale the Light Sphere & intensity
+//
+#declare LIGHT_SPHERE_INTENSITY = clock1;
+#declare LIGHT_SCALE = clock1 * 10; 
+object { LIGHT_SPHERE scale LIGHT_SCALE translate < .7,13.5,0> }
+light_source { < .7,13.5,0> color rgb <LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY> }
+#end
+//
+// 2nd Third - Move light sphere towards camera
+//
+#if(clock > 0.333 & clock <= 0.666)
+#declare clock2 = (clock-0.333)/0.333;
+#declare LIGHT_SPHERE_INTENSITY = 1;
+#declare CAMERA6_LOCATION = <30,4,0>;
+#declare CAMERA6_LOOKAT = <0,13.5-(clock2*9.5),0>;
+#declare CAMERA6_ZOOM = 1;
+#declare CAMERA6_FADE = 20; 
+object { LIGHT_SPHERE scale 10 translate < .7+(clock2*24.3),13.5-(clock2*9.5),0> }
+light_source { < .7+(clock2*24.3),13.5-(clock2*9.5),0> color rgb <LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY> }
+#end
+//
+// 3rd - Scale the light sphere to nothing
+//
+#if(clock > 0.666)
+#declare clock3 = (clock-0.666)/0.333;
+#declare CAMERA6_LOCATION = <30,4,0>;
+#declare CAMERA6_LOOKAT = <0,4,0>;
+#declare CAMERA6_ZOOM = 1;
+#declare CAMERA6_FADE = 20; 
+object { LIGHT_SPHERE scale 10-(clock3*10) translate < 24.3,4,0> }
+#declare LIGHT_SPHERE_INTENSITY = 1-clock3;
+light_source { < 24.3,4,0> color rgb <LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY> }
+#declare  COLOR_SCHEME = 3;
+#end
+#declare text_str = concat(str(clock,4,3)," <",vstr(3,CAMERA6_LOCATION,",",3,3) ,"> <",vstr(3,CAMERA6_LOOKAT,",",3,3),">");
+#debug text_str
+#debug "\n"
+#end
+//
+// Additional Animation Sequences
+//
+
+
 #end
 //
 // Load Main body of the scene
-//  
+//
+  
 #include "0_church_scene_body.pov"

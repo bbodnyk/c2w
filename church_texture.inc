@@ -135,10 +135,10 @@ pigment {
 texture { 
         pigment { color rgb <.12,.04,.02>}
         finish {
-            ambient 0.15          // ambient surface reflection color [0.1]
-            diffuse 0.6          // amount [0.6]
-            brilliance 1.0       // tightness of diffuse illumination [1.0]    
-            reflection { 0.005 }
+        ambient GLOBAL_AMBIENT          // ambient surface reflection color [0.1]
+        diffuse ROOM_DIFFUSE          // amount [0.6]
+        brilliance 1.0       // tightness of diffuse illumination [1.0]    
+        reflection { 0.005 }
         }        
         }
 
@@ -161,13 +161,26 @@ texture {
 
 #declare T_FLOOR = texture {
         pigment { color FLOORCOLOR }
-        finish { crand .1 }
+        finish {
+        crand .1 
+        ambient ROOM_AMBIENT          
+        diffuse ROOM_DIFFUSE                  
+        }
         normal {
             bumps 10         // any pattern optionally followed by an intensity value [0.5]
             bump_size .05      // optional
             //accuracy 0.02   // changes the scale for normal calculation [0.02]
             scale 1.0         // any transformations
         }}
+
+#declare T_BRICK =
+        texture {
+           pigment { brick scale .1 }
+        finish { ambient ROOM_AMBIENT diffuse ROOM_DIFFUSE }
+
+}
+
+
 
 
 #declare T_MandarinOrange = texture { pigment { color MandarinOrange }}
@@ -249,12 +262,16 @@ texture {
 
 #declare T_FRONT =                              
 texture {
+#if(MURAL = 1)
+  pigment { image_map { jpeg "sistene.jpg" } } rotate <0,90,0> translate <0,-0.1,.475> scale <24,24,24> 
+#else
   pigment { wood  turbulence 0.0   
   color_map {   [0.0 color rgb <1,1,1>]
                 [0.25 color rgb <1,1,1>]
                 [0.75 color FRONTCOLOR ]
                 [1.0 color FRONTCOLOR ] }
                 rotate <0,90,0> scale <45,45,45> translate <0,5,0> }
+#end
                        
   finish {
     ambient ROOM_AMBIENT          // ambient surface reflection color [0.1]
