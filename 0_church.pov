@@ -15,12 +15,13 @@
 // Debug mode is normally used for testing lighting configurations
 // where most of the scene objects are turned off to speed up the rendering time.
 //
-#declare DEBUG = 0;  // Set to 1 for debugging
+#declare DEBUG = 1;  // Set to 1 for debugging
 //
 // Animation Control - Set to 0 for single renderings.
 //
 #declare ANIMATION = 1;
 #declare ANIMATION_SEQUENCE = 0;
+#declare ANIMATION_SUBSEQUENCE = 1;
 //
 // Amount of Ambient Light
 //
@@ -34,6 +35,7 @@
 #declare ROOM_AMBIENT = <0,0,0>;
 #declare ROOM_DIFFUSE = .6;
 #declare TREE_EMISSION = 1.0;
+#declare FLAME_EMISSION = 1.0;
 //
 // Lighting Colors
 //
@@ -108,6 +110,8 @@
 #declare CANDLE_ON = 0;         // 0 (off) or 1 (on)
 #declare BACKLIGHTS = 1;        // Can be turned off if doing closeups of front 
 #declare AREA_LITES = 1;        // Replaces area_lights with point light sources for test purposes.
+#declare TREE_EMISSION = 0.0;
+#declare FLAME_EMISSION = 0.0;
 //                       
 // Object Controls - No Debugging                                                                  
 //                                       
@@ -126,27 +130,29 @@
 //
 // Light Controls - DEBUG Mode
 //
-#declare CAMERAFLASH = 1;       // 0 (off) or 1 (on)
-#declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
+#declare CAMERAFLASH = 0;       // 0 (off) or 1 (on)
+#declare SUNLIGHT = 1;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 0;         // 0 (off) or 1 (on)
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on)
 #declare SIDEWALLLIGHTS = 0;    // 0 (off) or 1 (on)
 #declare CEILINGLIGHTS = 0;     // 0 (off) or 1 (on) (Needs CHANDELIER=1 )
 #declare CANDLE_ON = 0;         // 0 (off) or 1 (on) 
-#declare BACKLIGHTS = 1;        // Can be turned off if doing closeups of front 
+#declare BACKLIGHTS = 1;        // Can be turned off if doing closeups of front
+#declare TREE_EMISSION = 1.0;
+#declare FLAME_EMISSION = 1.0; 
 #declare AREA_LITES = 1;
 //                       
 // Object Controls - DEBUG Mode                                                                  
 //                                       
 #declare ALTERSTUFF = 0;        // 0 (off) or 1 (on)
 #declare PEWS = 0;              // 0 (off) or 1 (on)
-#declare POV_PEWS = 1;          // 0 (off) or 1 (on)
+#declare POV_PEWS = 0;          // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 0;        // 0 (off) or 1 (on)
 #declare RAILINGS = 0;          // 0 (off) or 1 (on)
 #declare HYMNALS = 0;           // 0 (off) or 1 (on)
-#declare LIGHTFIXTURES =0;     // 0 (off) or 1 (on)
+#declare LIGHTFIXTURES =1;     // 0 (off) or 1 (on)
 #declare CHANDELIER = 0;        // 0 (off) or 1 (on)
-#declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
+#declare JESUS = 0;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN = 0;             // 0 (off) or 1 (on)
 #declare VIDEO_ON = 0;
 #end
@@ -202,6 +208,10 @@ global_settings {
 // Animation Sequence 0 - Lighting Sequence
 //
 #if ( ANIMATION_SEQUENCE = 0 )
+//
+// Subsequence 0 - Sunrise, no inside lights
+//
+#if ( ANIMATION_SUBSEQUENCE = 0 )
 #declare CAMERA6_LOCATION = <59.3,4,20.5>;
 #declare CAMERA6_ZOOM = 1;
 #declare CAMERA6_FADE = 20;
@@ -224,14 +234,73 @@ global_settings {
 #declare ROOM_AMBIENT = <0.005*clock,0.005*clock,0.005*clock>;
 #declare TREE_EMISSION = 1.0*(clock/0.5);
 //
-// Start direct 1/2 way thru
+// Start direct sunlight 1/2 way thru
 //
 #if( clock > 0.5 )
 #declare clock2 = (clock-0.5)/0.5;
 #declare SUNLIGHTCOLOR = <1,1,1>*4.0*clock2;          // Direct Sunlight
 #declare TREE_EMISSION = 1.0;
 #end
+#end // End of Subseqence 0
+//
+// Subsequence 1 - Inside lights come on
+//
+#if( ANIMATION_SUBSEQUENCE = 1 )
+#declare CAMERA6_LOCATION = <59.3,4,20.5>;
+#declare CAMERA6_ZOOM = 1;
+#declare CAMERA6_FADE = 20;
+#declare CAMERA6_LOOKAT = <0,4,0>;
+#declare GLOBAL_AMBIENT = <.005,.005,.005>;
+#declare ROOM_AMBIENT = <.005,.005,.005>;
+#declare ROOM_DIFFUSE = .6;
+#declare TREE_EMISSION = 1;
+#declare SUNLIGHTCOLOR =         <1,1,1>*4.0;          // Direct Sunlight
+#declare SUNLIGHT_RIGHT =        <1,1,1>*0.3;          // Diffuse Sunlight
+#declare SUNLIGHT_LEFT =         <1,1,1>*0.125;        // Diffuse Sunlight
+//
+// Make sure lights are on 
+//
+#declare SPOTLIGHT = 1;
+#declare SIDEWALLLIGHTS = 1;
+#declare CEILINGLIGHTS = 0;
+#declare CHANDELIER = 1;
+#declare FLAME_EMISSION = 1.0;
+#declare SPOTLIGHTCOLOR = <0,0,0>;
+#declare SIDEWALLLIGHTCOLOR = <0,0,0>;
+#declare CHANDELIERLIGHTCOLOR =  <1,1,150/255>*1.0;
+//
+// Spotlights Come on in 1/4 sequence
+//
+#if(clock <= 0.25)
+#declare spotclock = ((clock)/0.25);
+#declare SPOTLIGHTCOLOR = <.75,.75,.5>*((1-cos(spotclock*pi))/2);
+#else
+#declare SPOTLIGHTCOLOR =  <.75,.75,.5>*1.0;
 #end
+//
+// Side Wall Lights Come on from 1/4 to 1/2 of subsequence
+//
+#if (clock <= 0.25) #declare SIDEWALLLIGHTCOLOR = <0,0,0>; #declare FLAME_EMISSION = 0; #end
+#if (clock > 0.25 & clock <= 0.5)
+#declare sideclock = ((clock-.25)/0.25);
+#declare FLAME_EMISSION = sideclock;
+#declare SIDEWALLLIGHTCOLOR = <.75,.75,.5>*((1-cos(sideclock*pi))/2);
+#end
+#if (clock > 0.5) #declare SIDEWALLLIGHTCOLOR = <.75,.75,.5>*1.0; #declare FLAME_EMISSION = 1.0; #end
+//
+// Chandeliers Lights come on from 1/2 to end
+//
+#if(clock<=0.5)
+#declare CHANDELIERLIGHTCOLOR =  <0,0,0>;
+#declare CEILINGLIGHTS = 0;
+#else
+#declare CEILINGLIGHTS = 1;
+#declare ceilclock = (clock - 0.5)/0.5;
+#declare CHANDELIERLIGHTCOLOR =  <1,1,150/255>*((1-cos(ceilclock*pi))/2);
+#end
+
+#end // End of Subsequence 1
+#end // End of Sequence 0
 //
 // Animation Sequence 1
 //

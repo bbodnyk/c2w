@@ -26,7 +26,7 @@ light_source { <0,0,0> color rgb SUNLIGHT_LEFT area_light <-3.25,-5,0> <3.25,5,0
 
 light_source {
   <13.57,17.5,-5.38>                 // light's position (translated below)                                                   
-  color rgb <1,1,1>       // light's color
+  color rgb SPOTLIGHTCOLOR       // light's color
   spotlight               // this kind of light source
   area_light <-1,0,-1><1,0,1> 2,2 adaptive 1 jitter
   point_at <13.57, 4, -5.38>      // direction of spotlight
@@ -40,7 +40,7 @@ light_source {
 //
 light_source {
   <13.57,17.5,5.38>                 // light's position (translated below)
-  color rgb <1,1,1>       // light's color
+  color rgb SPOTLIGHTCOLOR       // light's color
   spotlight               // this kind of light source
   area_light <-1,0,-1><1,0,1> 2,2 adaptive 1 jitter  
   point_at <13.57, 4, 5.38>      // direction of spotlight

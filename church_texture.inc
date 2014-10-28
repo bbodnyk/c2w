@@ -365,7 +365,7 @@ difference{
 	sphere{<0, -0.3, 0>, 0.35} 
 	hollow
 	pigment{ rgbt 1}
-	interior{ media{ emission rgbf <50, 40, 20, 0.1>
+	interior{ media{ emission rgbf <50, 40, 20, 0.1>*FLAME_EMISSION
 			 density{ cylindrical color_map{
 			 	  [0.3 rgb 1]
 			 	  [1 rgb 0]}
