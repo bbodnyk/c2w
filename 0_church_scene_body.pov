@@ -167,6 +167,16 @@ object { RAILING_ORGAN }
 object { PEWS }
 #end
 
+#if( POV_PEWS = 1 )
+#include "pov-pew.inc"
+#declare Count = 0;
+#while ( Count < 13 )
+object { POV_PEW scale <1/12,1/12,1/12> translate <284/12+(Count*3),-2,99/12+38/12> }
+object { POV_PEW scale <1/12,1/12,1/12> translate <284/12+(Count*3),-2,-(99/12+38/12)> } 
+#declare Count = Count + 1;
+#end
+#end
+
 #if(PEWS_CHOIR = 1)
 #include "pews_choir.inc"
 object { PEWS_CHOIR }

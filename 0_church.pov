@@ -60,8 +60,8 @@
 //
 // The scene has 4 default camera locations and one user definable camera.
 //
-#declare CAMERA = 5;                      // 1 THRU 5
-#declare CAMERAZOOM = 4;                  // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
+#declare CAMERA = 1;                      // 1 THRU 5
+#declare CAMERAZOOM = 1;                  // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
 #declare CAMERA5_FADE = 20;               // Distance Camera flash is at full intensity
 #declare PERSPECTIVE = 0;                 // Set to 1 for perspective camera
 //
@@ -113,6 +113,7 @@
 //                                       
 #declare ALTERSTUFF = 1;        // 0 (off) or 1 (on)
 #declare PEWS = 1;              // 0 (off) or 1 (on)
+#declare POV_PEWS = 0;          // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 1;        // 0 (off) or 1 (on)
 #declare RAILINGS = 1;          // 0 (off) or 1 (on)
 #declare HYMNALS = 1;           // 0 (off) or 1 (on)
@@ -125,7 +126,7 @@
 //
 // Light Controls - DEBUG Mode
 //
-#declare CAMERAFLASH = 0;       // 0 (off) or 1 (on)
+#declare CAMERAFLASH = 1;       // 0 (off) or 1 (on)
 #declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 0;         // 0 (off) or 1 (on)
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on)
@@ -139,6 +140,7 @@
 //                                       
 #declare ALTERSTUFF = 0;        // 0 (off) or 1 (on)
 #declare PEWS = 0;              // 0 (off) or 1 (on)
+#declare POV_PEWS = 1;          // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 0;        // 0 (off) or 1 (on)
 #declare RAILINGS = 0;          // 0 (off) or 1 (on)
 #declare HYMNALS = 0;           // 0 (off) or 1 (on)
