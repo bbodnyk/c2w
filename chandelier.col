@@ -2,5 +2,5 @@
 //
 //Color file for CHANDELIER
 //
-#declare COLOR_0 = texture { T_Gold  }
-#declare COLOR_1 = texture { T_White    }
+#declare COLOR_0 = texture { T_Gold finish { ambient GLOBAL_AMBIENT } }
+#declare COLOR_1 = texture { T_White   finish { ambient GLOBAL_AMBIENT }   }

@@ -2,5 +2,5 @@
 //
 //Color file for LAMP
 //
-#declare COLOR_0 = texture { T_Brass_3C  }
-#declare COLOR_1 = texture { T_Gray05  }
+#declare COLOR_0 = texture { T_Brass_3C finish { ambient GLOBAL_AMBIENT }  }
+#declare COLOR_1 = texture { T_Gray05 finish { ambient GLOBAL_AMBIENT }  }

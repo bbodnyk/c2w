@@ -46,7 +46,8 @@ color_map {
 texture { 
         pigment { P_WoodGrain1A  color_map { M_Wood_Pews }}
         finish {  
-            reflection { 0.005 }        
+            reflection { 0.005 }
+            ambient GLOBAL_AMBIENT        
         }
         }
 //
@@ -62,7 +63,8 @@ texture {
 texture { 
         pigment { P_WoodGrain1A  color_map { M_Wood_Pews }}
         finish {  
-            reflection { 0.005 }        
+            reflection { 0.005 }
+            ambient GLOBAL_AMBIENT        
         }
         }
 
@@ -128,7 +130,14 @@ pigment {
 }
 
 #declare T_PEW =      
- texture { T_PEWS }
+ texture { T_PEWS 
+        finish {
+        ambient GLOBAL_AMBIENT          // ambient surface reflection color [0.1]
+        diffuse ROOM_DIFFUSE          // amount [0.6]
+        brilliance 1.0       // tightness of diffuse illumination [1.0]    
+        reflection { 0.005 }
+        }         
+ }
 // texture { T_PEW_LAYER1 } 
                        
 #declare T_DarkWoodTrim =
@@ -148,15 +157,15 @@ texture {
 
 #declare T_Gold      = texture { T_Gold_3C  finish { ambient ROOM_AMBIENT diffuse ROOM_DIFFUSE }}
 
-#declare T_Gray05    = texture { pigment { color Gray05 }}
-#declare T_Gray10    = texture { pigment { color Gray10 }}
-#declare T_Gray15    = texture { pigment { color Gray15 }}
-#declare T_Gray40    = texture { pigment { color Gray40 }}                  
-#declare T_Gray45    = texture { pigment { color Gray45 }} 
-#declare T_Gray75    = texture { pigment { color Gray75 }}
-#declare T_Gray85    = texture { pigment { color Gray85 }}
-#declare T_Gray95    = texture { pigment { color Gray95 }}
-#declare T_LightGray    = texture { pigment { color LightGray }}
+#declare T_Gray05    = texture { pigment { color Gray05 } finish { ambient GLOBAL_AMBIENT }}
+#declare T_Gray10    = texture { pigment { color Gray10 } finish { ambient GLOBAL_AMBIENT }}
+#declare T_Gray15    = texture { pigment { color Gray15 } finish { ambient GLOBAL_AMBIENT }}
+#declare T_Gray40    = texture { pigment { color Gray40 } finish { ambient GLOBAL_AMBIENT }}                  
+#declare T_Gray45    = texture { pigment { color Gray45 } finish { ambient GLOBAL_AMBIENT }} 
+#declare T_Gray75    = texture { pigment { color Gray75 } finish { ambient GLOBAL_AMBIENT }}
+#declare T_Gray85    = texture { pigment { color Gray85 } finish { ambient GLOBAL_AMBIENT }}
+#declare T_Gray95    = texture { pigment { color Gray95 } finish { ambient GLOBAL_AMBIENT }}
+#declare T_LightGray    = texture { pigment { color LightGray } finish { ambient GLOBAL_AMBIENT }}
 #declare T_Green    = texture { pigment { color Green }}
 
 #declare T_FLOOR = texture {

@@ -2,7 +2,7 @@
 //
 //Color file for MICROPHONE
 //
-//#declare COLOR_0 = texture { T_LightGray  }
-#declare COLOR_0 = texture { T_Gray05  }
-#declare COLOR_1 = texture { T_Gray05  }
-#declare COLOR_2 = texture { T_Gray05  }
+//#declare COLOR_0 = texture { T_LightGray  finish { ambient GLOBAL_AMBIENT }  }
+#declare COLOR_0 = texture { T_Gray05  finish { ambient GLOBAL_AMBIENT }  }
+#declare COLOR_1 = texture { T_Gray05  finish { ambient GLOBAL_AMBIENT }  }
+#declare COLOR_2 = texture { T_Gray05  finish { ambient GLOBAL_AMBIENT }  }

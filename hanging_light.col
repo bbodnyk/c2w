@@ -2,5 +2,5 @@
 //
 //Color file for HANGING_LIGHT
 //
-#declare COLOR_0 = texture { T_Gold  }
-#declare COLOR_1 = texture { pigment { color rgbf <1,0,0,.5> }}
+#declare COLOR_0 = texture { T_Gold  finish { ambient GLOBAL_AMBIENT } }
+#declare COLOR_1 = texture { pigment { color rgbf <1,0,0,.5> } finish { ambient GLOBAL_AMBIENT } }

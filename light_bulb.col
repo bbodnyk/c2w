@@ -8,7 +8,7 @@
   finish {
     specular 1
     roughness 0.002
-    ambient 0.5
+    ambient GLOBAL_AMBIENT
     diffuse 0.3
     brilliance 5
 //    reflection { 0.01}

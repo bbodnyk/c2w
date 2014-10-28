@@ -2,6 +2,6 @@
 //
 //Color file for CHALICE
 //
-#declare COLOR_0 = texture { pigment { color rgb <1,60/255,0>} }
-#declare COLOR_1 = texture { pigment { color DarkPurple  }}
-#declare COLOR_2 = texture { T_Gray75  }
+#declare COLOR_0 = texture { pigment { color rgb <1,60/255,0>} finish { ambient GLOBAL_AMBIENT } }
+#declare COLOR_1 = texture { pigment { color DarkPurple  }finish { ambient GLOBAL_AMBIENT } }
+#declare COLOR_2 = texture { T_Gray75 finish { ambient GLOBAL_AMBIENT }  }

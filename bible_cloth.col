@@ -6,5 +6,5 @@
 
 #declare COLOR_0 =  texture {                                       
         pigment { image_map { jpeg "bible_cloth.jpg" } rotate <0,90,0> translate <0,-.25,-.12> scale <1.5,8,1.5> rotate <0,0,30>  scale <2.5,2.5,2.5> }
-        finish { ambient .9 diffuse .3 }
+        finish { ambient GLOBAL_AMBIENT } 
         }                                 

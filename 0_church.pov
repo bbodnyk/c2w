@@ -30,8 +30,8 @@
 // NOTE: These values have been carefully tweeked by illuminating the church
 // with just sunlight. They normally should be left as is.
 //
-#declare GLOBAL_AMBIENT = <.005,.005,.005>;
-#declare ROOM_AMBIENT = <.005,.005,.005>;
+#declare GLOBAL_AMBIENT = <0,0,0>;
+#declare ROOM_AMBIENT = <0,0,0>;
 #declare ROOM_DIFFUSE = .6;
 #declare TREE_EMISSION = 1.0;
 //
@@ -105,6 +105,7 @@
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on) - Upper side lights along length of church
 #declare SIDEWALLLIGHTS = 0;    // 0 (off) or 1 (on) - Wall sconces
 #declare CEILINGLIGHTS = 0;     // 0 (off) or 1 (on) - Chandekiers (Needs CHANDELIER=1 )
+#declare CANDLE_ON = 0;         // 0 (off) or 1 (on)
 #declare BACKLIGHTS = 1;        // Can be turned off if doing closeups of front 
 #declare AREA_LITES = 1;        // Replaces area_lights with point light sources for test purposes.
 //                       
@@ -125,11 +126,12 @@
 // Light Controls - DEBUG Mode
 //
 #declare CAMERAFLASH = 0;       // 0 (off) or 1 (on)
-#declare SUNLIGHT = 1;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
+#declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 0;         // 0 (off) or 1 (on)
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on)
 #declare SIDEWALLLIGHTS = 0;    // 0 (off) or 1 (on)
 #declare CEILINGLIGHTS = 0;     // 0 (off) or 1 (on) (Needs CHANDELIER=1 )
+#declare CANDLE_ON = 0;         // 0 (off) or 1 (on) 
 #declare BACKLIGHTS = 1;        // Can be turned off if doing closeups of front 
 #declare AREA_LITES = 1;
 //                       
@@ -216,12 +218,16 @@ global_settings {
 #declare SUNLIGHT_RIGHT =        <1,1,1>*0.3*clock;          // Diffuse Sunlight
 #declare SUNLIGHT_LEFT =         <1,1,1>*0.125*clock;        // Diffuse Sunlight
 #declare SUNLIGHTCOLOR =         <0,0,0>;
+#declare GLOBAL_AMBIENT = <0.005*clock,0.005*clock,0.005*clock>;
+#declare ROOM_AMBIENT = <0.005*clock,0.005*clock,0.005*clock>;
+#declare TREE_EMISSION = 1.0*(clock/0.5);
 //
 // Start direct 1/2 way thru
 //
 #if( clock > 0.5 )
 #declare clock2 = (clock-0.5)/0.5;
 #declare SUNLIGHTCOLOR = <1,1,1>*4.0*clock2;          // Direct Sunlight
+#declare TREE_EMISSION = 1.0;
 #end
 #end
 //

@@ -383,13 +383,13 @@ object { CHANDELIER scale <1/12,1/12,1/12> scale 1.5 rotate <0,0,0> translate <5
 
 #declare CARD = 
 object {
-box { <-1.75, -3.5, -.01>, <1.5, 3.5, .01> texture { pigment { image_map { jpeg "giving_card.jpg" } rotate <0,0,0> scale <3.75,7.5,4> } finish { ambient .1 }
+box { <-1.75, -3.5, -.01>, <1.5, 3.5, .01> texture { pigment { image_map { jpeg "giving_card.jpg" } rotate <0,0,0> scale <3.75,7.5,4> } finish { ambient GLOBAL_AMBIENT } 
         translate <1.75,3.75,0>}}
         }
         
 #declare CARD2 = 
 object {                                                                                                                         
-box { <-1.75, -3.5, -.01>, <1.5, 3.5, .01> texture { pigment { image_map { jpeg "giving_card.jpg" } rotate <0,0,0> scale <3.75,7.5,4> } finish { ambient .1 }
+box { <-1.75, -3.5, -.01>, <1.5, 3.5, .01> texture { pigment { image_map { jpeg "giving_card.jpg" } rotate <0,0,0> scale <3.75,7.5,4> } finish { ambient GLOBAL_AMBIENT }
         translate <1.75,3.75,0>}}
         }
         

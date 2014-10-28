@@ -2,6 +2,6 @@
 //
 //Color file for MUM
 //
-#declare COLOR_0 = texture { pigment {color T_Yellow   }}
-#declare COLOR_1 = texture { pigment {color CoolCopper  }}
-#declare COLOR_2 = texture { pigment {color DarkGreen    }}
+#declare COLOR_0 = texture { pigment {color T_Yellow   } finish { ambient GLOBAL_AMBIENT } }
+#declare COLOR_1 = texture { pigment {color CoolCopper  } finish { ambient GLOBAL_AMBIENT } }
+#declare COLOR_2 = texture { pigment {color DarkGreen    } finish { ambient GLOBAL_AMBIENT } }

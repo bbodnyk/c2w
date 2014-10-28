@@ -2,4 +2,4 @@
 //
 //Color file for VASE
 //
-#declare COLOR_0 = texture { T_Brass_3C  }
+#declare COLOR_0 = texture { T_Brass_3C finish { ambient GLOBAL_AMBIENT }  }

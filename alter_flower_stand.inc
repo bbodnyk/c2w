@@ -9,8 +9,8 @@
 #declare ALTER_FLOWER_STAND =
 object {
 union {
-object { FLAME translate <0, 51.5, 0>}
-light_source { <0,51.5,0> color rgb <1,1,.5> fade_distance 1 fade_power 2 shadowless }  
+#if(CANDLE_ON = 1)object { FLAME translate <0, 51.5, 0>} #end
+#if(CANDLE_ON = 1)light_source { <0,51.5,0> color rgb <1,1,.5> fade_distance 1 fade_power 2 shadowless } #end 
 
 union { // Union for all 4 colors
 union { // Union for COLOR_0 

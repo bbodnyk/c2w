@@ -2,6 +2,6 @@
 //
 //Color file for PEWS_CHOIR
 //
-#declare COLOR_0 = texture { T_White    }
-#declare COLOR_1 = texture { T_DarkWood rotate <0,90,0> scale <1,2,1> }
-#declare COLOR_2 = texture { T_DarkWoodTrim  }
+#declare COLOR_0 = texture { T_White  finish { ambient GLOBAL_AMBIENT }   }
+#declare COLOR_1 = texture { T_DarkWood rotate <0,90,0> scale <1,2,1> finish { ambient GLOBAL_AMBIENT } }
+#declare COLOR_2 = texture { T_DarkWoodTrim finish { ambient GLOBAL_AMBIENT }  }

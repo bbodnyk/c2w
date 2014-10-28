@@ -2,11 +2,11 @@
 //
 //Color file for BIBLE
 //
-#declare COLOR_0 = texture { T_BakersChoc  }
-#declare COLOR_1 = texture { pigment { color Gold } }
+#declare COLOR_0 = texture { T_BakersChoc  finish { ambient GLOBAL_AMBIENT } }
+#declare COLOR_1 = texture { pigment { color Gold } finish { ambient GLOBAL_AMBIENT } }
 //#declare COLOR_2 = texture { T_White    }
 
 #declare COLOR_2 =  texture {                                       
         pigment { image_map { jpeg "bible_open2.jpg" } translate <.5,.35,0> rotate <0,90,0> rotate <0,0,90> scale <13.5,1,24.5> }
-        finish { ambient .4 diffuse .6 }
+        finish { ambient GLOBAL_AMBIENT }
         }                                              

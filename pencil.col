@@ -2,6 +2,6 @@
 //
 //Color file for PENCIL
 //
-#declare COLOR_0 = texture { T_MandarinOrange  }
-#declare COLOR_1 = texture { T_White    }
-#declare COLOR_2 = texture { pigment { color NewTan  }}
+#declare COLOR_0 = texture { T_MandarinOrange  finish { ambient GLOBAL_AMBIENT } }
+#declare COLOR_1 = texture { T_White   finish { ambient GLOBAL_AMBIENT }  }
+#declare COLOR_2 = texture { pigment { color NewTan  } finish { ambient GLOBAL_AMBIENT }}
