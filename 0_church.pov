@@ -20,6 +20,9 @@
 // Animation Control - Set to 0 for single renderings.
 //
 #declare ANIMATION = 0;
+//
+// Animation Sequence
+//
 #declare ANIMATION_SEQUENCE = 0;
 #declare ANIMATION_SUBSEQUENCE = 1;
 //
@@ -107,11 +110,11 @@
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on) - Upper side lights along length of church
 #declare SIDEWALLLIGHTS = 0;    // 0 (off) or 1 (on) - Wall sconces
 #declare CEILINGLIGHTS = 0;     // 0 (off) or 1 (on) - Chandekiers (Needs CHANDELIER=1 )
-#declare CANDLE_ON = 0;         // 0 (off) or 1 (on)
+#declare CANDLE_ON = 1;         // 0 (off) or 1 (on)
 #declare BACKLIGHTS = 1;        // Can be turned off if doing closeups of front 
 #declare AREA_LITES = 1;        // Replaces area_lights with point light sources for test purposes.
-#declare TREE_EMISSION = 0.0;
-#declare FLAME_EMISSION = 0.0;
+#declare TREE_EMISSION = 1.0;
+#declare FLAME_EMISSION = 1.0;
 //                       
 // Object Controls - No Debugging                                                                  
 //                                       
