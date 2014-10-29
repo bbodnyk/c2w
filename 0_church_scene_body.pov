@@ -206,15 +206,34 @@ sphere { <0,14.5,0>,1
 // Debug Objects
 //
 #if(DEBUG = 1)
-#include "alter.inc"
-object { ALTER scale <1/12,1/12,1/12> rotate <0,90,0> translate <3.37,0,0> }
-#include "cross.inc"
-object { CROSS scale <1/12,1/12,1/12> translate <0,4,0> } 
+
 #end
 //
 // Alter, Bible, Cross, Pulpit, Lecturn, etc.
 //
 #if(ALTERSTUFF = 1)                        
+
+#include "alter.inc"
+object { ALTER scale <1/12,1/12,1/12> rotate <0,90,0> translate <3.37,0,0> }
+#include "cross.inc"
+object { CROSS scale <1/12,1/12,1/12> translate <0,4,0> } 
+
+#include "alter_cloth.inc"        
+object { ALTER_CLOTH scale <1/12,1/12,1/12> 
+        texture {
+        pigment { image_map { jpeg "alter_fall.jpg"  once } translate <-.5,-.575,0> rotate <0,90,0> scale <4,5,6.5> }
+        finish { ambient GLOBAL_AMBIENT diffuse .6 }
+        } translate <4.41+1/12,2.875,0>}
+
+#include "chalice.inc"
+object { CHALICE scale <1/12,1/12,1/12> rotate <0,70,0> translate <3.8,2.875,-1.97> }
+
+#include "bread_basket.inc"
+object { BREAD_BASKET scale <1/12,1/12,1/12> scale <1.25,1.25,1.25> rotate <0,25,0> translate <3.67,2.89,1.75> }
+
+#include "vase.inc"                                                        
+object { VASE scale <1/12,1/12,1/12> translate <3,2.89,-2.128> }
+object { VASE scale <1/12,1/12,1/12> rotate <0,90,0> translate <3,2.89,2.128> }
 
 #include "video_screen.inc"     
 object {VIDEO_SCREEN  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
@@ -233,27 +252,6 @@ object { SPOTLIGHT scale <1/12,1/12,1/12> translate <4,18,0> }
 object { HANGING_LIGHT scale <1/12,1/12,1/12> translate <6,18,0> }
 object { FLAME scale <1/12,1/12,1/12> translate <6, 15.5, 0>}
 //light_source { <0,0,0> color rgb <1,1,1> fade_distance .5 fade_power 2 shadowless translate <6,15.5,0> }
-
-
-//#include "alter.inc"
-//object { ALTER scale <1/12,1/12,1/12> rotate <0,90,0> translate <3.37,0,0> }
-
-#include "alter_cloth.inc"        
-object { ALTER_CLOTH scale <1/12,1/12,1/12> 
-        texture {
-        pigment { image_map { jpeg "alter_fall.jpg"  once } translate <-.5,-.575,0> rotate <0,90,0> scale <4,5,6.5> }
-        finish { ambient GLOBAL_AMBIENT diffuse .6 }
-        } translate <4.41+1/12,2.875,0>}
-
-#include "chalice.inc"
-object { CHALICE scale <1/12,1/12,1/12> rotate <0,70,0> translate <3.8,2.875,-1.97> }
-
-#include "bread_basket.inc"
-object { BREAD_BASKET scale <1/12,1/12,1/12> scale <1.25,1.25,1.25> rotate <0,25,0> translate <3.67,2.89,1.75> }
-
-#include "vase.inc"                                                        
-object { VASE scale <1/12,1/12,1/12> translate <3,2.89,-2.128> }
-object { VASE scale <1/12,1/12,1/12> rotate <0,90,0> translate <3,2.89,2.128> }
                                                                                             
 #include "alter_flower_stand.inc"
 object { ALTER_FLOWER_STAND  scale <1/12,1/12,1/12> translate <3.35,0,3.77> }

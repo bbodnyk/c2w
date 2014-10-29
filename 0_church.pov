@@ -15,11 +15,11 @@
 // Debug mode is normally used for testing lighting configurations
 // where most of the scene objects are turned off to speed up the rendering time.
 //
-#declare DEBUG = 1;  // Set to 1 for debugging
+#declare DEBUG = 0;  // Set to 1 for debugging
 //
 // Animation Control - Set to 0 for single renderings.
 //
-#declare ANIMATION = 1;
+#declare ANIMATION = 0;
 #declare ANIMATION_SEQUENCE = 0;
 #declare ANIMATION_SUBSEQUENCE = 1;
 //
