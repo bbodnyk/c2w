@@ -23,7 +23,7 @@
 // 0 - Animation Off
 // 1 - Animation On
 //
-#declare ANIMATION = 0;
+#declare ANIMATION = 1;
 //
 // Animation Sequence
 //
@@ -36,8 +36,8 @@
 //  4 - Look Around
 //  5 - Ending  
 //
-#declare ANIMATION_SEQUENCE = 0;
-#declare ANIMATION_SUBSEQUENCE = 1;
+#declare ANIMATION_SEQUENCE = 2;
+#declare ANIMATION_SUBSEQUENCE = 0;
 //
 //========= Ambient/Diffuse/Emission Light Control ===================
 //
@@ -131,11 +131,11 @@
 //
 #if(DEBUG = 0)
 #declare CAMERAFLASH = 0;       // 0 (off) or 1 (on) - Camara Flash
-#declare SUNLIGHT = 1;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
-#declare SPOTLIGHT = 0;         // 0 (off) or 1 (on) - Above Jesus, pulpit and lecturn
+#declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
+#declare SPOTLIGHT = 1;         // 0 (off) or 1 (on) - Above Jesus, pulpit and lecturn
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on) - Upper side lights along length of church
-#declare SIDEWALLLIGHTS = 0;    // 0 (off) or 1 (on) - Wall sconces
-#declare CEILINGLIGHTS = 0;     // 0 (off) or 1 (on) - Chandekiers (Needs CHANDELIER=1 )
+#declare SIDEWALLLIGHTS = 1;    // 0 (off) or 1 (on) - Wall sconces
+#declare CEILINGLIGHTS = 1;     // 0 (off) or 1 (on) - Chandekiers (Needs CHANDELIER=1 )
 #declare CANDLE_ON = 1;         // 0 (off) or 1 (on)
 #declare BACKLIGHTS = 1;        // Can be turned off if doing closeups of front 
 #declare AREA_LITES = 1;        // Replaces area_lights with point light sources for test purposes.
@@ -410,7 +410,7 @@ spline {
 #declare CAMERA6_LOCATION = <8,6,0>;
 #declare YLOOKAT = 4 + (((1-cos(clock*pi))/2)*9.5);
 #declare CAMERA6_LOOKAT = <0,YLOOKAT,0>;
-#declare CAMERA6_ZOOM = 1+(clock*3);
+#declare CAMERA6_ZOOM = 1+(((1-cos(clock*pi))/2)*3);
 #end
 // ---------------------------------------------------------------
 //
