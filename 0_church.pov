@@ -10,37 +10,54 @@
 // many of the objects are defined in inches. Objects defined in inches
 // are scaled by 1/12 to convert their units to feet.
 //
-//=================== Scene Control =========================
+//========================= Debug Mode ===============================
 //
 // Debug mode is normally used for testing lighting configurations
 // where most of the scene objects are turned off to speed up the rendering time.
+// What objects and lights are activated debug mode is on or off can be configured.
 //
 #declare DEBUG = 0;  // Set to 1 for debugging
 //
-// Animation Control - Set to 0 for single renderings.
+//=================== Animation Control ==============================
+//
+// 0 - Animation Off
+// 1 - Animation On
 //
 #declare ANIMATION = 0;
 //
 // Animation Sequence
 //
+//  0 - Lighting Sequence
+//      Subsequence 0 - Outside sunlights comes on
+//      Subsequence 1 - Inside lights come on
+//  1 - Walk down to front of alter
+//  2 - Look up at Jeses
+//  3 - Scene Change
+//  4 - Look Around
+//  5 - Ending  
+//
 #declare ANIMATION_SEQUENCE = 0;
 #declare ANIMATION_SUBSEQUENCE = 1;
+//
+//========= Ambient/Diffuse/Emission Light Control ===================
 //
 // Amount of Ambient Light
 //
 // Ambient light is the amount of illumination an object receives when it
 // is not directly illuminated by light.
-
+//
 // NOTE: These values have been carefully tweeked by illuminating the church
 // with just sunlight. They normally should be left as is.
 //
-#declare GLOBAL_AMBIENT = <0,0,0>;
-#declare ROOM_AMBIENT = <0,0,0>;
+#declare GLOBAL_AMBIENT = <.005,.005,.005>;
+#declare ROOM_AMBIENT = <.005,.005,.005>;
 #declare ROOM_DIFFUSE = .6;
 #declare TREE_EMISSION = 1.0;
 #declare FLAME_EMISSION = 1.0;
 //
-// Lighting Colors
+//
+//====================== Light Color Control =========================
+//
 //
 // These settings control the colors of the various light sources
 // in the scene. Colors are defined with rgb values which can be
@@ -54,6 +71,9 @@
 #declare SIDEWALLLIGHTCOLOR =    <1,1,150/255>*1.0;    // Wall sconces light color
 #declare CHANDELIERLIGHTCOLOR =  <1,1,150/255>*1.0;    // Chandelier light color
 //
+//
+//========================== Camera Control ===========================
+//
 // Camera Control
 //
 // 1 - Back Left
@@ -61,26 +81,24 @@
 // 3 - Middle - Center
 // 4 - Front - Left
 // 5 - User Defined
-// 6 - Motion Camera
+// 6 - Animation Camera
 //
 // The scene has 4 default camera locations and one user definable camera.
 //
+// NOTE: Camera 6 is intended to be used only for animations. The controls
+//       for camera 6 are in the Animation section.
+//
 #declare CAMERA = 1;                      // 1 THRU 5
 #declare CAMERAZOOM = 1;                  // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
-#declare CAMERA5_FADE = 20;               // Distance Camera flash is at full intensity
 #declare PERSPECTIVE = 0;                 // Set to 1 for perspective camera
 //
 // Camera 5 Setup
 //
 #declare CAMERA5_LOCATION = <8,6,0>;    // <13,4,6>
 #declare CAMERA5_LOOKAT =  <0,14.5,0>;      // <3,2,0>
-
+#declare CAMERA5_FADE = 20;               // Distance Camera flash is at full intensity
 //
-// Turn front mural off by default
-//
-#declare MURAL = 0;
-//
-// ==========================================================
+//========================== Scene Control ===========================
 //
 // Predefined Color Scemes
 //      0 - Default - White
@@ -97,11 +115,19 @@
 #declare USERFRONTCOLOR = <1,1,1>;
 #declare USERCURTAINCOLOR = <1,1,1>;
 #declare USERFLOORCOLOR = color rgb <87/255,44/255,51/255>;
-//                           
-// Light Controls - No Debugging
 //
-// The following switches control what lights are turned on in a
-// scene.
+//
+//=================================== Scene Switches ==================================
+//
+// The following several secions control the turning on and off of various scene
+// elements whether debugging is turned off or on. Normally debugging off turns all
+// lights and objects on while debugging on turns off most scene elements.
+//
+// Note: Ideally animations should not assume any particular default setting of these
+//       switches.
+//
+//
+//========================== Light Switches - Debugging Off ===========================                           
 //
 #if(DEBUG = 0)
 #declare CAMERAFLASH = 0;       // 0 (off) or 1 (on) - Camara Flash
@@ -115,8 +141,9 @@
 #declare AREA_LITES = 1;        // Replaces area_lights with point light sources for test purposes.
 #declare TREE_EMISSION = 1.0;
 #declare FLAME_EMISSION = 1.0;
-//                       
-// Object Controls - No Debugging                                                                  
+//
+                       
+//========================== Object Switches - Debugging Off ===========================                                                                  
 //                                       
 #declare ALTERSTUFF = 1;        // 0 (off) or 1 (on)
 #declare PEWS = 1;              // 0 (off) or 1 (on)
@@ -129,9 +156,11 @@
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN = 1;            // 0 (off) or 1 (on)
 #declare VIDEO_ON = 0;
+#declare MURAL = 0;
 #else
 //
-// Light Controls - DEBUG Mode
+//
+//========================== Light Switches - Debugging On  ===========================
 //
 #declare CAMERAFLASH = 0;       // 0 (off) or 1 (on)
 #declare SUNLIGHT = 1;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
@@ -145,7 +174,7 @@
 #declare FLAME_EMISSION = 1.0; 
 #declare AREA_LITES = 1;
 //                       
-// Object Controls - DEBUG Mode                                                                  
+//========================== Object Switches - Debugging On ===========================                                                                  
 //                                       
 #declare ALTERSTUFF = 0;        // 0 (off) or 1 (on)
 #declare PEWS = 0;              // 0 (off) or 1 (on)
@@ -159,9 +188,10 @@
 #declare SCREEN = 0;             // 0 (off) or 1 (on)
 #declare VIDEO_ON = 0;
 #end
-
 //
-// Only use on final render
+//=============================== Radiosity ==========================================
+//
+// WARNING: Only use on final render
 //
 // Radiosity is a technique to more accurately model ambient light. Many times
 // the effect of turning radiosity on are subtle and the effects can only be
@@ -193,9 +223,9 @@ global_settings {
   }
   #end
 }
-
 //
-// Animation Section
+//=============================== Animation ==========================================
+//
 //
 #if(ANIMATION = 1)
 //
@@ -204,13 +234,15 @@ global_settings {
 // commonly done by use of the "clock" variable that varies from 0 to 1. Using this
 // variable the cameras location can be made to change between movie frames.
 //
-// Camera moves from back of the church to the front over 1/2 the count
-//
 #declare CAMERA = 6;
+//
+// ---------------------------------------------------------------
 //
 // Animation Sequence 0 - Lighting Sequence
 //
 #if ( ANIMATION_SEQUENCE = 0 )
+//
+// ---------------------------------------------------------------
 //
 // Subsequence 0 - Sunrise, no inside lights
 //
@@ -228,7 +260,7 @@ global_settings {
 #declare SUNLIGHT_RIGHT =        <1,1,1>*0.3;          // Diffuse Sunlight
 #declare SUNLIGHT_LEFT =         <1,1,1>*0.125;        // Diffuse Sunlight
 //
-// Sunrise - Start diffuse light first
+// Early Sunrise - Start diffuse light first, increase ambient light, no direct light
 //
 #declare SUNLIGHT_RIGHT =        <1,1,1>*0.3*clock;          // Diffuse Sunlight
 #declare SUNLIGHT_LEFT =         <1,1,1>*0.125*clock;        // Diffuse Sunlight
@@ -246,7 +278,10 @@ global_settings {
 #end
 #end // End of Subseqence 0
 //
+// ---------------------------------------------------------------
+//
 // Subsequence 1 - Inside lights come on
+//
 //
 #if( ANIMATION_SUBSEQUENCE = 1 )
 #declare CAMERA6_LOCATION = <59.3,4,20.5>;
@@ -305,9 +340,10 @@ global_settings {
 #end // End of Subsequence 1
 #end // End of Sequence 0
 //
-// Animation Sequence 1
+// ---------------------------------------------------------------
 //
-// Walk from back left to front
+// Animation Sequence 1 - Walk from back left to front
+//
 //
 #if( ANIMATION_SEQUENCE = 1 )
 //
@@ -329,9 +365,7 @@ spline {
     1.1, <-1,0,0>
     }
 
-//
-// Camera location determined by spline
-//
+
 
 #declare CAMERA6_LOCATION = LocationSpline(clock);
 #declare CAMERA6_ZOOM = 1;
@@ -346,9 +380,11 @@ spline {
   1.0, <56,4,0>
   1.1, <1,0,1>
 }
+
+//
+// Camera location determined by spline
+//
 #declare CAMERA6_LOOKAT = <0,4,0>;
-
-
 #if(clock<=0.5) #declare CAMERA6_LOOKAT = <0,4,0>;
 #elseif(clock>0.7)  #declare CAMERA6_LOOKAT = <0,4,0>;
 #else
@@ -363,21 +399,22 @@ spline {
 //#debug text_str
 //#debug "\n"
 #end
-
 //
-// Animation Sequence 2
+// ---------------------------------------------------------------
 //
-// Look up at Jesus
+// Animation Sequence 2 - Swivel Camera up to look at Jesus
+//
 //
 #if( ANIMATION_SEQUENCE = 2 )
 #declare CAMERA6_FADE = 20;
 #declare CAMERA6_LOCATION = <8,6,0>;
-#declare YLOOKAT = 4 + (clock*9.5);
+#declare YLOOKAT = 4 + (((1-cos(clock*pi))/2)*9.5);
 #declare CAMERA6_LOOKAT = <0,YLOOKAT,0>;
 #declare CAMERA6_ZOOM = 1+(clock*3);
 #end
+// ---------------------------------------------------------------
 //
-// Light on Jesus Face
+// Sequence 3 - Light Spere Appears, Scene Change
 //
 #if( ANIMATION_SEQUENCE = 3 )
 #declare  COLOR_SCHEME = 0;
@@ -443,7 +480,7 @@ object { LIGHT_SPHERE scale 10 translate < .7+(clock2*24.3),13.5-(clock2*9.5),0>
 light_source { < .7+(clock2*24.3),13.5-(clock2*9.5),0> color rgb <LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY> }
 #end
 //
-// 3rd - Scale the light sphere to nothing
+// 3rd - Scale the light sphere to nothing moving it back to front wall
 //
 #if(clock > 0.666)
 #declare clock3 = (clock-0.666)/0.333;
@@ -451,23 +488,30 @@ light_source { < .7+(clock2*24.3),13.5-(clock2*9.5),0> color rgb <LIGHT_SPHERE_I
 #declare CAMERA6_LOOKAT = <0,4,0>;
 #declare CAMERA6_ZOOM = 1;
 #declare CAMERA6_FADE = 20; 
-object { LIGHT_SPHERE scale 10-(clock3*10) translate < 24.3,4,0> }
+object { LIGHT_SPHERE scale 10-(clock3*10) translate < 25-(clock3*24.3),4,0> }
 #declare LIGHT_SPHERE_INTENSITY = 1-clock3;
-light_source { < 24.3,4,0> color rgb <LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY> }
+light_source { < 25-(clock3*24.3),4,0> color rgb <LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY> }
 #declare  COLOR_SCHEME = 3;
 #end
-#declare text_str = concat(str(clock,4,3)," <",vstr(3,CAMERA6_LOCATION,",",3,3) ,"> <",vstr(3,CAMERA6_LOOKAT,",",3,3),">");
-#debug text_str
-#debug "\n"
+
 #end
+//
+// ---------------------------------------------------------------
 //
 // Additional Animation Sequences
 //
 
 
+
+//#declare text_str = concat(str(clock,4,3)," <",vstr(3,CAMERA6_LOCATION,",",3,3) ,"> <",vstr(3,CAMERA6_LOOKAT,",",3,3),">");
+//#debug text_str
+//#debug "\n"
 #end
+//
+//
+// ---------------------------------------------------------------
 //
 // Load Main body of the scene
 //
-  
-#include "0_church_scene_body.pov"
+// ---------------------------------------------------------------
+  #include "0_church_scene_body.pov"
