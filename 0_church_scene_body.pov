@@ -163,8 +163,13 @@ object { RAILING_ORGAN }
 #end
 
 #if(PEWS = 1)
-#include "pews.inc"
-object { PEWS }
+#include "pew1.inc"
+#declare pewcount=0;
+#while (pewcount<12)
+object { PEW1 scale <1/12,1/12,1/12> translate <23.67+(pewcount*3),-2,11.42> }
+object { PEW1 scale <1/12,1/12,1/12> translate <23.67+(pewcount*3),-2,-11.42> }
+#declare pewcount = pewcount + 1;
+#end
 #end
 
 #if( POV_PEWS = 1 )

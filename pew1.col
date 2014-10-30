@@ -1,0 +1,7 @@
+//Produced by slp2pov v2.0
+//
+//Color file for PEW1
+//
+#declare COLOR_0 = texture { T_White    }
+#declare COLOR_1 = texture { T_PEW scale <.25,.25,.25> translate <0,-100,0> }
+#declare COLOR_2 = texture { T_DarkWoodTrim }
