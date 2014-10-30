@@ -153,6 +153,17 @@ object { SPEAKERS }
 #include "picture_arch.inc"
 object { PICTURE_ARCH finish{ ambient GLOBAL_AMBIENT }translate <0.5/12,0,0> }
 
+#if(OBJECT_BOX = 1)
+#include "box_hanging_light.inc"
+#else
+#include "hanging_light.inc"
+#end
+object { HANGING_LIGHT scale <1/12,1/12,1/12> translate <6,18,0> }
+object { FLAME scale <1/12,1/12,1/12> translate <6, 15.5, 0>}
+//light_source { <0,0,0> color rgb <1,1,1> fade_distance .5 fade_power 2 shadowless translate <6,15.5,0> }
+
+
+
 #if(RAILINGS = 1)
 #include "railing_front.inc"
 #include "railing_choir.inc"
@@ -163,7 +174,11 @@ object { RAILING_ORGAN }
 #end
 
 #if(PEWS = 1)
+#if(OBJECT_BOX = 1)
+#include "box_pew1.inc"
+#else
 #include "pew1.inc"
+#end
 #declare pewcount=0;
 #while (pewcount<12)
 object { PEW1 scale <1/12,1/12,1/12> translate <23.67+(pewcount*3),-2,11.42> }
@@ -218,85 +233,175 @@ sphere { <0,14.5,0>,1
 //
 #if(ALTERSTUFF = 1)                        
 
+#if(OBJECT_BOX = 1)
+#include "box_alter.inc"
+#else
 #include "alter.inc"
+#end
 object { ALTER scale <1/12,1/12,1/12> rotate <0,90,0> translate <3.37,0,0> }
+
+#if(OBJECT_BOX = 1)
+#include "box_cross.inc"
+#else
 #include "cross.inc"
+#end
 object { CROSS scale <1/12,1/12,1/12> translate <0,4,0> } 
 
-#include "alter_cloth.inc"        
+#if(OBJECT_BOX = 1)
+#include "box_alter_cloth.inc"
+#else
+#include "alter_cloth.inc"
+#end        
 object { ALTER_CLOTH scale <1/12,1/12,1/12> 
         texture {
         pigment { image_map { jpeg "alter_fall.jpg"  once } translate <-.5,-.575,0> rotate <0,90,0> scale <4,5,6.5> }
         finish { ambient GLOBAL_AMBIENT diffuse .6 }
         } translate <4.41+1/12,2.875,0>}
 
+#if(OBJECT_BOX = 1)
+#include "box_chalice.inc"
+#else
 #include "chalice.inc"
+#end
 object { CHALICE scale <1/12,1/12,1/12> rotate <0,70,0> translate <3.8,2.875,-1.97> }
 
+#if(OBJECT_BOX = 1)
+#include "box_bread_basket.inc"
+#else
 #include "bread_basket.inc"
+#end
 object { BREAD_BASKET scale <1/12,1/12,1/12> scale <1.25,1.25,1.25> rotate <0,25,0> translate <3.67,2.89,1.75> }
 
-#include "vase.inc"                                                        
+#if(OBJECT_BOX = 1)
+#include "box_vase.inc"
+#else
+#include "vase.inc"
+#end                                                      
 object { VASE scale <1/12,1/12,1/12> translate <3,2.89,-2.128> }
 object { VASE scale <1/12,1/12,1/12> rotate <0,90,0> translate <3,2.89,2.128> }
 
-#include "video_screen.inc"     
+#if(OBJECT_BOX = 1)
+#include "box_video_screen.inc"
+#else
+#include "video_screen.inc"
+#end     
 object {VIDEO_SCREEN  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
 #if(SCREEN = 1)
-#include "video_screen_image.inc"     
+
+#if(OBJECT_BOX = 1)
+#include "box_video_screen_image.inc"
+#else
+#include "video_screen_image.inc"
+#end     
 object {VIDEO_SCREEN_IMAGE  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
 #end
 
+#if(OBJECT_BOX = 1)
+#include "box_cross.inc"
+#else
 #include "cross.inc"
+#end 
 object { CROSS scale <1/12,1/12,1/12> translate <0,4,0> }
-      
-#include "spotlight.inc"      
+
+#if(OBJECT_BOX = 1)
+#include "box_spotlight.inc"
+#else
+#include "spotlight.inc"
+#end            
 object { SPOTLIGHT scale <1/12,1/12,1/12> translate <4,18,0> }
 
 #include "hanging_light.inc"
 object { HANGING_LIGHT scale <1/12,1/12,1/12> translate <6,18,0> }
 object { FLAME scale <1/12,1/12,1/12> translate <6, 15.5, 0>}
 //light_source { <0,0,0> color rgb <1,1,1> fade_distance .5 fade_power 2 shadowless translate <6,15.5,0> }
-                                                                                            
+
+#if(OBJECT_BOX = 1)
+#include "box_alter_flower_stand.inc"
+#else
 #include "alter_flower_stand.inc"
+#end                                                                                            
 object { ALTER_FLOWER_STAND  scale <1/12,1/12,1/12> translate <3.35,0,3.77> }
 object { ALTER_FLOWER_STAND  scale <1/12,1/12,1/12> translate <3.35,0,-3.77> }
 
-                
+#if(OBJECT_BOX = 1)
+#include "box_bible.inc"
+#else
 #include "bible.inc"
+#end                
 object { BIBLE scale <1/12,1/12,1/12> translate <3.37,2.875,0> }
 #include "bible_cloth.inc"
 object { BIBLE_CLOTH scale <1/12,1/12,1/12> translate <3.37,2.875,0> }
 
+#if(OBJECT_BOX = 1)
+#include "box_pulpit.inc"
+#else
 #include "pulpit.inc"
+#end
 object { PULPIT scale <1/12,1/12,1/12> translate <13.57,0,-6.37> }
+
+#if(OBJECT_BOX = 1)
+#include "box_microphone.inc"
+#else
 #include "microphone.inc"
+#end 
 object { MICROPHONE scale <1/12,1/12,1/12> translate <13.83,3.52,-5.41> } 
 
+#if(OBJECT_BOX = 1)
+#include "box_pulpit_cloth.inc"
+#else
 #include "pulpit_cloth.inc"
+#end   
 object { PULPIT_CLOTH scale <1/12,0.75/12,.75/12> translate <13.57,1.01,-6.37>}
 
-#include "lecturn.inc"          
+#if(OBJECT_BOX = 1)
+#include "box_lecturn.inc"
+#else
+#include "lecturn.inc"
+#end                         
 object { LECTURN scale <1/12,1/12,1/12> translate <13.84,0,5.817> } 
 
+#if(OBJECT_BOX = 1)
+#include "box_lecturn_cloth.inc"
+#else
 #include "lecturn_cloth.inc"
+#end   
 object { LECTURN_CLOTH scale <1/12,1/12,1/12> translate <13.84,0,5.817>}
 
+#if(OBJECT_BOX = 1)
+#include "box_LECTURN_mic.inc"
+#else
 #include "LECTURN_mic.inc"
+#end 
 object { LECTURN_MIC }
 
+#if(OBJECT_BOX = 1)
+#include "box_organ.inc"
+#else
 #include "organ.inc"
+#end         
 object { ORGAN  scale <1/12,1/12,1/12> translate <9.57,0,10.35>}
 #include "lamp.inc"
 object { LAMP scale <1/12,1/12,1/12> rotate <0,90,0> translate <9.65,4.17,11> }
 
+#if(OBJECT_BOX = 1)
+#include "box_piano.inc"
+#else
 #include "piano.inc"
+#end         
 object { PIANO  scale <1/12,1/12,1/12> rotate <0,-70,0> translate <3.8,0,7.3>}
 
+#if(OBJECT_BOX = 1)
+#include "box_baptism_font.inc"
+#else
 #include "baptism_font.inc"
+#end         
 object {BAPTISM_FONT scale <1/12,1/12,1/12> translate <16.584,-1.5,-23.33> }
 
+#if(OBJECT_BOX = 1)
+#include "box_hymn_board.inc"
+#else
 #include "hymn_board.inc"
+#end               
 object { HYMN_BOARD scale <1/12,1/12,1/12> rotate <0,80,0> translate <15.75,6,-23.65> }
 object { HYMN_BOARD scale <1/12,1/12,1/12> rotate <0,120,0> translate <15.75,6,23.65> }
 #end
@@ -335,8 +440,18 @@ object { CHANDELIER scale <1/12,1/12,1/12> scale 1.5 rotate <0,0,0> translate <5
 // pencil_percent     - % of pencils not in pews
 //
 #if(HYMNALS = 1)
+
+#if(OBJECT_BOX = 1)
+#include "box_hymnal.inc"
+#else
 #include "hymnal.inc"
+#end      
+
+#if(OBJECT_BOX = 1)
+#include "box_pew_bible.inc"
+#else
 #include "pew_bible.inc"
+#end  
 
 #declare Times = 0;                  
 #declare Count = 0;
@@ -400,11 +515,11 @@ box { <-1.75, -3.5, -.01>, <1.5, 3.5, .01> texture { pigment { image_map { jpeg 
         translate <1.75,3.75,0>}}
         }
         
-#declare CARD2 = 
-object {                                                                                                                         
-box { <-1.75, -3.5, -.01>, <1.5, 3.5, .01> texture { pigment { image_map { jpeg "giving_card.jpg" } rotate <0,0,0> scale <3.75,7.5,4> } finish { ambient GLOBAL_AMBIENT }
-        translate <1.75,3.75,0>}}
-        }
+//#declare CARD2 = 
+//object {                                                                                                                         
+//box { <-1.75, -3.5, -.01>, <1.5, 3.5, .01> texture { pigment { image_map { jpeg "giving_card.jpg" } rotate <0,0,0> scale <3.75,7.5,4> } finish { ambient GLOBAL_AMBIENT }
+//        translate <1.75,3.75,0>}}
+//        }
         
 #declare yrand = 3.5/12;        
 #if (rand(card_seed)>card_percent)object { CARD scale <1/12,1/12,1/12>  rotate<0,90,0> rotate <0,0,-3.33> translate <0,yrand,0> translate <56.6-xdiff,-0.42,17.92>} #end
@@ -430,7 +545,12 @@ box { <-1.75, -3.5, -.01>, <1.5, 3.5, .01> texture { pigment { image_map { jpeg 
 //
 // Pencils in pews
 //
+
+#if(OBJECT_BOX = 1)
+#include "box_pencil.inc"
+#else
 #include "pencil.inc"
+#end      
 
 #declare Count = 0;
 #while (Count < 11 )
