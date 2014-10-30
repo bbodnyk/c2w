@@ -212,7 +212,7 @@ object { FRAME scale <1/12,1/12,1/12> scale <1,1.125,1> rotate <0,90,0> translat
 //
 // Exploding Light
 //
-
+/*
 sphere { <0,14.5,0>,1 
 	pigment{ rgbt 1}
 	interior{ media{ emission rgbf <100, 100, 100, 0.1>
@@ -222,12 +222,36 @@ sphere { <0,14.5,0>,1
 			 	  turbulence 0.15}
 			 	  }
 			 }}
+
+*/
 //
 // Debug Objects
 //
 #if(DEBUG = 1)
 
 #end
+
+#include "hanging_light.inc"
+object { HANGING_LIGHT scale <1/12,1/12,1/12> translate <6,18,0> }
+object { FLAME scale <1/12,1/12,1/12> translate <6, 15.5, 0>}
+light_source { <0,0,0> color rgb <1,1,1> fade_distance .5 fade_power 2 shadowless translate <6,15.5,0> }
+
+#if(OBJECT_BOX = 1)
+#include "box_video_screen.inc"
+#else
+#include "video_screen.inc"
+#end     
+object {VIDEO_SCREEN  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
+#if(SCREEN = 1)
+
+#if(OBJECT_BOX = 1)
+#include "box_video_screen_image.inc"
+#else
+#include "video_screen_image.inc"
+#end     
+object {VIDEO_SCREEN_IMAGE  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
+#end
+
 //
 // Alter, Bible, Cross, Pulpit, Lecturn, etc.
 //
