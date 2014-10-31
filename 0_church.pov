@@ -24,7 +24,7 @@
 // 0 - Animation Off
 // 1 - Animation On
 //
-#declare ANIMATION = 1;
+#declare ANIMATION = 0;
 //
 // Animation Sequence
 //
@@ -89,7 +89,7 @@
 // NOTE: Camera 6 is intended to be used only for animations. The controls
 //       for camera 6 are in the Animation section.
 //
-#declare CAMERA = 3;                      // 1 THRU 5
+#declare CAMERA = 4;                      // 1 THRU 5
 #declare CAMERAZOOM = 1;                  // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
 #declare PERSPECTIVE = 0;                 // Set to 1 for perspective camera
 //
@@ -132,6 +132,7 @@
 //
 #if(DEBUG = 0)
 #declare CAMERAFLASH = 0;       // 0 (off) or 1 (on) - Camara Flash
+#declare HANGINGLAMP_LIGHT = 1; // 0 (off) or 1 (on)
 #declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 1;         // 0 (off) or 1 (on) - Above Jesus, pulpit and lecturn
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on) - Upper side lights along length of church
@@ -147,16 +148,18 @@
 //========================== Object Switches - Debugging Off ===========================                                                                  
 //                                       
 #declare ALTERSTUFF = 1;        // 0 (off) or 1 (on)
-#declare PEWS = 0;              // 0 (off) or 1 (on)
+#declare HANGINGLAMP = 1;       // 0 (off) or 1 (on)
+#declare PEWS = 1;              // 0 (off) or 1 (on)
 #declare POV_PEWS = 0;          // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 1;        // 0 (off) or 1 (on)
 #declare RAILINGS = 1;          // 0 (off) or 1 (on)
-#declare HYMNALS = 0;           // 0 (off) or 1 (on)
-#declare LIGHTFIXTURES =0;      // 0 (off) or 1 (on)
+#declare HYMNALS = 1;           // 0 (off) or 1 (on)
+#declare LIGHTFIXTURES =1;      // 0 (off) or 1 (on)
 #declare CHANDELIER = 1;        // 0 (off) or 1 (on)
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
-#declare SCREEN = 0;            // 0 (off) or 1 (on)
+#declare SCREEN = 1;            // 0 (off) or 1 (on)
 #declare VIDEO_ON = 1;
+#declare WINDOWS = 1;
 #declare MURAL = 0;
 #else
 //
@@ -164,6 +167,7 @@
 //========================== Light Switches - Debugging On  ===========================
 //
 #declare CAMERAFLASH = 1;       // 0 (off) or 1 (on)
+#declare HANGINGLAMP_LIGHT = 1; // 0 (off) or 1 (on)
 #declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 0;         // 0 (off) or 1 (on)
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on)
@@ -177,8 +181,9 @@
 //                       
 //========================== Object Switches - Debugging On ===========================                                                                  
 //                                       
-#declare ALTERSTUFF = 1;        // 0 (off) or 1 (on)
-#declare PEWS = 1;              // 0 (off) or 1 (on)
+#declare ALTERSTUFF = 0;        // 0 (off) or 1 (on)
+#declare HANGINGLAMP = 0;       // 0 (off) or 1 (on)
+#declare PEWS = 0;              // 0 (off) or 1 (on)
 #declare POV_PEWS = 0;          // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 0;        // 0 (off) or 1 (on)
 #declare RAILINGS = 0;          // 0 (off) or 1 (on)
@@ -187,7 +192,8 @@
 #declare CHANDELIER = 0;        // 0 (off) or 1 (on)
 #declare JESUS = 0;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN = 0;             // 0 (off) or 1 (on)
-#declare VIDEO_ON = 1;
+#declare VIDEO_ON = 0;
+#declare WINDOWS = 1;
 #end
 //
 //=============================== Radiosity ==========================================
