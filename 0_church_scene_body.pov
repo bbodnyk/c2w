@@ -153,17 +153,6 @@ object { SPEAKERS }
 #include "picture_arch.inc"
 object { PICTURE_ARCH finish{ ambient GLOBAL_AMBIENT }translate <0.5/12,0,0> }
 
-#if(OBJECT_BOX = 1)
-#include "box_hanging_light.inc"
-#else
-#include "hanging_light.inc"
-#end
-object { HANGING_LIGHT scale <1/12,1/12,1/12> translate <6,18,0> }
-object { FLAME scale <1/12,1/12,1/12> translate <6, 15.5, 0>}
-//light_source { <0,0,0> color rgb <1,1,1> fade_distance .5 fade_power 2 shadowless translate <6,15.5,0> }
-
-
-
 #if(RAILINGS = 1)
 #include "railing_front.inc"
 #include "railing_choir.inc"
@@ -234,7 +223,7 @@ sphere { <0,14.5,0>,1
 #include "hanging_light.inc"
 object { HANGING_LIGHT scale <1/12,1/12,1/12> translate <6,18,0> }
 object { FLAME scale <1/12,1/12,1/12> translate <6, 15.5, 0>}
-light_source { <0,0,0> color rgb <1,1,1> fade_distance .5 fade_power 2 shadowless translate <6,15.5,0> }
+//light_source { <0,0,0> color rgb <1,1,1> fade_distance .5 fade_power 2 shadowless translate <6,15.5,0> }
 
 #if(OBJECT_BOX = 1)
 #include "box_video_screen.inc"
