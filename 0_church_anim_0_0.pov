@@ -106,6 +106,7 @@
 //
 #if(DEBUG = 0)
 #declare CAMERAFLASH = 0;       // 0 (off) or 1 (on) - Camara Flash
+#declare HANGINGLAMP_LIGHT = 1; // 0 (off) or 1 (on)
 #declare SUNLIGHT = 1;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 0;         // 0 (off) or 1 (on) - Above Jesus, pulpit and lecturn
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on) - Upper side lights along length of church
@@ -120,6 +121,7 @@
 // Object Controls - No Debugging                                                                  
 //                                       
 #declare ALTERSTUFF = 1;        // 0 (off) or 1 (on)
+#declare HANGINGLAMP = 1;       // 0 (off) or 1 (on)
 #declare PEWS = 1;              // 0 (off) or 1 (on)
 #declare POV_PEWS = 0;          // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 1;        // 0 (off) or 1 (on)
@@ -130,11 +132,13 @@
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN = 1;            // 0 (off) or 1 (on)
 #declare VIDEO_ON = 0;
+#declare WINDOWS = 1;
 #else
 //
 // Light Controls - DEBUG Mode
 //
 #declare CAMERAFLASH = 0;       // 0 (off) or 1 (on)
+#declare HANGINGLAMP_LIGHT = 1; // 0 (off) or 1 (on)
 #declare SUNLIGHT = 1;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 0;         // 0 (off) or 1 (on)
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on)
@@ -149,6 +153,7 @@
 // Object Controls - DEBUG Mode                                                                  
 //                                       
 #declare ALTERSTUFF = 0;        // 0 (off) or 1 (on)
+#declare HANGINGLAMP = 1;     // 0 (off) or 1 (on)
 #declare PEWS = 0;              // 0 (off) or 1 (on)
 #declare POV_PEWS = 0;          // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 0;        // 0 (off) or 1 (on)
@@ -159,6 +164,7 @@
 #declare JESUS = 0;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN = 0;             // 0 (off) or 1 (on)
 #declare VIDEO_ON = 0;
+#declare WINDOWS = 1;
 #end
 
 //
