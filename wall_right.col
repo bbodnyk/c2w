@@ -2,8 +2,5 @@
 //
 //Color file for WALL_RIGHT
 //
-#declare COLOR_0 = texture { COLORED_WALLS }
-#declare COLOR_1 = texture { T_Copper  }
-#declare COLOR_2 = texture { T_White    }
-#declare COLOR_3 = texture { T_Goldenrod  }
-//#declare COLOR_3 = texture { pigment { color rgb <0,0,156/255> }}
+#declare COLOR_0 = texture { T_White    }
+#declare COLOR_1 = texture {  T_BRICK   }

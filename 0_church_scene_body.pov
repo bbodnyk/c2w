@@ -153,6 +153,21 @@ object { SPEAKERS }
 #include "picture_arch.inc"
 object { PICTURE_ARCH finish{ ambient GLOBAL_AMBIENT }translate <0.5/12,0,0> }
 
+#if(WINDOWS = 1)
+#include "window.inc"
+object { WINDOW scale <1/12,1/12,1/12> translate <7.0,4.71,-24.58> }
+object { WINDOW scale <1/12,1/12,1/12> translate <20.92,4.71,-24.58> }
+object { WINDOW scale <1/12,1/12,1/12> translate <27.92,4.71,-24.58> }
+object { WINDOW scale <1/12,1/12,1/12> translate <34.92,4.71,-24.58> }
+object { WINDOW scale <1/12,1/12,1/12> translate <41.92,4.71,-24.58> }
+object { WINDOW scale <1/12,1/12,1/12> scale <1,1,-1> translate <27.92,4.71,24.58> }
+object { WINDOW scale <1/12,1/12,1/12> scale <1,1,-1> translate <34.92,4.71,24.58> }
+object { WINDOW scale <1/12,1/12,1/12> scale <1,1,-1> translate <41.92,4.71,24.58> }
+#include "door_small.inc"
+object { DOOR_SMALL scale <1/12,1/12,1/12> translate <20.92,-2,24.92> }
+#end
+
+
 #if(RAILINGS = 1)
 #include "railing_front.inc"
 #include "railing_choir.inc"
@@ -220,10 +235,14 @@ sphere { <0,14.5,0>,1
 
 #end
 
+#if(HANGINGLAMP = 1)
 #include "hanging_light.inc"
 object { HANGING_LIGHT scale <1/12,1/12,1/12> translate <6,18,0> }
 object { FLAME scale <1/12,1/12,1/12> translate <6, 15.5, 0>}
-//light_source { <0,0,0> color rgb <1,1,1> fade_distance .5 fade_power 2 shadowless translate <6,15.5,0> }
+#if(HANGINGLAMP_LIGHT = 1)
+light_source { <0,0,0> color rgb <1,1,1> fade_distance .5 fade_power 2 shadowless translate <6,15.5,0> }
+#end
+#end
 
 #if(OBJECT_BOX = 1)
 #include "box_video_screen.inc"
@@ -231,8 +250,8 @@ object { FLAME scale <1/12,1/12,1/12> translate <6, 15.5, 0>}
 #include "video_screen.inc"
 #end     
 object {VIDEO_SCREEN  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
-#if(SCREEN = 1)
 
+#if(SCREEN = 1)
 #if(OBJECT_BOX = 1)
 #include "box_video_screen_image.inc"
 #else
@@ -293,21 +312,21 @@ object { BREAD_BASKET scale <1/12,1/12,1/12> scale <1.25,1.25,1.25> rotate <0,25
 object { VASE scale <1/12,1/12,1/12> translate <3,2.89,-2.128> }
 object { VASE scale <1/12,1/12,1/12> rotate <0,90,0> translate <3,2.89,2.128> }
 
-#if(OBJECT_BOX = 1)
-#include "box_video_screen.inc"
-#else
-#include "video_screen.inc"
-#end     
-object {VIDEO_SCREEN  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
-#if(SCREEN = 1)
+//#if(OBJECT_BOX = 1)
+//#include "box_video_screen.inc"
+//#else
+//#include "video_screen.inc"
+//#end     
+//object {VIDEO_SCREEN  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
+//#if(SCREEN = 1)
 
-#if(OBJECT_BOX = 1)
-#include "box_video_screen_image.inc"
-#else
-#include "video_screen_image.inc"
-#end     
-object {VIDEO_SCREEN_IMAGE  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
-#end
+//#if(OBJECT_BOX = 1)
+//#include "box_video_screen_image.inc"
+//else
+//#include "video_screen_image.inc"
+//#end     
+//object {VIDEO_SCREEN_IMAGE  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
+//#end
 
 #if(OBJECT_BOX = 1)
 #include "box_cross.inc"
