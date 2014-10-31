@@ -16,7 +16,8 @@
 // where most of the scene objects are turned off to speed up the rendering time.
 // What objects and lights are activated debug mode is on or off can be configured.
 //
-#declare DEBUG = 0;  // Set to 1 for debugging
+#declare DEBUG = 0;        // Set to 1 for debugging
+#declare OBJECT_BOX = 0;   // Turn on simple objects
 //
 //=================== Animation Control ==============================
 //
@@ -36,7 +37,7 @@
 //  4 - Look Around
 //  5 - Ending  
 //
-#declare ANIMATION_SEQUENCE = 2;
+#declare ANIMATION_SEQUENCE = 3;
 #declare ANIMATION_SUBSEQUENCE = 0;
 //
 //========= Ambient/Diffuse/Emission Light Control ===================
@@ -88,7 +89,7 @@
 // NOTE: Camera 6 is intended to be used only for animations. The controls
 //       for camera 6 are in the Animation section.
 //
-#declare CAMERA = 1;                      // 1 THRU 5
+#declare CAMERA = 3;                      // 1 THRU 5
 #declare CAMERAZOOM = 1;                  // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
 #declare PERSPECTIVE = 0;                 // Set to 1 for perspective camera
 //
@@ -135,7 +136,7 @@
 #declare SPOTLIGHT = 1;         // 0 (off) or 1 (on) - Above Jesus, pulpit and lecturn
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on) - Upper side lights along length of church
 #declare SIDEWALLLIGHTS = 1;    // 0 (off) or 1 (on) - Wall sconces
-#declare CEILINGLIGHTS = 1;     // 0 (off) or 1 (on) - Chandekiers (Needs CHANDELIER=1 )
+#declare CEILINGLIGHTS = 1;     // 0 (off) or 1 (on) - Chandeliers (Needs CHANDELIER=1 )
 #declare CANDLE_ON = 1;         // 0 (off) or 1 (on)
 #declare BACKLIGHTS = 1;        // Can be turned off if doing closeups of front 
 #declare AREA_LITES = 1;        // Replaces area_lights with point light sources for test purposes.
@@ -146,24 +147,24 @@
 //========================== Object Switches - Debugging Off ===========================                                                                  
 //                                       
 #declare ALTERSTUFF = 1;        // 0 (off) or 1 (on)
-#declare PEWS = 1;              // 0 (off) or 1 (on)
+#declare PEWS = 0;              // 0 (off) or 1 (on)
 #declare POV_PEWS = 0;          // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 1;        // 0 (off) or 1 (on)
 #declare RAILINGS = 1;          // 0 (off) or 1 (on)
-#declare HYMNALS = 1;           // 0 (off) or 1 (on)
-#declare LIGHTFIXTURES =1;      // 0 (off) or 1 (on)
+#declare HYMNALS = 0;           // 0 (off) or 1 (on)
+#declare LIGHTFIXTURES =0;      // 0 (off) or 1 (on)
 #declare CHANDELIER = 1;        // 0 (off) or 1 (on)
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
-#declare SCREEN = 1;            // 0 (off) or 1 (on)
-#declare VIDEO_ON = 0;
+#declare SCREEN = 0;            // 0 (off) or 1 (on)
+#declare VIDEO_ON = 1;
 #declare MURAL = 0;
 #else
 //
 //
 //========================== Light Switches - Debugging On  ===========================
 //
-#declare CAMERAFLASH = 0;       // 0 (off) or 1 (on)
-#declare SUNLIGHT = 1;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
+#declare CAMERAFLASH = 1;       // 0 (off) or 1 (on)
+#declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 0;         // 0 (off) or 1 (on)
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on)
 #declare SIDEWALLLIGHTS = 0;    // 0 (off) or 1 (on)
@@ -176,17 +177,17 @@
 //                       
 //========================== Object Switches - Debugging On ===========================                                                                  
 //                                       
-#declare ALTERSTUFF = 0;        // 0 (off) or 1 (on)
-#declare PEWS = 0;              // 0 (off) or 1 (on)
+#declare ALTERSTUFF = 1;        // 0 (off) or 1 (on)
+#declare PEWS = 1;              // 0 (off) or 1 (on)
 #declare POV_PEWS = 0;          // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 0;        // 0 (off) or 1 (on)
 #declare RAILINGS = 0;          // 0 (off) or 1 (on)
 #declare HYMNALS = 0;           // 0 (off) or 1 (on)
-#declare LIGHTFIXTURES =1;     // 0 (off) or 1 (on)
+#declare LIGHTFIXTURES =0;     // 0 (off) or 1 (on)
 #declare CHANDELIER = 0;        // 0 (off) or 1 (on)
 #declare JESUS = 0;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN = 0;             // 0 (off) or 1 (on)
-#declare VIDEO_ON = 0;
+#declare VIDEO_ON = 1;
 #end
 //
 //=============================== Radiosity ==========================================
@@ -464,7 +465,7 @@ object{
 #declare LIGHT_SPHERE_INTENSITY = clock1;
 #declare LIGHT_SCALE = clock1 * 10; 
 object { LIGHT_SPHERE scale LIGHT_SCALE translate < .7,13.5,0> }
-light_source { < .7,13.5,0> color rgb <LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY> }
+light_source { < .7+1/12,13.5,0> color rgb <LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY> }
 #end
 //
 // 2nd Third - Move light sphere towards camera
