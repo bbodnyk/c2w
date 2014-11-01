@@ -16,7 +16,7 @@
 // where most of the scene objects are turned off to speed up the rendering time.
 // What objects and lights are activated debug mode is on or off can be configured.
 //
-#declare DEBUG = 0;        // Set to 1 for debugging
+#declare DEBUG = 1;        // Set to 1 for debugging
 #declare OBJECT_BOX = 0;   // Turn on simple objects
 //
 //=================== Animation Control ==============================
@@ -34,10 +34,9 @@
 //  1 - Walk down to front of alter
 //  2 - Look up at Jeses
 //  3 - Scene Change
-//  4 - Look Around
-//  5 - Ending  
+//  4 - Ending  
 //
-#declare ANIMATION_SEQUENCE = 3;
+#declare ANIMATION_SEQUENCE = 4;
 #declare ANIMATION_SUBSEQUENCE = 0;
 //
 //========= Ambient/Diffuse/Emission Light Control ===================
@@ -159,7 +158,7 @@
 #declare SCREEN = 1;            // 0 (off) or 1 (on)
 #declare VIDEO_ON = 1;
 #declare VIDEO_IMAGE = "welcome.jpg";  // Must be 1123 x 682 pixel jpeg
-#declare VIDEO_EMISSION = 1.0;
+#declare VIDEO_EMISSION = 0.80;
 #declare WINDOWS = 0;
 #declare MURAL = 0;
 #else
@@ -168,9 +167,9 @@
 //========================== Light Switches - Debugging On  ===========================
 //
 #declare CAMERAFLASH = 1;       // 0 (off) or 1 (on)
-#declare HANGINGLAMP_LIGHT = 1; // 0 (off) or 1 (on)
+#declare HANGINGLAMP_LIGHT = 0; // 0 (off) or 1 (on)
 #declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
-#declare SPOTLIGHT = 0;         // 0 (off) or 1 (on)
+#declare SPOTLIGHT = 1;         // 0 (off) or 1 (on)
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on)
 #declare SIDEWALLLIGHTS = 0;    // 0 (off) or 1 (on)
 #declare CEILINGLIGHTS = 0;     // 0 (off) or 1 (on) (Needs CHANDELIER=1 )
@@ -191,12 +190,12 @@
 #declare HYMNALS = 0;           // 0 (off) or 1 (on)
 #declare LIGHTFIXTURES =0;     // 0 (off) or 1 (on)
 #declare CHANDELIER = 0;        // 0 (off) or 1 (on)
-#declare JESUS = 0;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
-#declare SCREEN = 0;             // 0 (off) or 1 (on)
-#declare VIDEO_ON = 0;
+#declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
+#declare SCREEN = 1;             // 0 (off) or 1 (on)
+#declare VIDEO_ON = 1;
 #declare VIDEO_IMAGE = "welcome.jpg";
 #declare VIDEO_EMISSION = 0.5;
-#declare WINDOWS = 1;
+#declare WINDOWS = 0;
 #declare MURAL = 0;
 #end
 //
@@ -509,6 +508,20 @@ light_source { < 25-(clock3*24.3),4,0> color rgb <LIGHT_SPHERE_INTENSITY,LIGHT_S
 //
 // ---------------------------------------------------------------
 //
+// Animation Sequence 4 - Back up the asle
+//
+//
+#if( ANIMATION_SEQUENCE = 4 )
+#declare XDIFF = (((1-cos(clock*pi))/2)*26);
+#declare CAMERA6_LOOKAT = <0,4,0>;
+#declare CAMERA6_LOCATION = <30+XDIFF,4,0>;
+#declare CAMERA6_ZOOM = 1;
+#declare CAMERA6_FADE = 20;
+#end
+//
+// ---------------------------------------------------------------
+//
+
 // Additional Animation Sequences
 //
 
