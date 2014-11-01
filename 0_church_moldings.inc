@@ -1,4 +1,9 @@
+// 
+// Molding Library
 //
+// ================================================
+//
+// Quarter Round Molding
 //
 //
 #macro Quarter_Round(RAD,LEN,MITER1,MITER2,TEXTURE)
@@ -12,8 +17,6 @@ box { <0,-LEN,-LEN>,<-LEN,LEN,LEN> rotate <0,-45*MITER2,0> translate <-LEN/2,0,0
 }
 texture { TEXTURE rotate <0,90,0> }
 #end
-
-
 //
 //
 // Quarter Round Concave
@@ -30,7 +33,7 @@ texture { TEXTURE rotate <0,90,0> scale <3,3,3> }
 #end
 //
 //
-// Pew Top
+// Pew Top Molding
 //
 //
 #macro Pew_Top_Molding(LEN,MITER1,MITER2,TEXTURE)
@@ -41,7 +44,9 @@ object { Concave_Quarter_Round(0.25,LEN,0,0,TEXTURE) translate <0,.25,1-.5> }
 object { Quarter_Round(.5,LEN,0,0,TEXTURE) translate <0,.5,0> }
 } texture { TEXTURE rotate <0,90,0> scale <2,2,2> }
 #end
-
+//
+// Pew Cap - 4x molding
+//
 #macro Pew_Top4(LEN,TEXTURE)
 union{
 box { <-LEN/2,0,-.25>,<LEN/2,1,0.25> texture { TEXTURE rotate <0,90,0>}}
@@ -69,7 +74,9 @@ object { Pew_Top_Molding(2.75,0,0,TEXTURE)
 } // end of union
            
 #end
-
+//
+// Pew Cap -3x molding
+//
 #macro Pew_Top3(LEN,TEXTURE)
 object {
 union{
