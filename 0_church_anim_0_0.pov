@@ -106,7 +106,7 @@
 //
 #if(DEBUG = 0)
 #declare CAMERAFLASH = 0;       // 0 (off) or 1 (on) - Camara Flash
-#declare HANGINGLAMP_LIGHT = 1; // 0 (off) or 1 (on)
+#declare HANGINGLAMP_LIGHT = 0; // 0 (off) or 1 (on)
 #declare SUNLIGHT = 1;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 0;         // 0 (off) or 1 (on) - Above Jesus, pulpit and lecturn
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on) - Upper side lights along length of church
