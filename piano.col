@@ -4,10 +4,10 @@
 //
 #declare COLOR_0 = texture { pigment { color rgb <.1,.1,.1> } finish { ambient GLOBAL_AMBIENT } }
 
-//#declare COLOR_1 = texture { T_Wood1 rotate <90,0,-45> scale <5,5,5>}
-//#declare COLOR_2 = texture { T_Wood1 rotate <90,0,0> scale <5,5,5> }
-#declare COLOR_1 = texture { pigment { color Tan } finish { ambient GLOBAL_AMBIENT diffuse ROOM_DIFFUSE }} 
-#declare COLOR_2 = texture { pigment { color Tan } finish { ambient GLOBAL_AMBIENT diffuse ROOM_DIFFUSE }} 
+#declare COLOR_1 = texture { T_Wood1 rotate <90,0,-45> scale <5,5,5>}
+#declare COLOR_2 = texture { T_Wood1 rotate <90,0,0> scale <5,5,5> }
+//#declare COLOR_1 = texture { pigment { color Tan } finish { ambient GLOBAL_AMBIENT diffuse ROOM_DIFFUSE }} 
+//#declare COLOR_2 = texture { pigment { color Tan } finish { ambient GLOBAL_AMBIENT diffuse ROOM_DIFFUSE }} 
 
 #declare COLOR_3 = texture { T_Gray05  finish { ambient GLOBAL_AMBIENT } }
 #declare COLOR_4 = texture { T_Gold  finish { ambient GLOBAL_AMBIENT } }

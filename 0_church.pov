@@ -24,7 +24,7 @@
 // 0 - Animation Off
 // 1 - Animation On
 //
-#declare ANIMATION = 0;
+#declare ANIMATION = 1;
 //
 // Animation Sequence
 //
@@ -144,22 +144,23 @@
 #declare TREE_EMISSION = 1.0;
 #declare FLAME_EMISSION = 1.0;
 //
-                       
 //========================== Object Switches - Debugging Off ===========================                                                                  
 //                                       
 #declare ALTERSTUFF = 1;        // 0 (off) or 1 (on)
 #declare HANGINGLAMP = 1;       // 0 (off) or 1 (on)
-#declare PEWS = 1;              // 0 (off) or 1 (on)
+#declare PEWS = 0;              // 0 (off) or 1 (on)
 #declare POV_PEWS = 0;          // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 1;        // 0 (off) or 1 (on)
 #declare RAILINGS = 1;          // 0 (off) or 1 (on)
-#declare HYMNALS = 1;           // 0 (off) or 1 (on)
-#declare LIGHTFIXTURES =1;      // 0 (off) or 1 (on)
+#declare HYMNALS = 0;           // 0 (off) or 1 (on)
+#declare LIGHTFIXTURES =0;      // 0 (off) or 1 (on)
 #declare CHANDELIER = 1;        // 0 (off) or 1 (on)
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN = 1;            // 0 (off) or 1 (on)
 #declare VIDEO_ON = 1;
-#declare WINDOWS = 1;
+#declare VIDEO_IMAGE = "welcome.jpg";  // Must be 1123 x 682 pixel jpeg
+#declare VIDEO_EMISSION = 1.0;
+#declare WINDOWS = 0;
 #declare MURAL = 0;
 #else
 //
@@ -193,7 +194,10 @@
 #declare JESUS = 0;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN = 0;             // 0 (off) or 1 (on)
 #declare VIDEO_ON = 0;
+#declare VIDEO_IMAGE = "welcome.jpg";
+#declare VIDEO_EMISSION = 0.5;
 #declare WINDOWS = 1;
+#declare MURAL = 0;
 #end
 //
 //=============================== Radiosity ==========================================
@@ -498,7 +502,7 @@ light_source { < .7+(clock2*24.3),13.5-(clock2*9.5),0> color rgb <LIGHT_SPHERE_I
 object { LIGHT_SPHERE scale 10-(clock3*10) translate < 25-(clock3*24.3),4,0> }
 #declare LIGHT_SPHERE_INTENSITY = 1-clock3;
 light_source { < 25-(clock3*24.3),4,0> color rgb <LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY> }
-#declare  COLOR_SCHEME = 3;
+#declare  COLOR_SCHEME = 2;
 #end
 
 #end
