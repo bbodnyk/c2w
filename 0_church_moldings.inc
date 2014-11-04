@@ -14,6 +14,18 @@ texture { TEXTURE rotate <0,90,0> }
 }
 #end
 //
+// Raised Panel
+//
+#macro Raised_Panel(WID,HGT,THK)
+difference {
+box {<-WID/2,-HGT/2,0>,<WID/2,HGT/2,THK>}
+plane { <-1,0,0>,0 rotate <0,-75,0> translate <WID/2,0,THK/4>}
+plane { <1,0,0>,0 rotate <0,75,0> translate <-WID/2,0,THK/4>}
+plane { <0,-1,0>,0 rotate <75,0,0> translate <0,HGT/2,THK/4>}
+plane { <0,1,0>,0 rotate <-75,0,0> translate <0,-HGT/2,THK/4>}
+}
+#end
+//
 // Bull Nose Molding
 //
 #macro Bull_Nose(LEN,WIDTH,RAD,THK,MITER1,MITER2,TEXTURE)
