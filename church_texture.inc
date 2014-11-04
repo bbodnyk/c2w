@@ -15,6 +15,8 @@ texture {
     reflection { 0.01 }
     }
   }
+
+#declare T_WHITE = texture { T_White }
 //
 
 
