@@ -1,13 +1,52 @@
 // 
 // Molding Library
 //
-// ================================================
+// ================================================\
+//
+// Board
+//
+#macro Board(LEN,WIDTH,THK,MITER1,MITER2,TEXTURE)
+difference {
+box { <-LEN-1,0,0>,<LEN+1,WIDTH,THK> }
+box { <0,-LEN,-LEN>,<LEN,LEN,LEN> rotate <0,MITER1*45,0> translate <LEN/2,0,0>}
+box { <0,-LEN,-LEN>,<-LEN,LEN,LEN> rotate <0,-45*MITER2,0> translate <-LEN/2,0,0> }
+texture { TEXTURE rotate <0,90,0> }
+}
+#end
+//
+// Bull Nose Molding
+//
+#macro Bull_Nose(LEN,WIDTH,RAD,THK,MITER1,MITER2,TEXTURE)
+difference {
+cylinder { <-LEN-1,WIDTH/2, -RAD+THK>,<LEN+1,WIDTH/2,-RAD+THK>,RAD }
+box { <-2*LEN-1,-2*RAD,-10>,<2+LEN+1,2*RAD,0> }
+box { <-2*LEN-1,WIDTH,-10>,<2+LEN+1,10,10> }
+box { <-2*LEN-1,0,-10>,<2+LEN+1,-10,10> }
+box { <0,-LEN,-LEN>,<LEN,LEN,LEN> rotate <0,MITER1*45,0> translate <LEN/2,0,0>}
+box { <0,-LEN,-LEN>,<-LEN,LEN,LEN> rotate <0,-45*MITER2,0> translate <-LEN/2,0,0> }
+texture { TEXTURE rotate <0,90,0> }    
+}    
+#end
+//
+// Rect Trim
+//
+#macro Rect_Trim(LEN)
+difference {
+object { Board(LEN,1,.5,1,1,T_White) }
+#declare num = (LEN/0.5)+1;
+#declare XPOS = -0.5 * (num/2);
+#declare ival = 0;
+#while ( ival <= num )
+box { <-.125,-1,.375>,<0.125,.75,10> translate <XPOS+(ival*0.5),0,0> texture { T_White } }
+#declare ival = ival + 1;
+#end
+}
+#end
 //
 // Quarter Round Molding
 //
 //
 #macro Quarter_Round(RAD,LEN,MITER1,MITER2,TEXTURE)
-
 difference {
 cylinder { <-1-LEN,0,0>,<1+LEN,0,0>,RAD }
 box { <-2*LEN,0,-RAD*2>,<2*LEN,-RAD*2,RAD*2> }
