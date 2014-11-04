@@ -269,12 +269,9 @@ object {VIDEO_SCREEN_IMAGE  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.
 //
 #if(ALTERSTUFF = 1)                        
 
-#if(OBJECT_BOX = 1)
-#include "box_alter.inc"
-#else
-#include "alter.inc"
-#end
-object { ALTER scale <1/12,1/12,1/12> rotate <0,90,0> translate <3.37,0,0> }
+
+#include "pov_alter.inc"
+object { POV_ALTER scale <1/12,1/12,1/12> rotate <0,90,0> translate <3.37-1.0,0,0> }
 
 #if(OBJECT_BOX = 1)
 #include "box_cross.inc"
@@ -585,7 +582,7 @@ box { <-1.75, -3.5, -.01>, <1.5, 3.5, .01> texture { pigment { image_map { jpeg 
 #if(OBJECT_BOX = 1)
 #include "box_pencil.inc"
 #else
-#include "pencil.inc"
+#include "pov_pencil.inc"
 #end      
 
 #declare Count = 0;
