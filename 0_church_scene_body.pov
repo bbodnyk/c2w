@@ -177,7 +177,9 @@ object { RAILING_CHOIR }
 object { RAILING_ORGAN }
 #end
 
+
 #if(PEWS = 1)
+#include "pov-pew.inc"
 #if(OBJECT_BOX = 1)
 #include "box_pew1.inc"
 #else
@@ -185,25 +187,27 @@ object { RAILING_ORGAN }
 #end
 #declare pewcount=0;
 #while (pewcount<12)
-object { PEW1 scale <1/12,1/12,1/12> translate <23.67+(pewcount*3),-2,11.42> }
-object { PEW1 scale <1/12,1/12,1/12> translate <23.67+(pewcount*3),-2,-11.42> }
+//object { PEW1 scale <1/12,1/12,1/12> translate <23.67+(pewcount*3),-2,11.42> }
+//object { PEW1 scale <1/12,1/12,1/12> translate <23.67+(pewcount*3),-2,-11.42> }
+object { PEW(198,1) scale <1/12,1/12,1/12> translate <284/12+(pewcount*3),-2,99/12+38/12> }
+object { PEW(198,1) scale <1/12,1/12,1/12> translate <284/12+(pewcount*3),-2,-(99/12+38/12)> } 
 #declare pewcount = pewcount + 1;
 #end
 #end
 
-#if( POV_PEWS = 1 )
-#include "pov-pew.inc"
-#declare Count = 0;
-#while ( Count < 13 )
-object { POV_PEW scale <1/12,1/12,1/12> translate <284/12+(Count*3),-2,99/12+38/12> }
-object { POV_PEW scale <1/12,1/12,1/12> translate <284/12+(Count*3),-2,-(99/12+38/12)> } 
-#declare Count = Count + 1;
-#end
-#end
+
 
 #if(PEWS_CHOIR = 1)
-#include "pews_choir.inc"
-object { PEWS_CHOIR }
+//#include "pews_choir.inc"
+//object { PEWS_CHOIR }
+object { PEW(72,0) scale <1/12,1/12,1/12> rotate <0,90,0> translate <9,0,-10.87> }
+object { PEW(122,0) scale <1/12,1/12,1/12> rotate <0,90,0> translate <6.75,0,-13.91> }
+object { PEW(63,0) scale <1/12,1/12,1/12> rotate <0,90,0> translate <4.63,1,-16.91> }
+object { PEW(48,0) scale <1/12,1/12,1/12> rotate <0,90,0> translate <9.84,0.5,-16.91> }
+object { PEW(118,0) scale <1/12,1/12,1/12> rotate <0,90,0> translate <6.92,1.0,-20.66> }
+object { PEW(138,0) scale <1/12,1/12,1/12> rotate <0,90,0> translate <6.09,1.5,-24.41> }
+//
+object { PEW(72,0) scale <1/12,1/12,1/12> rotate <0,-90,0> translate <9.57,0,10.35> }
 #end                                                                     
 
 #if(JESUS = 1)
