@@ -20,20 +20,37 @@ object { Pew_Top4(10,T_PEW) translate <-5.5,35,0> }
 object { Pew_Top3(6.5,T_PEW) scale <-1,1,1> translate <-5.5-5.5,25,0> }
 }}
 
-#declare POV_PEW =
+
+#declare HYMNAL_RACK =
+object {
+merge {
+prism { linear_spline 0, 6, 8,<-19.5,0>,<-12.5,0>,<-12.5,-2.75>,<12.5,-2.75>,<12.5,0>,<19.5,0>,<17.77,-3>,<-17.77,-3>  }
+prism { linear_spline 0, .25, 4,<-12.5,0>,<12.5,0>,<12.5,-2.75>,<-12.5,-2.75>  }
+}
+rotate <-3,-90,0>
+texture { T_PEW scale <4,4,4> }
+}
+
+
+#macro PEW(LEN,RACK)
 union {
 object {
 merge {
 difference {
-box { <0,0,-99>,< -14.25, 18.25, 99> }
-box { <-1.5,1.5,-100>,<-16,20,100> }
+box { <0,0,-LEN/2>,< -14.25, 18.25, LEN/2> }
+box { <-1.5,1.5,-1-LEN/2>,<-16,20,1+LEN/1> }
 }
-cylinder { <-.75,18.25,-99>,<-.75,18.25,99>,0.75 }
-cylinder { <-14.25,0.75,-99>,<-14.25,0.75,99>,0.75 }
+cylinder { <-.75,18.25,-LEN/2>,<-.75,18.25,LEN/2>,0.75 }
+cylinder { <-14.25,0.75,-LEN/2>,<-14.25,0.75,LEN/2>,0.75 }
 }
 rotate <0,0,-3> translate <-1.65,12,0> 
 texture { T_PEW scale <4,4,4>  }
 }
-object { POV_PEW_END translate <0,0,-100> }
-object { POV_PEW_END scale <1,1,-1> translate <0,0,100> }
+object { POV_PEW_END translate <0,0,-1-LEN/2> }
+object { POV_PEW_END scale <1,1,-1> translate <0,0,1+LEN/2> }
+#if( RACK = 1 ) object { HYMNAL_RACK translate <-1.34,17.99,0>} #end
+#if( RACK = 1 & LEN > 190) object { HYMNAL_RACK translate <-1.34,17.99,63>} #end
+#if( RACK = 1 & LEN > 190) object { HYMNAL_RACK translate <-1.34,17.99,-63>} #end
+
 }
+#end
