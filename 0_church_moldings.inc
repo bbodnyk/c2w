@@ -55,6 +55,19 @@ box { <-.125,-1,.375>,<0.125,.75,10> translate <XPOS+(ival*0.5),0,0> texture { T
 }
 #end
 //
+#macro Rect_Trim_Miter(LEN,MITER1,MITER2)
+difference {
+object { Board(LEN,1,.5,MITER1,MITER2,T_White) }
+#declare num = (LEN/0.5)+1;
+#declare XPOS = -0.5 * (num/2);
+#declare ival = 0;
+#while ( ival <= num )
+box { <-.125,-1,.375>,<0.125,.75,10> translate <XPOS+(ival*0.5),0,0> texture { T_White } }
+#declare ival = ival + 1;
+#end
+}
+#end
+//
 // Quarter Round Molding
 //
 //
