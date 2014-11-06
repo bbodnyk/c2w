@@ -9,7 +9,7 @@
 #declare PEW1 =
 object {
 union { // Union for all 3 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 0.000000, 35.000000, -99.000000 >
 < -0.694869, 30.224990, -99.000000 >
@@ -1112,7 +1112,7 @@ triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 triangle {
 < -0.694869, 30.224990, 99.000000 >
 < -1.650000, 12.000000, -99.000000 >
@@ -1475,7 +1475,7 @@ smooth_triangle {
 }
 texture { COLOR_1 }
 } // End of Union for COLOR_1
-union { // Union for COLOR_2 
+mesh { // Union for COLOR_2 
 triangle {
 < -11.000000, 25.209640, -98.945300 >
 < -11.000000, 25.000000, -99.000000 >
