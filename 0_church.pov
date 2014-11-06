@@ -37,7 +37,7 @@
 //  4 - Ending
 //  5 - Video Starting  
 //
-#declare ANIMATION_SEQUENCE = 5;
+#declare ANIMATION_SEQUENCE = 0;
 #declare ANIMATION_SUBSEQUENCE = 1;
 //
 //========= Ambient/Diffuse/Emission Light Control ===================
@@ -90,14 +90,14 @@
 // NOTE: Camera 6 is intended to be used only for animations. The controls
 //       for camera 6 are in the Animation section.
 //
-#declare CAMERA = 1;                      // 1 THRU 5
+#declare CAMERA = 2;                      // 1 THRU 5
 #declare CAMERAZOOM = 1;                  // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
-#declare PERSPECTIVE = 0;                 // Set to 1 for perspective camera
+#declare PERSPECTIVE = 1;                 // Set to 1 for perspective camera
 //
 // Camera 5 Setup
 //
-#declare CAMERA5_LOCATION = <12,6,0>;    // <13,4,6>
-#declare CAMERA5_LOOKAT =  <0,3,0>;      // <3,2,0>
+#declare CAMERA5_LOCATION = <16,6,0>;    // <13,4,6>
+#declare CAMERA5_LOOKAT =  <3,3,0>;      // <3,2,0>
 #declare CAMERA5_FADE = 20;               // Distance Camera flash is at full intensity
 //
 //========================== Scene Control ===========================
@@ -136,14 +136,15 @@
 #declare HANGINGLAMP_LIGHT = 0; // 0 (off) or 1 (on)
 #declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 1;         // 0 (off) or 1 (on) - Above Jesus, pulpit and lecturn
-#declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on) - Upper side lights along length of church
+#declare SIDECEILINGLIGHTS = 1; // 0 (off) or 1 (on) - Upper side lights along length of church
 #declare SIDEWALLLIGHTS = 1;    // 0 (off) or 1 (on) - Wall sconces
 #declare CEILINGLIGHTS = 1;     // 0 (off) or 1 (on) - Chandeliers (Needs CHANDELIER=1 )
 #declare CANDLE_ON = 1;         // 0 (off) or 1 (on)
 #declare BACKLIGHTS = 1;        // Can be turned off if doing closeups of front 
-#declare AREA_LITES = 1;        // Replaces area_lights with point light sources for test purposes.
+#declare AREA_LITES = 0;        // Replaces area_lights with point light sources for test purposes.
 #declare TREE_EMISSION = 1.0;
 #declare FLAME_EMISSION = 1.0;
+#declare LITE_JITTER = 0;
 //
 //========================== Object Switches - Debugging Off ===========================                                                                  
 //                                       
@@ -177,7 +178,7 @@
 #declare HANGINGLAMP_LIGHT = 0; // 0 (off) or 1 (on)
 #declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 1;         // 0 (off) or 1 (on)
-#declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on)
+#declare SIDECEILINGLIGHTS = 1; // 0 (off) or 1 (on)
 #declare SIDEWALLLIGHTS = 1;    // 0 (off) or 1 (on)
 #declare CEILINGLIGHTS = 1;     // 0 (off) or 1 (on) (Needs CHANDELIER=1 )
 #declare CANDLE_ON = 1;         // 0 (off) or 1 (on) 
@@ -185,17 +186,18 @@
 #declare TREE_EMISSION = 1.0;
 #declare FLAME_EMISSION = 1.0; 
 #declare AREA_LITES = 1;
+#declare LITE_JITTER = 0;
 //                       
 //========================== Object Switches - Debugging On ===========================                                                                  
 //                                       
-#declare ALTERSTUFF = 0;        // 0 (off) or 1 (on)
+#declare ALTERSTUFF = 1;        // 0 (off) or 1 (on)
 #declare HANGINGLAMP = 0;       // 0 (off) or 1 (on)
 #declare PEWS = 0;              // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 0;        // 0 (off) or 1 (on)
 #declare RAILINGS = 0;          // 0 (off) or 1 (on)
 #declare HYMNALS = 0;           // 0 (off) or 1 (on)
 #declare LIGHTFIXTURES =0;     // 0 (off) or 1 (on)
-#declare CHANDELIER = 1;        // 0 (off) or 1 (on)
+#declare CHANDELIER = 0;        // 0 (off) or 1 (on)
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN = 1;             // 0 (off) or 1 (on)
 #declare VIDEO_ON = 1;

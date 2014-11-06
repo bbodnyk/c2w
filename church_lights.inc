@@ -4,16 +4,16 @@
 //light_source { <30,30,0> color rgb 1 }
 
 #if(SUNLIGHT=1)
-light_source { <1,1,1> color SUNLIGHTCOLOR area_light <-100,-100,0> <100,100,0> 16, 8  adaptive 1 jitter translate <400,175,-400>}
+light_source { <1,1,1> color SUNLIGHTCOLOR area_light <-100,-100,0> <100,100,0> 16, 8  adaptive 1 #if(LITE_JITTER=1) jitter #end translate <400,175,-400>}
 
-light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,4,0> 8, 16 adaptive 1 jitter rotate <0,60,0> translate <7,4.71,-30>     translate <5,0,0> }
-light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,4,0> 8, 16 adaptive 1 jitter rotate <0,60,0> translate <20.92,4.71,-30> translate <5,0,0> }
-light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,20,0> 8, 16 adaptive 1 jitter rotate <0,60,0> translate <27.92,4.71,-30> translate <5,0,0> }
-light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,20,0> 8, 16 adaptive 1 jitter rotate <0,60,0> translate <34.92,4.71,-30> translate <5,0,0> }
-light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,20,0> 8, 16 adaptive 1 jitter rotate <0,60,0> translate <41.92,4.71,-30> translate <5,0,0> }
-light_source { <0,0,0> color rgb SUNLIGHT_LEFT area_light <-3.25,-5,0> <3.25,5,0> 4, 8 adaptive 1 jitter translate <27.92,4.71,30> }
-light_source { <0,0,0> color rgb SUNLIGHT_LEFT area_light <-3.25,-5,0> <3.25,5,0> 4, 8 adaptive 1 jitter translate <34.92,4.71,30> }
-light_source { <0,0,0> color rgb SUNLIGHT_LEFT area_light <-3.25,-5,0> <3.25,5,0> 4, 8 adaptive 1 jitter translate <41.92,4.71,30> }
+light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,4,0> 8, 16 adaptive 1 #if(LITE_JITTER=1) jitter #end rotate <0,60,0> translate <7,4.71,-30>     translate <5,0,0> }
+light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,4,0> 8, 16 adaptive 1  #if(LITE_JITTER=1) jitter #end rotate <0,60,0> translate <20.92,4.71,-30> translate <5,0,0> }
+light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,20,0> 8, 16 adaptive 1 #if(LITE_JITTER=1) jitter #end rotate <0,60,0> translate <27.92,4.71,-30> translate <5,0,0> }
+light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,20,0> 8, 16 adaptive 1 #if(LITE_JITTER=1) jitter #end rotate <0,60,0> translate <34.92,4.71,-30> translate <5,0,0> }
+light_source { <0,0,0> color rgb SUNLIGHT_RIGHT area_light <-16,-4,0> <8,20,0> 8, 16 adaptive 1 #if(LITE_JITTER=1) jitter #end rotate <0,60,0> translate <41.92,4.71,-30> translate <5,0,0> }
+light_source { <0,0,0> color rgb SUNLIGHT_LEFT area_light <-3.25,-5,0> <3.25,5,0> 4, 8 adaptive 1 #if(LITE_JITTER=1) jitter #end translate <27.92,4.71,30> }
+light_source { <0,0,0> color rgb SUNLIGHT_LEFT area_light <-3.25,-5,0> <3.25,5,0> 4, 8 adaptive 1 #if(LITE_JITTER=1) jitter #end translate <34.92,4.71,30> }
+light_source { <0,0,0> color rgb SUNLIGHT_LEFT area_light <-3.25,-5,0> <3.25,5,0> 4, 8 adaptive 1 #if(LITE_JITTER=1) jitter #end translate <41.92,4.71,30> }
 #end
 
 //light_source { <0,0,0> color rgb <2,2,2> area_light <-30,10,0> <30,10,0> 8, 4 adaptive 1 jitter translate <30,10, 50> }
@@ -28,7 +28,7 @@ light_source {
   <13.57,17.5,-5.38>                 // light's position (translated below)                                                   
   color rgb SPOTLIGHTCOLOR       // light's color
   spotlight               // this kind of light source
-  area_light <-1,0,-1><1,0,1> 2,2 adaptive 1 jitter
+  area_light <-1,0,-1><1,0,1> 2,2 adaptive 1 #if(LITE_JITTER=1) jitter  #end
   point_at <13.57, 4, -5.38>      // direction of spotlight
   radius 4                // hotspot (inner, in degrees)
   tightness 10            // tightness of falloff (1...100) lower is softer, higher is tighter
@@ -42,7 +42,7 @@ light_source {
   <13.57,17.5,5.38>                 // light's position (translated below)
   color rgb SPOTLIGHTCOLOR       // light's color
   spotlight               // this kind of light source
-  area_light <-1,0,-1><1,0,1> 2,2 adaptive 1 jitter  
+  area_light <-1,0,-1><1,0,1> 2,2 adaptive 1 #if(LITE_JITTER=1) jitter #end  
   point_at <13.57, 4, 5.38>      // direction of spotlight
   radius 4                // hotspot (inner, in degrees)
   tightness 20            // tightness of falloff (1...100) lower is softer, higher is tighter
@@ -54,7 +54,7 @@ light_source {
 light_source {
   <4,17.8,0>                 // light's position (translated below)
   color SPOTLIGHTCOLOR       // light's color
-  area_light <-2,0,-2><2,0,2> 3,3 adaptive 1 jitter 
+  area_light <-2,0,-2><2,0,2> 3,3 adaptive 1 #if(LITE_JITTER=1) jitter #end 
   spotlight               // this kind of light source
   point_at <0,16, 0>      // direction of spotlight
   radius 70                // hotspot (inner, in degrees)
@@ -102,15 +102,15 @@ light_source { <0,0,0> color rgb <1,1,1> area_light <0,-2.4,-4.5><0,2.4,4.5> 4,4
 //
 #if (SIDECEILINGLIGHTS = 1)
 #if (AREA_LITES = 1 )
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <7.5, 13.5, -23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <9.5, 13.5, -23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <11.5, 13.5, -23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <13.5, 13.5, -23.5>}               
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <7.5, 13.5, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <9.5, 13.5, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <11.5, 13.5, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <13.5, 13.5, -23.5>}               
 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 rotate<-45,0,0> translate <7.5, 13.25, 23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 rotate<-45,0,0> translate <9.5, 13.25, 23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 rotate<-45,0,0> translate <11.5, 13.25, 23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 rotate<-45,0,0> translate <13.5, 13.25, 23.5>}     
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 rotate<-45,0,0> translate <7.5, 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 rotate<-45,0,0> translate <9.5, 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 rotate<-45,0,0> translate <11.5, 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 rotate<-45,0,0> translate <13.5, 13.25, 23.5>}     
 #else
 light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <7.5, 13.25, -24>} 
 light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <9.5, 13.25, -24>}
@@ -125,45 +125,45 @@ light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 
 
 #if (BACKLIGHTS = 1)
 #if (AREA_LITES = 1)
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <18., 13.5, -23.5>} 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <20., 13.5, -23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <22., 13.5, -23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <24., 13.5, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <18., 13.5, -23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <20., 13.5, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <22., 13.5, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <24., 13.5, -23.5>}
 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <18., 13.25, 23.5>} 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <20., 13.25, 23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <22., 13.25, 23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <24., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <18., 13.25, 23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <20., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <22., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <24., 13.25, 23.5>}
 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <28., 13.25, -23.5>} 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <30., 13.25, -23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <32., 13.25, -23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <34., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <28., 13.25, -23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <30., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <32., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <34., 13.25, -23.5>}
 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <28., 13.25, 23.5>} 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <30., 13.25, 23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <32., 13.25, 23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <34., 13.25, 23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <28., 13.25, 23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <30., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <32., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <34., 13.25, 23.5>} 
 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <38., 13.25, -23.5>} 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <40., 13.25, -23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <42., 13.25, -23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <44., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <38., 13.25, -23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <40., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <42., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <44., 13.25, -23.5>}
 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <38., 13.25, 23.5>} 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <40., 13.25, 23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <42., 13.25, 23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <44., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <38., 13.25, 23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <40., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <42., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <44., 13.25, 23.5>}
 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <48., 13.25, -23.5>} 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <50., 13.25, -23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <52., 13.25, -23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <54., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <48., 13.25, -23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <50., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <52., 13.25, -23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <54., 13.25, -23.5>}
 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <48., 13.25, 23.5>} 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <50., 13.25, 23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <52., 13.25, 23.5>}
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 jitter fade_distance 2 fade_power 2 translate <54., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <48., 13.25, 23.5>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <50., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <52., 13.25, 23.5>}
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR area_light <-2,0,0><2,1,0> 4, 2 adaptive 1 #if(LITE_JITTER=1) jitter #end fade_distance 2 fade_power 2 translate <54., 13.25, 23.5>}
 #else
 light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <18., 13.25, -24>} 
 light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <20., 13.25, -24>}
@@ -190,7 +190,7 @@ light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 
 light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <42., 13.25, -24>}
 light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <44., 13.25, -24>}
 
-light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR1 fade_distance 2 fade_power 2 translate <38., 13.25, 24>} 
+light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <38., 13.25, 24>} 
 light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <40., 13.25, 24>}
 light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <42., 13.25, 24>}
 light_source { <0,0,0> color SIDECEILINGLIGHTCOLOR fade_distance 2 fade_power 2 translate <44., 13.25, 24>}
