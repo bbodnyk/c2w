@@ -305,13 +305,7 @@ object { CHALICE scale <1/12,1/12,1/12> rotate <0,70,0> translate <3.8,2.875,-1.
 #end
 object { BREAD_BASKET scale <1/12,1/12,1/12> scale <1.25,1.25,1.25> rotate <0,25,0> translate <3.67,2.89,1.75> }
 
-#if(OBJECT_BOX = 1)
-#include "box_vase.inc"
-#else
-#include "vase.inc"
-#end                                                      
-object { VASE scale <1/12,1/12,1/12> translate <3,2.89,-2.128> }
-object { VASE scale <1/12,1/12,1/12> rotate <0,90,0> translate <3,2.89,2.128> }
+
 
 //#if(OBJECT_BOX = 1)
 //#include "box_video_screen.inc"
@@ -351,10 +345,18 @@ object { FLAME scale <1/12,1/12,1/12> translate <6, 15.5, 0>}
 #if(OBJECT_BOX = 1)
 #include "box_alter_flower_stand.inc"
 #else
-#include "alter_flower_stand.inc"
+#include "pov_flower_stand.inc"
 #end                                                                                            
 object { ALTER_FLOWER_STAND  scale <1/12,1/12,1/12> translate <3.35,0,3.77> }
 object { ALTER_FLOWER_STAND  scale <1/12,1/12,1/12> translate <3.35,0,-3.77> }
+
+#if(OBJECT_BOX = 1)
+#include "box_vase.inc"
+#else
+#include "vase.inc"
+#end                                                      
+object { VASE scale <1/12,1/12,1/12> translate <3.35,24.75/12,3.77> }
+object { VASE scale <1/12,1/12,1/12> rotate <0,90,0> translate <3.35,24.75/12,-3.77> }
 
 #if(OBJECT_BOX = 1)
 #include "box_bible.inc"
@@ -365,12 +367,15 @@ object { BIBLE scale <1/12,1/12,1/12> translate <3.37,2.875,0> }
 #include "bible_cloth.inc"
 object { BIBLE_CLOTH scale <1/12,1/12,1/12> translate <3.37,2.875,0> }
 
-#if(OBJECT_BOX = 1)
-#include "box_pulpit.inc"
-#else
-#include "pulpit.inc"
-#end
-object { PULPIT scale <1/12,1/12,1/12> translate <13.57,0,-6.37> }
+//#if(OBJECT_BOX = 1)
+//#include "box_pulpit.inc"
+//#else
+//#include "pulpit.inc"
+//#end
+//object { PULPIT scale <1/12,1/12,1/12> translate <13.57,0,-6.37> }
+
+#include "pov_pulpit.inc"
+object { PULPIT scale <1/12,1/12,1/12> translate <13.57-8.5/12,0,-6.37> }
 
 #if(OBJECT_BOX = 1)
 #include "box_microphone.inc"
