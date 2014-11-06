@@ -24,7 +24,7 @@ object { MUM translate <.5,1.0+yoff,0> rotate <0,rot,0>}
 
 #include "vase.col"
 
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < -2.455273, 0.000000, -0.893535 >
 < 2.455269, 0.000000, -0.893547 >

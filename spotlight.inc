@@ -8,7 +8,7 @@
 
 #declare SPOTLIGHT =
 object {
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 0.475504, -2.000000, 0.154532 >
 < 0.500000, -2.000000, 0.000000 >

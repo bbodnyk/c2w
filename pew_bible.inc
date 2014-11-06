@@ -9,7 +9,7 @@
 #declare PEWBIBLE =
 object {
 union { // Union for all 2 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < -1.500000, 12.000000, 3.753262 >
 < -1.500000, 0.000000, -4.000000 >
@@ -1107,7 +1107,7 @@ smooth_triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 smooth_triangle {
 < -0.125000, 11.825000, 3.636989 >, < 0.000000, 0.000000, -1.000000 >
 < -1.375000, 11.825000, 3.636989 >, < 0.000000, 0.000000, -1.000000 >

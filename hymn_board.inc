@@ -9,7 +9,7 @@
 #declare HYMN_BOARD =
 object {
 union { // Union for all 2 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < -1.613201, 10.691430, 0.000000 >
 < -1.668457, 10.712620, 0.000000 >
@@ -3807,7 +3807,7 @@ triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 smooth_triangle {
 < -1.550964, 10.803480, -0.250000 >, < 0.592805, -0.805346, 0.000000 >
 < -1.550964, 10.803480, 0.000000 >, < 0.592805, -0.805346, 0.000000 >

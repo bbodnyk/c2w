@@ -9,7 +9,7 @@
 #declare BIBLE =
 object {
 union { // Union for all 3 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 7.635000, 0.783494, -12.000000 >
 < 8.000000, 0.000000, -12.000000 >
@@ -2012,7 +2012,7 @@ smooth_triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 triangle {
 < 7.676014, 1.354532, -13.672140 >
 < 7.680014, 1.361460, -13.672140 >
@@ -100625,7 +100625,7 @@ triangle {
 }
 texture { COLOR_1 }
 } // End of Union for COLOR_1
-union { // Union for COLOR_2 
+mesh { // Union for COLOR_2 
 triangle {
 < -4.848380, 10.661650, -12.209350 >
 < 8.575014, 2.911646, -3.884348 >

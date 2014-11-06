@@ -8,7 +8,7 @@
 
 #declare LIGHT_BULB =
 object {
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 smooth_triangle {
 < -0.531155, 0.195809, 0.171108 >, < -0.917211, -0.267244, 0.295474 >
 < -0.551644, 0.172985, 0.000000 >, < -0.962299, -0.271994, 0.000000 >

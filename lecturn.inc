@@ -9,7 +9,7 @@
 #declare LECTURN =
 object {
 union { // Union for all 2 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < -7.250000, 0.000000, -8.750000 >
 < 7.250000, 0.000000, 8.750000 >
@@ -7942,7 +7942,7 @@ triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 triangle {
 < -7.250000, 4.000000, 8.750000 >
 < -7.250000, 0.000000, 8.750000 >

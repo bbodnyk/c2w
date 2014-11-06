@@ -9,7 +9,7 @@
 #declare PULPIT_CLOTH =
 object {
 union { // Union for all 2 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 smooth_triangle {
 < 10.625040, 35.119400, -10.915680 >, < -0.999420, 0.006669, 0.033404 >
 < 10.636810, 38.928290, -11.936080 >, < -0.999811, 0.013055, 0.014419 >
@@ -11677,7 +11677,7 @@ smooth_triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 smooth_triangle {
 < 8.495294, 49.317180, -10.927570 >, < -0.017809, 0.999840, 0.001771 >
 < 8.493128, 49.320220, -11.935620 >, < -0.034365, 0.999402, 0.003718 >

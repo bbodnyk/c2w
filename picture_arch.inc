@@ -8,7 +8,7 @@
 
 #declare PICTURE_ARCH =
 object {
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 1.083333, 16.966440, -0.196488 >
 < 1.083333, 18.000000, -4.500000 >

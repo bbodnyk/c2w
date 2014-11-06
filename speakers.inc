@@ -9,7 +9,7 @@
 #declare SPEAKERS =
 object {
 union { // Union for all 2 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 0.000000, 13.000000, -4.500000 >
 < 0.000000, 15.000000, -24.583330 >
@@ -22782,7 +22782,7 @@ smooth_triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 triangle {
 < 3.875000, 17.562500, -4.937500 >
 < 3.875000, 13.437500, -7.687500 >

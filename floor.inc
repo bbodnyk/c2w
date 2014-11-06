@@ -8,7 +8,7 @@
 
 #declare FLOOR =
 object {
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 59.916670, -2.000000, -24.500000 >
 < 18.416670, -2.000000, 25.500000 >

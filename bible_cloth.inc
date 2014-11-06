@@ -8,7 +8,7 @@
 
 #declare BIBLE_CLOTH =
 object {
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 smooth_triangle {
 < 8.651276, 0.150788, -2.183338 >, < -0.993800, 0.034080, 0.105835 >
 < 8.669006, 0.828250, -2.310528 >, < -0.999231, 0.039224, 0.000015 >

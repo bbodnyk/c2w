@@ -8,7 +8,7 @@
 
 #declare FRAME =
 object {
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 smooth_triangle {
 < 34.125830, 3.494736, 0.050426 >, < -0.982268, 0.000000, 0.187482 >
 < 34.120000, 63.777340, 0.000000 >, < -0.999601, 0.000000, 0.028244 >

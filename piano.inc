@@ -15,7 +15,7 @@ union { // Union for all 5 colors
 
 object { LAMP scale <1,1,1> rotate <0,90,0> translate <-1.23,51.38,6.71> }
 
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < -30.000000, 24.866140, 12.677170 >
 < -30.000000, 30.613710, 24.571220 >
@@ -11188,7 +11188,7 @@ smooth_triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 triangle {
 < -29.000000, 3.000000, 1.500000 >
 < -29.000000, 3.000000, 0.000000 >
@@ -30901,7 +30901,7 @@ smooth_triangle {
 }
 texture { COLOR_1 }
 } // End of Union for COLOR_1
-union { // Union for COLOR_2 
+mesh { // Union for COLOR_2 
 triangle {
 < 26.500000, 3.000000, 1.500000 >
 < 26.500000, 3.000000, 4.000000 >
@@ -35984,7 +35984,7 @@ triangle {
 }
 texture { COLOR_2 }
 } // End of Union for COLOR_2
-union { // Union for COLOR_3 
+mesh { // Union for COLOR_3 
 triangle {
 < 28.219670, 0.760704, 21.547590 >
 < 28.218240, 0.050816, 21.545220 >
@@ -43107,7 +43107,7 @@ smooth_triangle {
 }
 texture { COLOR_3 }
 } // End of Union for COLOR_3
-union { // Union for COLOR_4 
+mesh { // Union for COLOR_4 
 smooth_triangle {
 < 28.243280, 0.948186, 21.659700 >, < 0.000000, 1.000000, 0.000000 >
 < 28.275420, 0.948186, 21.640390 >, < 0.000000, 1.000000, 0.000000 >

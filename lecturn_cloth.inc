@@ -8,7 +8,7 @@
 
 #declare LECTURN_CLOTH =
 object {
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 smooth_triangle {
 < 9.705565, 33.427120, 7.964501 >, < -0.996980, 0.074494, -0.021968 >
 < 9.596337, 29.998170, 7.276673 >, < -0.970805, 0.037633, -0.236899 >

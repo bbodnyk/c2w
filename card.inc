@@ -8,7 +8,7 @@
 
 #declare CARD =
 object {
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < -1.750000, 3.500000, -0.010000 >
 < 1.750000, -3.500000, -0.010000 >

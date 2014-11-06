@@ -9,7 +9,7 @@
 #declare CEILING =
 object {
 union { // Union for all 5 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 41.500000, 15.935600, -20.181670 >
 < 60.000000, 17.965350, -10.632470 >
@@ -2192,7 +2192,7 @@ triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 triangle {
 < 0.000000, 17.883840, -10.615140 >
 < 0.000000, 17.965350, -10.632470 >
@@ -23045,7 +23045,7 @@ triangle {
 }
 texture { COLOR_1 }
 } // End of Union for COLOR_1
-union { // Union for COLOR_2 
+mesh { // Union for COLOR_2 
 smooth_triangle {
 < 13.819500, 17.875000, -5.259042 >, < -0.067816, -0.028502, -0.039154 >
 < 13.789600, 17.969880, -5.276308 >, < -0.067816, -0.028502, -0.039154 >
@@ -24428,7 +24428,7 @@ triangle {
 }
 texture { COLOR_2 }
 } // End of Union for COLOR_2
-union { // Union for COLOR_3 
+mesh { // Union for COLOR_3 
 triangle {
 < 10.020000, 16.002770, -20.216390 >
 < 10.020000, 15.801180, -21.164790 >
@@ -24491,7 +24491,7 @@ triangle {
 }
 texture { COLOR_3 }
 } // End of Union for COLOR_3
-union { // Union for COLOR_4 
+mesh { // Union for COLOR_4 
 triangle {
 < 11.524580, 18.072920, -0.572917 >
 < 11.474540, 18.072920, 0.557874 >

@@ -8,7 +8,7 @@
 
 #declare WALL_FRONT =
 object {
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 0.000000, 15.000000, 24.583330 >
 < 0.000000, -2.000000, 24.583330 >

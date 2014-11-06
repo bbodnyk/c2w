@@ -9,7 +9,7 @@
 #declare WALL_RIGHT =
 object {
 union { // Union for all 2 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 5.415000, 1.375000, -24.583330 >
 < 0.000000, -2.000000, -24.583330 >
@@ -172,7 +172,7 @@ triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 triangle {
 < 60.000000, -2.000000, -25.083330 >
 < 60.000000, -2.000000, -24.583330 >

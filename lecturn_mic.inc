@@ -9,7 +9,7 @@
 #declare LECTURN_MIC =
 object {
 union { // Union for all 3 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 14.493820, 4.005278, 5.054167 >
 < 14.392280, 3.982067, 5.158333 >
@@ -8812,7 +8812,7 @@ smooth_triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 smooth_triangle {
 < 12.870090, 5.119890, 5.691257 >, < -0.072859, -0.002176, 0.040389 >
 < 12.882950, 5.195709, 5.674635 >, < -0.065492, 0.041262, 0.030866 >
@@ -9145,7 +9145,7 @@ smooth_triangle {
 }
 texture { COLOR_1 }
 } // End of Union for COLOR_1
-union { // Union for COLOR_2 
+mesh { // Union for COLOR_2 
 triangle {
 < 14.312290, 3.963785, 5.064503 >
 < 14.300970, 3.961197, 5.055454 >

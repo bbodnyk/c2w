@@ -9,7 +9,7 @@
 #declare RAILING_ORGAN =
 object {
 union { // Union for all 2 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 12.166670, 2.500000, 10.250000 >
 < 12.166670, 0.250000, 10.250000 >
@@ -502,7 +502,7 @@ triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 triangle {
 < 12.145830, 0.250000, 10.270830 >
 < 12.166670, 0.250000, 24.583330 >

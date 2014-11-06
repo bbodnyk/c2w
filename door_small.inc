@@ -9,7 +9,7 @@
 #declare DOOR_SMALL =
 object {
 union { // Union for all 2 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < -30.000000, 80.000000, 0.000000 >
 < -31.000000, 81.000000, 0.000000 >
@@ -3002,7 +3002,7 @@ triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 triangle {
 < 0.375000, 46.730590, -3.062500 >
 < 0.375000, 46.730590, -3.000000 >

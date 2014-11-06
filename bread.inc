@@ -9,7 +9,7 @@
 #declare BREAD =
 object {
 union { // Union for all 2 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 smooth_triangle {
 < -2.400525, 2.926504, -1.780501 >, < -0.316152, 0.777210, -0.544052 >
 < -2.324372, 2.966359, -1.758558 >, < -0.219624, 0.822166, -0.525174 >
@@ -12827,7 +12827,7 @@ smooth_triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 smooth_triangle {
 < 2.364064, 3.269274, 0.507372 >, < 0.937604, 0.319779, -0.136529 >
 < 2.245808, 3.544819, 0.289027 >, < 0.955842, 0.272384, -0.110330 >

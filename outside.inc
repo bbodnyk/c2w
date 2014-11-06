@@ -8,7 +8,7 @@
 
 #declare OUTSIDE =
 object {
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 62.080000, -2.000000, -59.080000 >
 < -12.920000, 18.000000, -59.080000 >

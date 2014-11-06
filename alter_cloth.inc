@@ -8,7 +8,7 @@
 
 #declare ALTER_CLOTH =
 object {
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < -13.015820, 0.029715, -24.184550 >
 < -13.015820, 0.029715, -19.786660 >

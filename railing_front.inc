@@ -9,7 +9,7 @@
 #declare RAILING_FRONT =
 object {
 union { // Union for all 2 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 17.253330, -1.500000, -21.250000 >
 < 18.253330, -1.500000, -21.250000 >
@@ -7242,7 +7242,7 @@ triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 triangle {
 < 18.253330, -1.327899, -21.000000 >
 < 18.253330, -1.500000, -21.000000 >

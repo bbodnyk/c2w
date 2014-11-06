@@ -9,7 +9,7 @@
 #declare RAILING_CHOIR =
 object {
 union { // Union for all 2 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 12.166670, 2.666667, -11.083330 >
 < 12.166670, 0.250000, -11.083330 >
@@ -402,7 +402,7 @@ triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 triangle {
 < 12.145830, 0.250000, -11.104170 >
 < 1.500000, 0.250000, -11.083330 >

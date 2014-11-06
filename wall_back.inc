@@ -9,7 +9,7 @@
 #declare WALL_BACK =
 object {
 union { // Union for all 3 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 60.000000, 6.000000, 3.000000 >
 < 60.000000, -2.000000, 3.000000 >
@@ -732,7 +732,7 @@ triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 triangle {
 < 60.078120, 1.894216, -0.125000 >
 < 60.083330, 1.894216, -0.125000 >
@@ -885,7 +885,7 @@ triangle {
 }
 texture { COLOR_1 }
 } // End of Union for COLOR_1
-union { // Union for COLOR_2 
+mesh { // Union for COLOR_2 
 triangle {
 < 60.083330, 1.819167, -0.562500 >
 < 60.083330, 1.060882, -0.458333 >

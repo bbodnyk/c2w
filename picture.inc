@@ -16,7 +16,7 @@ texture {
          
 #declare PICTURE =
 object {                                                                                       
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 37.620000, 64.000000, 0.000000 >
 < 0.000000, 0.000000, 0.000000 >

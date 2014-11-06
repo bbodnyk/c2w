@@ -19,6 +19,10 @@ texture {
 #declare T_WHITE = texture { T_White }
 //
 
+#declare T_VIDEOSCREEN =
+texture {
+  pigment { color rgb VIDEOSCREEN_COLOR }
+  }
 
 #declare M_Wood_Pews =
 color_map {          

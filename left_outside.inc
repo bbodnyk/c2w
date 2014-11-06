@@ -8,7 +8,7 @@
 
 #declare LEFT_OUTSIDE =
 object {
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 60.000000, 15.000000, 56.583330 >
 < 60.000000, -2.000000, 56.583330 >

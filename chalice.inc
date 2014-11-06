@@ -9,7 +9,7 @@
 #declare CHALICE =
 object {
 union { // Union for all 3 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < -2.462033, 0.000000, -0.433992 >
 < 2.462033, 0.000000, -0.433992 >
@@ -37622,7 +37622,7 @@ smooth_triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 smooth_triangle {
 < 2.229473, 7.000000, 0.416567 >, < 0.939340, -0.294672, 0.175527 >
 < 2.117332, 6.612332, 0.000000 >, < 0.905925, -0.423438, 0.000000 >
@@ -41875,7 +41875,7 @@ smooth_triangle {
 }
 texture { COLOR_1 }
 } // End of Union for COLOR_1
-union { // Union for COLOR_2 
+mesh { // Union for COLOR_2 
 smooth_triangle {
 < 2.539890, 7.702537, -2.872165 >, < 0.999657, -0.026165, -0.001369 >
 < 2.540975, 7.710846, -2.728478 >, < 0.999747, -0.018715, -0.012471 >

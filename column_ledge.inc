@@ -8,7 +8,7 @@
 
 #declare COLUMN_LEDGE =
 object {
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 14.750000, 0.000000, -24.583330 >
 < 14.750000, 0.000000, -22.916670 >

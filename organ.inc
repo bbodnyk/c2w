@@ -9,7 +9,7 @@
 #declare ORGAN =
 object {
 union { // Union for all 2 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < 30.000000, 0.000000, 0.000000 >
 < 30.000000, 0.000000, 36.000000 >
@@ -482,7 +482,7 @@ triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 triangle {
 < -30.000000, 48.250000, 19.000000 >
 < -30.000000, 48.000000, 19.000000 >

@@ -9,7 +9,7 @@
 #declare WALL_LIGHT =
 object {
 union { // Union for all 3 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < -0.237764, 3.870068, 1.037746 >
 < 0.237764, 3.870068, 1.037746 >
@@ -19322,7 +19322,7 @@ smooth_triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 smooth_triangle {
 < 0.000000, 12.399100, 7.803076 >, < 0.000000, 0.000000, -1.000000 >
 < 0.000000, 9.629104, 7.803076 >, < 0.000000, 0.000000, -1.000000 >
@@ -19785,7 +19785,7 @@ smooth_triangle {
 }
 texture { COLOR_1 }
 } // End of Union for COLOR_1
-union { // Union for COLOR_2 
+mesh { // Union for COLOR_2 
 smooth_triangle {
 < 0.000000, 12.705040, 7.663067 >, < 0.000000, -0.328578, -0.944477 >
 < 0.000000, 12.399100, 7.803076 >, < 0.000000, -0.499986, -0.866034 >

@@ -9,7 +9,7 @@
 #declare MICROPHONE =
 object {
 union { // Union for all 3 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < -1.154845, 0.000000, -0.478353 >
 < 1.154845, 0.000000, -0.478353 >
@@ -40562,7 +40562,7 @@ smooth_triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 smooth_triangle {
 < 14.764580, 17.380770, -7.645084 >, < 0.858145, 0.169359, -0.484670 >
 < 14.766750, 17.970960, -6.908165 >, < 0.859388, 0.507494, -0.062472 >
@@ -41295,7 +41295,7 @@ smooth_triangle {
 }
 texture { COLOR_1 }
 } // End of Union for COLOR_1
-union { // Union for COLOR_2 
+mesh { // Union for COLOR_2 
 triangle {
 < 1.076720, 0.000000, -0.098602 >
 < 1.098702, 0.000000, 0.076594 >

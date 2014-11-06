@@ -9,7 +9,7 @@
 #declare VIDEO_SCREEN_IMAGE =
 object {
 union { // Union for all 2 colors
-union { // Union for COLOR_0 
+mesh { // Union for COLOR_0 
 triangle {
 < -59.000000, 29.750000, -0.112500 >
 < 59.000000, 29.750000, -0.237500 >
@@ -152,7 +152,7 @@ triangle {
 }
 texture { COLOR_0 }
 } // End of Union for COLOR_0
-union { // Union for COLOR_1 
+mesh { // Union for COLOR_1 
 triangle {
 < -59.000000, 37.625000, -0.050000 >
 < -57.500000, 28.750000, -0.050000 >
