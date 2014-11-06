@@ -12,8 +12,8 @@ difference {
 prism { linear_spline -1,1,6,<0,0>,<-18,0>,<-18,25>,<-11,25>,<-11,35>,<0,35> rotate <-90,0,0> texture { T_White  } }
 box { <-9,6,-4>,<-2,33,-.75> texture { T_White  }}
 }
-box { <-8,7,.75>,<-3,32,1.> scale <1,1,-1> texture { T_White  }}
- 
+//box { <-8,7,.75>,<-3,32,1.> scale <1,1,-1> texture { T_White  }}
+object { Raised_Panel(5,25,.25) texture { T_White  } rotate <0,180,0> translate <-5.5,19.5,-.75>} 
 box {<0.5,0,-1.5>,<-18.5,4,1.5> texture { T_PEW rotate <0,90,0> scale <4,4,4> }}
 }
 object { Pew_Top4(10,T_PEW) translate <-5.5,35,0> }
