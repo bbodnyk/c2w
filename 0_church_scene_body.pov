@@ -305,7 +305,9 @@ object { CHALICE scale <1/12,1/12,1/12> rotate <0,70,0> translate <3.8,2.875,-1.
 #end
 object { BREAD_BASKET scale <1/12,1/12,1/12> scale <1.25,1.25,1.25> rotate <0,25,0> translate <3.67,2.89,1.75> }
 
-
+#include "pov_candle.inc"
+object { CANDLE scale <1/12,1/12,1/12> translate <3,2.885,-2.13> }
+object { CANDLE scale <1/12,1/12,1/12> translate <3,2.885,2.13> }
 
 //#if(OBJECT_BOX = 1)
 //#include "box_video_screen.inc"
