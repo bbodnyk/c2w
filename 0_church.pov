@@ -16,7 +16,7 @@
 // where most of the scene objects are turned off to speed up the rendering time.
 // What objects and lights are activated debug mode is on or off can be configured.
 //
-#declare DEBUG = 1;        // Set to 1 for debugging
+#declare DEBUG = 0;        // Set to 1 for debugging
 #declare OBJECT_BOX = 0;   // Turn on simple objects
 //
 //=================== Animation Control ==============================
@@ -24,7 +24,7 @@
 // 0 - Animation Off
 // 1 - Animation On
 //
-#declare ANIMATION = 1;
+#declare ANIMATION = 0;
 //
 // Animation Sequence
 //
@@ -34,10 +34,11 @@
 //  1 - Walk down to front of alter
 //  2 - Look up at Jeses
 //  3 - Scene Change
-//  4 - Ending  
+//  4 - Ending
+//  5 - Video Starting  
 //
-#declare ANIMATION_SEQUENCE = 4;
-#declare ANIMATION_SUBSEQUENCE = 0;
+#declare ANIMATION_SEQUENCE = 5;
+#declare ANIMATION_SUBSEQUENCE = 1;
 //
 //========= Ambient/Diffuse/Emission Light Control ===================
 //
@@ -70,6 +71,7 @@
 #declare SIDECEILINGLIGHTCOLOR = <1,1,150/255>*1.0;    // Side Ceiling light color
 #declare SIDEWALLLIGHTCOLOR =    <1,1,150/255>*1.0;    // Wall sconces light color
 #declare CHANDELIERLIGHTCOLOR =  <1,1,150/255>*1.0;    // Chandelier light color
+#declare VIDEOSCREEN_COLOR    =  <1,1,1>;
 //
 //
 //========================== Camera Control ===========================
@@ -88,14 +90,14 @@
 // NOTE: Camera 6 is intended to be used only for animations. The controls
 //       for camera 6 are in the Animation section.
 //
-#declare CAMERA = 4;                      // 1 THRU 5
+#declare CAMERA = 1;                      // 1 THRU 5
 #declare CAMERAZOOM = 1;                  // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
 #declare PERSPECTIVE = 0;                 // Set to 1 for perspective camera
 //
 // Camera 5 Setup
 //
-#declare CAMERA5_LOCATION = <8,6,0>;    // <13,4,6>
-#declare CAMERA5_LOOKAT =  <0,14.5,0>;      // <3,2,0>
+#declare CAMERA5_LOCATION = <12,6,0>;    // <13,4,6>
+#declare CAMERA5_LOOKAT =  <0,3,0>;      // <3,2,0>
 #declare CAMERA5_FADE = 20;               // Distance Camera flash is at full intensity
 //
 //========================== Scene Control ===========================
@@ -131,7 +133,7 @@
 //
 #if(DEBUG = 0)
 #declare CAMERAFLASH = 0;       // 0 (off) or 1 (on) - Camara Flash
-#declare HANGINGLAMP_LIGHT = 1; // 0 (off) or 1 (on)
+#declare HANGINGLAMP_LIGHT = 0; // 0 (off) or 1 (on)
 #declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 1;         // 0 (off) or 1 (on) - Above Jesus, pulpit and lecturn
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on) - Upper side lights along length of church
@@ -147,33 +149,38 @@
 //                                       
 #declare ALTERSTUFF = 1;        // 0 (off) or 1 (on)
 #declare HANGINGLAMP = 1;       // 0 (off) or 1 (on)
-#declare PEWS = 0;              // 0 (off) or 1 (on)
-#declare POV_PEWS = 0;          // 0 (off) or 1 (on)
+#declare PEWS = 1;              // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 1;        // 0 (off) or 1 (on)
 #declare RAILINGS = 1;          // 0 (off) or 1 (on)
-#declare HYMNALS = 0;           // 0 (off) or 1 (on)
-#declare LIGHTFIXTURES =0;      // 0 (off) or 1 (on)
+#declare HYMNALS = 1;           // 0 (off) or 1 (on)
+#declare LIGHTFIXTURES =1;      // 0 (off) or 1 (on)
 #declare CHANDELIER = 1;        // 0 (off) or 1 (on)
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN = 1;            // 0 (off) or 1 (on)
 #declare VIDEO_ON = 1;
-#declare VIDEO_IMAGE = "welcome.jpg";  // Must be 1123 x 682 pixel jpeg
-#declare VIDEO_EMISSION = 0.80;
-#declare WINDOWS = 0;
+#declare VIDEO_IMAGE = "2_white.jpg";  // Must be 1123 x 682 pixel jpeg
+//#declare VIDEO_IMAGE = "screen_exp_left_bld.jpg";
+//#declare VIDEO_IMAGE = "screen_exp_2wht.jpg";
+//#declare VIDEO_IMAGE = "screen_desktop.jpg";
+#declare VIDEO_IMAGE = "screen_emptyblue.jpg";
+//#declare VIDEO_IMAGE = "screen_searching.jpg";
+//#declare VIDEO_IMAGE = "welcome.jpg";
+#declare VIDEO_EMISSION = 0.8;
+#declare WINDOWS = 1;
 #declare MURAL = 0;
 #else
 //
 //
 //========================== Light Switches - Debugging On  ===========================
 //
-#declare CAMERAFLASH = 1;       // 0 (off) or 1 (on)
+#declare CAMERAFLASH = 0;       // 0 (off) or 1 (on)
 #declare HANGINGLAMP_LIGHT = 0; // 0 (off) or 1 (on)
 #declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 1;         // 0 (off) or 1 (on)
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on)
-#declare SIDEWALLLIGHTS = 0;    // 0 (off) or 1 (on)
-#declare CEILINGLIGHTS = 0;     // 0 (off) or 1 (on) (Needs CHANDELIER=1 )
-#declare CANDLE_ON = 0;         // 0 (off) or 1 (on) 
+#declare SIDEWALLLIGHTS = 1;    // 0 (off) or 1 (on)
+#declare CEILINGLIGHTS = 1;     // 0 (off) or 1 (on) (Needs CHANDELIER=1 )
+#declare CANDLE_ON = 1;         // 0 (off) or 1 (on) 
 #declare BACKLIGHTS = 1;        // Can be turned off if doing closeups of front
 #declare TREE_EMISSION = 1.0;
 #declare FLAME_EMISSION = 1.0; 
@@ -184,17 +191,16 @@
 #declare ALTERSTUFF = 0;        // 0 (off) or 1 (on)
 #declare HANGINGLAMP = 0;       // 0 (off) or 1 (on)
 #declare PEWS = 0;              // 0 (off) or 1 (on)
-#declare POV_PEWS = 0;          // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 0;        // 0 (off) or 1 (on)
 #declare RAILINGS = 0;          // 0 (off) or 1 (on)
 #declare HYMNALS = 0;           // 0 (off) or 1 (on)
 #declare LIGHTFIXTURES =0;     // 0 (off) or 1 (on)
-#declare CHANDELIER = 0;        // 0 (off) or 1 (on)
+#declare CHANDELIER = 1;        // 0 (off) or 1 (on)
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN = 1;             // 0 (off) or 1 (on)
 #declare VIDEO_ON = 1;
-#declare VIDEO_IMAGE = "welcome.jpg";
-#declare VIDEO_EMISSION = 0.5;
+#declare VIDEO_IMAGE = "screen_emptyblue.jpg";
+#declare VIDEO_EMISSION = .2;
 #declare WINDOWS = 0;
 #declare MURAL = 0;
 #end
@@ -395,19 +401,34 @@ spline {
 // Camera location determined by spline
 //
 #declare CAMERA6_LOOKAT = <0,4,0>;
-#if(clock<=0.5) #declare CAMERA6_LOOKAT = <0,4,0>;
-#elseif(clock>0.7)  #declare CAMERA6_LOOKAT = <0,4,0>;
-#else
-#declare lookclock = (0.7 - clock)/0.2;
+#if(clock<=0.5) #declare CAMERA6_LOOKAT = <0,4,0>; #end
+#if(clock>0.7)  #declare CAMERA6_LOOKAT = <0,4,0>; #end
+#if ( clock > 0.5 & clock <= 0.7 )
+#declare lookclock = (clock-0.5)/0.2;
 #if(lookclock <= 0.5)
-#declare CAMERA6_LOOKAT = LookAtSpline(lookclock*2);
+#declare spline_clock = ((1-cos(lookclock/0.5*pi))/2);
+#declare CAMERA6_LOOKAT = LookAtSpline(spline_clock);
 #else
-#declare CAMERA6_LOOKAT = LookAtSpline((1.0-lookclock)*2);
+#declare spline_clock = 1-((1-cos(lookclock/0.5*pi))/2);
+#declare CAMERA6_LOOKAT = LookAtSpline((1.0-spline_clock));
 #end
+//#declare text_str = concat("clock - ",str(clock,4,3),", Look clock - ",concat(str(spline_clock,4,3)," <",vstr(3,CAMERA6_LOCATION,",",3,3) ,"> <",vstr(3,CAMERA6_LOOKAT,",",3,3),">");
+#declare text_str = concat("Clock = ",str(clock,4,3), ", Look Clock -", str(lookclock,4,3),", Spline Clock -", str(spline_clock,4,3) );
+#debug text_str
+#debug "\n"
 #end
-//#declare text_str = concat(str(clock,4,3)," <",vstr(3,CAMERA6_LOCATION,",",3,3) ,"> <",vstr(3,CAMERA6_LOOKAT,",",3,3),">");
-//#debug text_str
-//#debug "\n"
+//
+// Turn on Video
+//
+//#declare VIDEO_IMAGE = "screen_emptyblue.jpg";
+//#if (clock <= 0.1 )
+//#declare em_clock = (clock)/0.1;
+//#declare VIDEO_EMISSION = 0.8*em_clock;
+//#else
+//#declare VIDEO_EMISSION = 0.8;
+//#end
+//
+
 #end
 //
 // ---------------------------------------------------------------
@@ -521,7 +542,34 @@ light_source { < 25-(clock3*24.3),4,0> color rgb <LIGHT_SPHERE_INTENSITY,LIGHT_S
 //
 // ---------------------------------------------------------------
 //
-
+// Video Warming Up
+//
+#if( ANIMATION_SEQUENCE = 5 )
+//#declare VIDEO_IMAGE = "screen_searching.jpg";
+//#declare VIDEO_IMAGE = "screen_desktop.jpg";
+//#declare VIDEO_IMAGE = "screen_emptyblue.jpg";
+//#declare VIDEO_IMAGE = "screen_exp_2wht.jpg";
+//#declare VIDEO_IMAGE = "screen_exp_left_bld.jpg";
+#declare VIDEO_EMISSION = 0.8;
+//
+#declare CAMERA6_LOCATION = <59.3,4,20.5>;
+#declare CAMERA6_LOOKAT = <0,4,0>;
+#declare CAMERA6_ZOOM = 1;
+#declare CAMERA6_FADE = 20;
+#declare  COLOR_SCHEME = 0;
+#if (ANIMATION_SUBSEQUENCE = 1)
+#if (clock <= 0.5)
+#declare video_clock = (clock/0.5);
+#declare VIDEO_ON = 0;
+#declare VIDEO_EMISSION = 0.005 + 0.295*((1-cos(video_clock*pi))/2);
+#else
+#declare video_clock = (clock-0.5)/0.5;
+#declare VIDEO_ON = 1;
+#declare VIDEO_EMISSION = 0.2 + 0.6*((1-cos(video_clock*pi))/2);
+#declare VIDEO_IMAGE = "screen_emptyblue.jpg"; 
+#end
+#end
+#end
 // Additional Animation Sequences
 //
 
