@@ -386,11 +386,8 @@ object { MICROPHONE scale <1/12,1/12,1/12> translate <13.83,3.52,-5.41> }
 #end   
 object { PULPIT_CLOTH scale <1/12,0.75/12,.75/12> translate <13.57,1.01,-6.37>}
 
-#if(OBJECT_BOX = 1)
-#include "box_lecturn.inc"
-#else
-#include "lecturn.inc"
-#end                         
+
+#include "pov_lecturn.inc"                        
 object { LECTURN scale <1/12,1/12,1/12> translate <13.84,0,5.817> } 
 
 #if(OBJECT_BOX = 1)
