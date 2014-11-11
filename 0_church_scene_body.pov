@@ -180,15 +180,8 @@ object { RAILING_ORGAN }
 
 #if(PEWS = 1)
 #include "pov-pew.inc"
-#if(OBJECT_BOX = 1)
-#include "box_pew1.inc"
-#else
-#include "pew1.inc"
-#end
 #declare pewcount=0;
 #while (pewcount<12)
-//object { PEW1 scale <1/12,1/12,1/12> translate <23.67+(pewcount*3),-2,11.42> }
-//object { PEW1 scale <1/12,1/12,1/12> translate <23.67+(pewcount*3),-2,-11.42> }
 object { PEW(198,1) scale <1/12,1/12,1/12> translate <284/12+(pewcount*3),-2,99/12+38/12> }
 object { PEW(198,1) scale <1/12,1/12,1/12> translate <284/12+(pewcount*3),-2,-(99/12+38/12)> } 
 #declare pewcount = pewcount + 1;
@@ -337,7 +330,7 @@ object { CROSS scale <1/12,1/12,1/12> translate <0,4,0> }
 #else
 #include "spotlight.inc"
 #end            
-object { SPOTLIGHT scale <1/12,1/12,1/12> translate <4,18,0> }
+object { SPOTLIGHT scale <1/12,1/12,1/12> translate <3.68,17.4,0> }
 
 #include "hanging_light.inc"
 object { HANGING_LIGHT scale <1/12,1/12,1/12> translate <6,18,0> }

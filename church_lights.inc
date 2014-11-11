@@ -288,6 +288,9 @@ object { FLAME scale <1/12,1/12,1/12> translate <38.42,6.625,-23.89>}
 light_source { <0,0,0> color SIDEWALLLIGHTCOLOR fade_distance 1 fade_power 2 shadowless  translate <45.42,6.6,-23.89> }
 object { LIGHT_BULB hollow scale <.1,.1,.1> translate <45.42,6.55,-23.89>}
 object { FLAME scale <1/12,1/12,1/12> translate <45.42,6.625,-23.89>}
+light_source { <0,0,0> color SIDEWALLLIGHTCOLOR fade_distance 1 fade_power 2 shadowless  translate <52.42,6.6,-23.89> }
+object { LIGHT_BULB hollow scale <.1,.1,.1> translate <52.42,6.55,-23.89>}
+object { FLAME scale <1/12,1/12,1/12> translate <52.42,6.625,-23.89>}
 
 light_source { <0,0,0> color SIDEWALLLIGHTCOLOR fade_distance 1 fade_power 2 shadowless  translate <24.42,6.6,23.89> }
 object { LIGHT_BULB hollow scale <.1,.1,.1> translate <24.42,6.55,23.89>}
@@ -301,4 +304,7 @@ object { FLAME scale <1/12,1/12,1/12> translate <38.42,6.625,23.89>}
 light_source { <0,0,0> color SIDEWALLLIGHTCOLOR fade_distance 1 fade_power 2 shadowless  translate <45.42,6.6,23.89> }
 object { LIGHT_BULB hollow scale <.1,.1,.1> translate <45.42,6.55,23.89>}
 object { FLAME scale <1/12,1/12,1/12> translate <45.42,6.625,23.89>}
+light_source { <0,0,0> color SIDEWALLLIGHTCOLOR fade_distance 1 fade_power 2 shadowless  translate <52.42,6.6,23.89> }
+object { LIGHT_BULB hollow scale <.1,.1,.1> translate <52.42,6.55,23.89>}
+object { FLAME scale <1/12,1/12,1/12> translate <52.42,6.625,23.89>}
 #end
