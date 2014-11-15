@@ -8,8 +8,8 @@
 #macro Board(LEN,WIDTH,THK,MITER1,MITER2,TEXTURE)
 difference {
 box { <-LEN-1,0,0>,<LEN+1,WIDTH,THK> }
-box { <0,-LEN,-LEN>,<LEN,LEN,LEN> rotate <0,MITER1*45,0> translate <LEN/2,0,0>}
-box { <0,-LEN,-LEN>,<-LEN,LEN,LEN> rotate <0,-45*MITER2,0> translate <-LEN/2,0,0> }
+#if(MITER1 != 0)box { <0,-LEN,-LEN>,<LEN,LEN,LEN> rotate <0,MITER1*45,0> translate <LEN/2,0,0>}#end
+#if(MITER2 != 0)box { <0,-LEN,-LEN>,<-LEN,LEN,LEN> rotate <0,-45*MITER2,0> translate <-LEN/2,0,0> }#end
 texture { TEXTURE rotate <0,90,0> }
 }
 #end
@@ -74,9 +74,9 @@ box { <-.125,-1,.375>,<0.125,.75,10> translate <XPOS+(ival*0.5),0,0> texture { T
 #macro Quarter_Round(RAD,LEN,MITER1,MITER2,TEXTURE)
 difference {
 cylinder { <-1-LEN,0,0>,<1+LEN,0,0>,RAD }
-box { <-2*LEN,0,-RAD*2>,<2*LEN,-RAD*2,RAD*2> }
-box { <-2*LEN,0,0>,<2*LEN,RAD*2,-RAD*2> }
-box { <0,-LEN,-LEN>,<LEN,LEN,LEN> rotate <0,MITER1*45,0> translate <LEN/2,0,0>}
+box { <-4*LEN,0,-RAD*2>,<4*LEN,-RAD*2,RAD*2> }
+box { <-4*LEN,0,0>,<4*LEN,RAD*2,-RAD*2> }
+box { <0,-LEN,-LEN>,<2*LEN,LEN,LEN> rotate <0,MITER1*45,0> translate <LEN/2,0,0>}
 box { <0,-LEN,-LEN>,<-LEN,LEN,LEN> rotate <0,-45*MITER2,0> translate <-LEN/2,0,0> }
 }
 texture { TEXTURE rotate <0,90,0> }
@@ -92,6 +92,19 @@ box { <-LEN,0,0>,<LEN,RAD,RAD> }
 cylinder { <-2*LEN,RAD,RAD>,<2*LEN,RAD,RAD>,RAD}
 box { <0,-LEN,-LEN>,<LEN,LEN,LEN> rotate <0,MITER1*45,0> translate <LEN/2,0,0>}
 box { <0,-LEN,-LEN>,<-LEN,LEN,LEN> rotate <0,-45*MITER2,0> translate <-LEN/2,0,0> }
+texture { TEXTURE rotate <0,90,0> scale <3,3,3> }
+}
+#end
+//
+//
+//
+#macro Concave_Quarter_Round_Flat(RAD,LEN,TEXTURE)
+//
+difference {
+box { <-LEN,0,0>,<LEN,RAD,RAD> }
+cylinder { <-2*LEN,RAD,RAD>,<2*LEN,RAD,RAD>,RAD}
+//box { <0,-LEN,-LEN>,<LEN,LEN,LEN> rotate <0,MITER1*45,0> translate <LEN/2,0,0>}
+//box { <0,-LEN,-LEN>,<-LEN,LEN,LEN> rotate <0,-45*MITER2,0> translate <-LEN/2,0,0> }
 texture { TEXTURE rotate <0,90,0> scale <3,3,3> }
 }
 #end
@@ -165,4 +178,23 @@ rotate <0,90,0> translate <LEN/2,0,0> }
 
 
 translate <LEN/2,0,0> clipped_by { plane { <-1,0,0>,0} }}           
+#end
+
+//
+// Ceiling Cove Molding
+//
+#macro CEILING_COVE(LEN,MITER1,MITER2,TEXTURE)
+difference {
+union {
+box { <-LEN*2,0,0>,<LEN*2,-4,.25>}
+box { <-LEN*2,0,0>,<LEN*2,-3.75,.125> translate <0,0,.25>}
+box { <-LEN*2,0,.375>,<LEN*2,-1,2.875> }
+box { <-LEN*2,-1,.375>,<LEN*2,-2,1.375>}
+object { Quarter_Round(1,LEN*4,0,0,TEXTURE) rotate <90,0,0> translate <0,-2,.375>}
+object { Concave_Quarter_Round_Flat(1,LEN*4,TEXTURE) rotate <90,0,0> translate <0,-1,1.375>}
+texture { TEXTURE } 
+}
+box { <0,-1000,-1000>,<LEN*1000,1000,1000> rotate <0,MITER1*45,0>  translate <LEN/2,0,0>}
+box { <0,-1000,-1000>,<-LEN*1000,1000,1000> rotate <0,-45*MITER2,0> translate <-LEN/2,0,0> }
+}
 #end

@@ -148,6 +148,9 @@ object { OUTSIDE hollow scale <1.25,1,1> scale <-1,1,1> translate <120,-6,-10> }
 
 #include "column_ledge.inc"
 object { COLUMN_LEDGE }
+//#include "pov_column_ledge.inc"
+//object { COLUMN_LEDGE translate <0,12,-5.38877>}
+
 #include "speakers.inc"
 object { SPEAKERS }
 #include "picture_arch.inc"
@@ -170,11 +173,13 @@ object { DOOR_SMALL scale <1/12,1/12,1/12> translate <20.92,-2,24.92> }
 
 #if(RAILINGS = 1)
 #include "railing_front.inc"
-#include "railing_choir.inc"
+//#include "railing_choir.inc"
 #include "railing_organ.inc"
 object { RAILING_FRONT }
-object { RAILING_CHOIR }
+//object { RAILING_CHOIR }
 object { RAILING_ORGAN }
+#include "pov_railing_choir.inc"
+object { RAILING_CHOIR scale <1/12,1/12,1/12> translate <1.5,0,-10.92> }
 #end
 
 
@@ -193,6 +198,7 @@ object { PEW(198,1) scale <1/12,1/12,1/12> translate <284/12+(pewcount*3),-2,-(9
 #if(PEWS_CHOIR = 1)
 //#include "pews_choir.inc"
 //object { PEWS_CHOIR }
+#include "pov-pew.inc"
 object { PEW(72,0) scale <1/12,1/12,1/12> rotate <0,90,0> translate <9,0,-10.87> }
 object { PEW(122,0) scale <1/12,1/12,1/12> rotate <0,90,0> translate <6.75,0,-13.91> }
 object { PEW(63,0) scale <1/12,1/12,1/12> rotate <0,90,0> translate <4.63,1,-16.91> }
@@ -240,14 +246,14 @@ object { FLAME scale <1/12,1/12,1/12> translate <6, 15.5, 0>}
 light_source { <0,0,0> color rgb <1,1,1> fade_distance .5 fade_power 2 shadowless translate <6,15.5,0> }
 #end
 #end
-
+/*
 #if(OBJECT_BOX = 1)
 #include "box_video_screen.inc"
 #else
 #include "video_screen.inc"
 #end     
 object {VIDEO_SCREEN  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
-
+*/
 #if(SCREEN = 1)
 #if(OBJECT_BOX = 1)
 #include "box_video_screen_image.inc"
@@ -256,6 +262,9 @@ object {VIDEO_SCREEN  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.
 #end     
 object {VIDEO_SCREEN_IMAGE  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
 #end
+
+#include "pov_video_screen.inc"
+object { VIDEO_SCREEN scale <1/12,1/12,1/12> translate <5.0,13,10.0> }
 
 //
 // Alter, Bible, Cross, Pulpit, Lecturn, etc.
@@ -301,22 +310,6 @@ object { BREAD_BASKET scale <1/12,1/12,1/12> scale <1.25,1.25,1.25> rotate <0,25
 #include "pov_candle.inc"
 object { CANDLE scale <1/12,1/12,1/12> translate <3,2.885,-2.13> }
 object { CANDLE scale <1/12,1/12,1/12> translate <3,2.885,2.13> }
-
-//#if(OBJECT_BOX = 1)
-//#include "box_video_screen.inc"
-//#else
-//#include "video_screen.inc"
-//#end     
-//object {VIDEO_SCREEN  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
-//#if(SCREEN = 1)
-
-//#if(OBJECT_BOX = 1)
-//#include "box_video_screen_image.inc"
-//else
-//#include "video_screen_image.inc"
-//#end     
-//object {VIDEO_SCREEN_IMAGE  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
-//#end
 
 #if(OBJECT_BOX = 1)
 #include "box_cross.inc"
@@ -448,6 +441,7 @@ object { WALL_LIGHT scale <1/12,1/12,1/12> rotate < 0,180,0> translate <24.42,5.
 object { WALL_LIGHT scale <1/12,1/12,1/12> rotate < 0,180,0> translate <31.42,5.5,24.58> }
 object { WALL_LIGHT scale <1/12,1/12,1/12> rotate < 0,180,0> translate <38.42,5.5,24.58> }
 object { WALL_LIGHT scale <1/12,1/12,1/12> rotate < 0,180,0> translate <45.42,5.5,24.58> }
+object { WALL_LIGHT scale <1/12,1/12,1/12> rotate < 0,180,0> translate <52.42,5.5,24.58> }
 #end
 
 #if(CHANDELIER = 1)                    
