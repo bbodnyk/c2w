@@ -16,7 +16,7 @@
 // where most of the scene objects are turned off to speed up the rendering time.
 // What objects and lights are activated debug mode is on or off can be configured.
 //
-#declare DEBUG = 0;        // Set to 1 for debugging
+#declare DEBUG = 1;        // Set to 1 for debugging
 #declare OBJECT_BOX = 0;   // Turn on simple objects
 //
 //=================== Animation Control ==============================
@@ -38,7 +38,7 @@
 //  5 - Video Starting  
 //
 #declare ANIMATION_SEQUENCE = 5;
-#declare ANIMATION_SUBSEQUENCE = 1;
+#declare ANIMATION_SUBSEQUENCE = 3;
 //
 //========= Ambient/Diffuse/Emission Light Control ===================
 //
@@ -158,15 +158,15 @@
 #declare CHANDELIER = 1;        // 0 (off) or 1 (on)
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN_OPEN = 1.0;     // range 0 (up) to 1 (down)
-#declare VIDEO_ON = 1;          // 0 (off) or 1 (on)
+#declare VIDEO_ON = 0;          // 0 (off) or 1 (on)
 //#declare VIDEO_IMAGE = "2_white.jpg";  // Must be 1123 x 682 pixel jpeg
 //#declare VIDEO_IMAGE = "screen_exp_left_bld.jpg";
 //#declare VIDEO_IMAGE = "screen_exp_2wht.jpg";
 //#declare VIDEO_IMAGE = "screen_desktop.jpg";
 //#declare VIDEO_IMAGE = "screen_emptyblue.jpg";
-//#declare VIDEO_IMAGE = "screen_searching.jpg";
+#declare VIDEO_IMAGE = "screen_searching.jpg";
 //#declare VIDEO_IMAGE = "welcome.jpg";
-#declare VIDEO_IMAGE = "umc.jpg";
+//#declare VIDEO_IMAGE = "umc.jpg";
 #declare VIDEO_EMISSION = 0.8;  // brightness of video image
 #declare WINDOWS = 1;           // 0 (off) or 1 (on)
 #declare MURAL = 0;             // 0 (off) or 1 (on)
@@ -200,9 +200,9 @@
 #declare LIGHTFIXTURES =0;      // 0 (off) or 1 (on)
 #declare CHANDELIER = 0;        // 0 (off) or 1 (on)
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
-#declare SCREEN_OPEN = 0.25;     // range 0 (up) to 1 (down)
-#declare VIDEO_ON = 0;          // 0 (off) or 1 (on)
-#declare VIDEO_IMAGE = "umc.jpg";
+#declare SCREEN_OPEN = 1;     // range 0 (up) to 1 (down)
+#declare VIDEO_ON = 1;          // 0 (off) or 1 (on)
+#declare VIDEO_IMAGE = "screen_searching.jpg";
 #declare VIDEO_EMISSION = .8;
 #declare WINDOWS = 0;
 #declare MURAL = 0;
@@ -574,23 +574,42 @@ light_source { < 25-(clock3*24.3),4,0> color rgb <LIGHT_SPHERE_INTENSITY,LIGHT_S
 #declare text_str = concat("Open :",str(SCREEN_OPEN,4,3));
 #debug text_str
 #debug "\n"
-#end
+#end // end of subsequence 1
 //
 // Subsequence 2 - Video turns on
 //
 #if (ANIMATION_SUBSEQUENCE = 2)
-
+#declare SCREEN_OPEN = 1.0;
 #if (clock <= 0.5)
 #declare video_clock = (clock/0.5);
 #declare VIDEO_ON = 0;
-#declare VIDEO_EMISSION = 0.005 + 0.295*((1-cos(video_clock*pi))/2);
-#else
+#declare VIDEO_EMISSION = 0.15 + 0.10*((1-cos(video_clock*pi))/2);
+#end // end of first half
+//
+#if (clock > 0.5 )
 #declare video_clock = (clock-0.5)/0.5;
 #declare VIDEO_ON = 1;
-#declare VIDEO_EMISSION = 0.2 + 0.6*((1-cos(video_clock*pi))/2);
-#declare VIDEO_IMAGE = "screen_emptyblue.jpg"; 
-#end // end of video on seq
-#end // 
+#declare VIDEO_EMISSION = 0.25 + 0.65*((1-cos(video_clock*pi))/2);
+#declare VIDEO_IMAGE = "screen_searching.jpg"; 
+#end // end of last half
+#end // end of subsequence 2
+//
+// Subsequence 3 - Finding video background
+//
+#if (ANIMATION_SUBSEQUENCE = 3)
+#declare SCREEN_OPEN = 1.0;
+#declare VIDEO_ON = 1;
+#declare VIDEO_EMISSION = 0.8;
+//
+#if( clock <= 0.1 ) #declare VIDEO_IMAGE = "screen_desktop.jpg"; #end
+#if( clock > 0.1 & clock <= 0.2 ) #declare VIDEO_IMAGE = "screen_exp_left_bld.jpg"; #end
+#if( clock > 0.2 & clock <= 0.3 ) #declare VIDEO_IMAGE = "left_the_building.jpg"; #end
+#if( clock > 0.3 & clock <= 0.35 ) #declare VIDEO_IMAGE = "screen_desktop.jpg"; #end
+#if( clock > 0.35 & clock <= 0.45 ) #declare VIDEO_IMAGE = "screen_exp_2wht.jpg"; #end
+#if( clock > 0.45 & clock <= 0.65 ) #declare VIDEO_IMAGE = "2_white.jpg"; #end
+#if( clock > 0.65 & clock <= 0.95 ) #declare VIDEO_IMAGE = "screen_searching.jpg"; #end
+#if( clock > 0.95 ) #declare VIDEO_IMAGE = "umc.jpg"; #end
+#end // end of subsequence 3  
 #end
 // Additional Animation Sequences
 //
