@@ -24,7 +24,7 @@
 // 0 - Animation Off
 // 1 - Animation On
 //
-#declare ANIMATION = 0;
+#declare ANIMATION = 1;
 //
 // Animation Sequence
 //
@@ -37,7 +37,7 @@
 //  4 - Ending
 //  5 - Video Starting  
 //
-#declare ANIMATION_SEQUENCE = 0;
+#declare ANIMATION_SEQUENCE = 5;
 #declare ANIMATION_SUBSEQUENCE = 1;
 //
 //========= Ambient/Diffuse/Emission Light Control ===================
@@ -90,14 +90,14 @@
 // NOTE: Camera 6 is intended to be used only for animations. The controls
 //       for camera 6 are in the Animation section.
 //
-#declare CAMERA = 2;                      // 1 THRU 5
-#declare CAMERAZOOM = 1.25;                  // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
+#declare CAMERA = 1;                      // 1 THRU 5
+#declare CAMERAZOOM = 1.0;                  // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
 #declare PERSPECTIVE = 0;                 // Set to 1 for perspective camera
 //
 // Camera 5 Setup
 //
-#declare CAMERA5_LOCATION = <20,6,0>;    // <13,4,6>
-#declare CAMERA5_LOOKAT =  <10,4,6>;      // <3,2,0>
+#declare CAMERA5_LOCATION = <59.3,4,20.5>;    // <13,4,6>
+#declare CAMERA5_LOOKAT =  <0,4,0>;      // <3,2,0>
 #declare CAMERA5_FADE = 20;               // Distance Camera flash is at full intensity
 //
 //========================== Scene Control ===========================
@@ -134,11 +134,11 @@
 #if(DEBUG = 0)
 #declare CAMERAFLASH = 0;       // 0 (off) or 1 (on) - Camara Flash
 #declare HANGINGLAMP_LIGHT = 0; // 0 (off) or 1 (on)
-#declare SUNLIGHT = 1;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
+#declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 1;         // 0 (off) or 1 (on) - Above Jesus, pulpit and lecturn
 #declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on) - Upper side lights along length of church
-#declare SIDEWALLLIGHTS = 0;  // 0 (off) or 1 (on) - Wall sconces
-#declare CEILINGLIGHTS = 0;    // 0 (off) or 1 (on) - Chandeliers (Needs CHANDELIER=1 )
+#declare SIDEWALLLIGHTS = 1;  // 0 (off) or 1 (on) - Wall sconces
+#declare CEILINGLIGHTS = 1;    // 0 (off) or 1 (on) - Chandeliers (Needs CHANDELIER=1 )
 #declare CANDLE_ON = 1;         // 0 (off) or 1 (on)
 #declare BACKLIGHTS = 1;        // Can be turned off if doing closeups of front 
 #declare AREA_LITES = 1;        // Replaces area_lights with point light sources for test purposes.
@@ -191,7 +191,7 @@
 //                       
 //========================== Object Switches - Debugging On ===========================                                                                  
 //                                       
-#declare ALTERSTUFF = 1;        // 0 (off) or 1 (on)
+#declare ALTERSTUFF = 0;        // 0 (off) or 1 (on)
 #declare HANGINGLAMP = 0;       // 0 (off) or 1 (on)
 #declare PEWS = 0;              // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 0;        // 0 (off) or 1 (on)
@@ -200,8 +200,8 @@
 #declare LIGHTFIXTURES =0;      // 0 (off) or 1 (on)
 #declare CHANDELIER = 0;        // 0 (off) or 1 (on)
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
-#declare SCREEN_OPEN = 1.0;     // range 0 (up) to 1 (down)
-#declare VIDEO_ON = 1;          // 0 (off) or 1 (on)
+#declare SCREEN_OPEN = 0.25;     // range 0 (up) to 1 (down)
+#declare VIDEO_ON = 0;          // 0 (off) or 1 (on)
 #declare VIDEO_IMAGE = "umc.jpg";
 #declare VIDEO_EMISSION = .8;
 #declare WINDOWS = 0;
@@ -553,14 +553,33 @@ light_source { < 25-(clock3*24.3),4,0> color rgb <LIGHT_SPHERE_INTENSITY,LIGHT_S
 //#declare VIDEO_IMAGE = "screen_emptyblue.jpg";
 //#declare VIDEO_IMAGE = "screen_exp_2wht.jpg";
 //#declare VIDEO_IMAGE = "screen_exp_left_bld.jpg";
+//#declare VIDEO_IMAGE = "umc.jpg";
 #declare VIDEO_EMISSION = 0.8;
+#declare SCREEN_OPEN = 0.0;     // range 0 (up) to 1 (down)
+#declare VIDEO_ON = 0;
 //
 #declare CAMERA6_LOCATION = <59.3,4,20.5>;
 #declare CAMERA6_LOOKAT = <0,4,0>;
 #declare CAMERA6_ZOOM = 1;
 #declare CAMERA6_FADE = 20;
 #declare  COLOR_SCHEME = 0;
+//
+// Subsequence 1 = Screen lowers
+//
 #if (ANIMATION_SUBSEQUENCE = 1)
+#declare VIDEO_ON = 0;
+#declare VIDEO_EMISSION = 0.15;
+#declare SCREEN_OPEN = ((1+cos((1-clock)*pi))/2);
+#declare SIDECEILINGLIGHTCOLOR = <1,1,150/255>*((1+cos((1-clock)*pi))/2);
+#declare text_str = concat("Open :",str(SCREEN_OPEN,4,3));
+#debug text_str
+#debug "\n"
+#end
+//
+// Subsequence 2 - Video turns on
+//
+#if (ANIMATION_SUBSEQUENCE = 2)
+
 #if (clock <= 0.5)
 #declare video_clock = (clock/0.5);
 #declare VIDEO_ON = 0;
@@ -570,8 +589,8 @@ light_source { < 25-(clock3*24.3),4,0> color rgb <LIGHT_SPHERE_INTENSITY,LIGHT_S
 #declare VIDEO_ON = 1;
 #declare VIDEO_EMISSION = 0.2 + 0.6*((1-cos(video_clock*pi))/2);
 #declare VIDEO_IMAGE = "screen_emptyblue.jpg"; 
-#end
-#end
+#end // end of video on seq
+#end // 
 #end
 // Additional Animation Sequences
 //
