@@ -254,7 +254,7 @@ light_source { <0,0,0> color rgb <1,1,1> fade_distance .5 fade_power 2 shadowles
 #end     
 object {VIDEO_SCREEN  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.0, 10.0, 10.0>}
 */
-#if(SCREEN = 1)
+#if(SCREEN_OPEN != 0.0)
 #if(OBJECT_BOX = 1)
 #include "box_video_screen_image.inc"
 #else
@@ -264,7 +264,7 @@ object {VIDEO_SCREEN_IMAGE  scale <1/12,1/12,1/12> rotate <0,90,0> translate <5.
 #end
 
 #include "pov_video_screen.inc"
-object { VIDEO_SCREEN scale <1/12,1/12,1/12> translate <5.0,13,10.0> }
+object { SCREEN(SCREEN_OPEN,VIDEO_ON,VIDEO_IMAGE,VIDEO_EMISSION) scale<1/12,1/12,1/12> translate <5.0,13,10.0> }
 
 //
 // Alter, Bible, Cross, Pulpit, Lecturn, etc.
@@ -388,7 +388,7 @@ object { LECTURN scale <1/12,1/12,1/12> translate <13.84,0,5.817> }
 #else
 #include "lecturn_cloth.inc"
 #end   
-object { LECTURN_CLOTH scale <1/12,1/12,1/12> translate <13.84,0,5.817>}
+object { LECTURN_CLOTH scale <1/12,1/12,1/12> translate <13.9,-.75/12,5.817>}
 
 #if(OBJECT_BOX = 1)
 #include "box_LECTURN_mic.inc"

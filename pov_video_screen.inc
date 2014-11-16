@@ -13,8 +13,8 @@ torus { 1.0,0.175  rotate<0,0,90> scale <1,1,.5> translate <0,1.75*2+ydiff,0> ro
 #end
 }
 
-#declare VIDEO_SCREEN = 
-
+#macro SCREEN(OPEN,ON,IMAGE,EMISSION)
+union {
 union {
 
 //box { <0,0,-60>,<6,-3,60> }
@@ -47,6 +47,7 @@ superellipsoid{ <0.01,0.01>
      texture{ T_White }
    } // -------------- end superellipsoid  
 //
+difference {
 superellipsoid{ <0.01,0.01> 
      scale <.5,.5,.5>     
      scale <1.5,2,120> 
@@ -54,9 +55,28 @@ superellipsoid{ <0.01,0.01>
      translate<.75,-7,0>
      texture{ T_White }
    } // -------------- end superellipsoid
-   
+box { <0.25,-10,-59.75>,<1.25,0,59.75> pigment { color rgb <.5,.5,.5>}}
+} // end of difference   
 object { CHAIN translate <3,0,50> }
 object { CHAIN translate <3,0,-50> }
       
    texture { T_White }
 }
+
+#if(ON = 0.0)
+#declare T_Video = texture { T_VIDEOSCREEN  finish { ambient EMISSION }  }
+#else #declare T_Video = texture { pigment { image_map { jpeg IMAGE } rotate <0,90,0> scale <1,75,125> translate <0,-3,-66>  } finish { ambient 0 diffuse 0 emission EMISSION} }
+#end
+//
+// Screen Portion
+//
+#declare ydiff = 70*OPEN;
+union {
+difference {
+box { <0.25,-6,-59.5>,<0.5,-10-ydiff,59.5> texture { pigment { color rgb <.0125,.0125,.0125> } } }
+box { <0.325,0,-58.5>,<1,-8-ydiff,58.5> texture { T_Video } }
+}
+cylinder { <0.75,-9.5-ydiff,-60>,<0.75,-9.5-ydiff,60>,.75 pigment { color rgb <.0125,.0125,.0125> }  }
+}
+}
+#end

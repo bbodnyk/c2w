@@ -91,13 +91,13 @@
 //       for camera 6 are in the Animation section.
 //
 #declare CAMERA = 2;                      // 1 THRU 5
-#declare CAMERAZOOM = 1;                  // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
-#declare PERSPECTIVE = 1;                 // Set to 1 for perspective camera
+#declare CAMERAZOOM = 1.25;                  // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
+#declare PERSPECTIVE = 0;                 // Set to 1 for perspective camera
 //
 // Camera 5 Setup
 //
-#declare CAMERA5_LOCATION = <16,6,0>;    // <13,4,6>
-#declare CAMERA5_LOOKAT =  <3,3,0>;      // <3,2,0>
+#declare CAMERA5_LOCATION = <20,6,0>;    // <13,4,6>
+#declare CAMERA5_LOOKAT =  <10,4,6>;      // <3,2,0>
 #declare CAMERA5_FADE = 20;               // Distance Camera flash is at full intensity
 //
 //========================== Scene Control ===========================
@@ -134,17 +134,17 @@
 #if(DEBUG = 0)
 #declare CAMERAFLASH = 0;       // 0 (off) or 1 (on) - Camara Flash
 #declare HANGINGLAMP_LIGHT = 0; // 0 (off) or 1 (on)
-#declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
+#declare SUNLIGHT = 1;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 1;         // 0 (off) or 1 (on) - Above Jesus, pulpit and lecturn
-#declare SIDECEILINGLIGHTS = 1; // 0 (off) or 1 (on) - Upper side lights along length of church
-#declare SIDEWALLLIGHTS = 1;    // 0 (off) or 1 (on) - Wall sconces
-#declare CEILINGLIGHTS = 1;     // 0 (off) or 1 (on) - Chandeliers (Needs CHANDELIER=1 )
+#declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on) - Upper side lights along length of church
+#declare SIDEWALLLIGHTS = 0;  // 0 (off) or 1 (on) - Wall sconces
+#declare CEILINGLIGHTS = 0;    // 0 (off) or 1 (on) - Chandeliers (Needs CHANDELIER=1 )
 #declare CANDLE_ON = 1;         // 0 (off) or 1 (on)
 #declare BACKLIGHTS = 1;        // Can be turned off if doing closeups of front 
-#declare AREA_LITES = 0;        // Replaces area_lights with point light sources for test purposes.
+#declare AREA_LITES = 1;        // Replaces area_lights with point light sources for test purposes.
 #declare TREE_EMISSION = 1.0;
 #declare FLAME_EMISSION = 1.0;
-#declare LITE_JITTER = 0;
+#declare LITE_JITTER = 1;
 //
 //========================== Object Switches - Debugging Off ===========================                                                                  
 //                                       
@@ -157,18 +157,19 @@
 #declare LIGHTFIXTURES =1;      // 0 (off) or 1 (on)
 #declare CHANDELIER = 1;        // 0 (off) or 1 (on)
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
-#declare SCREEN = 1;            // 0 (off) or 1 (on)
-#declare VIDEO_ON = 1;
-#declare VIDEO_IMAGE = "2_white.jpg";  // Must be 1123 x 682 pixel jpeg
+#declare SCREEN_OPEN = 1.0;     // range 0 (up) to 1 (down)
+#declare VIDEO_ON = 1;          // 0 (off) or 1 (on)
+//#declare VIDEO_IMAGE = "2_white.jpg";  // Must be 1123 x 682 pixel jpeg
 //#declare VIDEO_IMAGE = "screen_exp_left_bld.jpg";
 //#declare VIDEO_IMAGE = "screen_exp_2wht.jpg";
 //#declare VIDEO_IMAGE = "screen_desktop.jpg";
-#declare VIDEO_IMAGE = "screen_emptyblue.jpg";
+//#declare VIDEO_IMAGE = "screen_emptyblue.jpg";
 //#declare VIDEO_IMAGE = "screen_searching.jpg";
 //#declare VIDEO_IMAGE = "welcome.jpg";
-#declare VIDEO_EMISSION = 0.8;
-#declare WINDOWS = 1;
-#declare MURAL = 0;
+#declare VIDEO_IMAGE = "umc.jpg";
+#declare VIDEO_EMISSION = 0.8;  // brightness of video image
+#declare WINDOWS = 1;           // 0 (off) or 1 (on)
+#declare MURAL = 0;             // 0 (off) or 1 (on)
 #else
 //
 //
@@ -178,7 +179,7 @@
 #declare HANGINGLAMP_LIGHT = 0; // 0 (off) or 1 (on)
 #declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 1;         // 0 (off) or 1 (on)
-#declare SIDECEILINGLIGHTS = 1; // 0 (off) or 1 (on)
+#declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on)
 #declare SIDEWALLLIGHTS = 1;    // 0 (off) or 1 (on)
 #declare CEILINGLIGHTS = 1;     // 0 (off) or 1 (on) (Needs CHANDELIER=1 )
 #declare CANDLE_ON = 1;         // 0 (off) or 1 (on) 
@@ -196,13 +197,13 @@
 #declare PEWS_CHOIR = 0;        // 0 (off) or 1 (on)
 #declare RAILINGS = 0;          // 0 (off) or 1 (on)
 #declare HYMNALS = 0;           // 0 (off) or 1 (on)
-#declare LIGHTFIXTURES =0;     // 0 (off) or 1 (on)
+#declare LIGHTFIXTURES =0;      // 0 (off) or 1 (on)
 #declare CHANDELIER = 0;        // 0 (off) or 1 (on)
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
-#declare SCREEN = 1;             // 0 (off) or 1 (on)
-#declare VIDEO_ON = 1;
-#declare VIDEO_IMAGE = "screen_emptyblue.jpg";
-#declare VIDEO_EMISSION = .2;
+#declare SCREEN_OPEN = 1.0;     // range 0 (up) to 1 (down)
+#declare VIDEO_ON = 1;          // 0 (off) or 1 (on)
+#declare VIDEO_IMAGE = "umc.jpg";
+#declare VIDEO_EMISSION = .8;
 #declare WINDOWS = 0;
 #declare MURAL = 0;
 #end
