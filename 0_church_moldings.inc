@@ -7,9 +7,10 @@
 //
 #macro Board(LEN,WIDTH,THK,MITER1,MITER2,TEXTURE)
 difference {
-box { <-LEN-1,0,0>,<LEN+1,WIDTH,THK> }
-#if(MITER1 != 0)box { <0,-LEN,-LEN>,<LEN,LEN,LEN> rotate <0,MITER1*45,0> translate <LEN/2,0,0>}#end
-#if(MITER2 != 0)box { <0,-LEN,-LEN>,<-LEN,LEN,LEN> rotate <0,-45*MITER2,0> translate <-LEN/2,0,0> }#end
+#declare HALFLEN = (LEN/2)+THK; 
+box { <-HALFLEN,0,0>,<LEN+1,WIDTH,THK> }
+box { <0,-LEN,-LEN>,<LEN,LEN,LEN> rotate <0,MITER1*45,0> translate <LEN/2,0,0>}
+box { <0,-LEN,-LEN>,<-LEN,LEN,LEN> rotate <0,-45*MITER2,0> translate <-LEN/2,0,0> }
 texture { TEXTURE rotate <0,90,0> }
 }
 #end
