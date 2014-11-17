@@ -37,8 +37,8 @@
 //  4 - Ending
 //  5 - Video Starting  
 //
-#declare ANIMATION_SEQUENCE = 5;
-#declare ANIMATION_SUBSEQUENCE = 3;
+#declare ANIMATION_SEQUENCE = 1;
+#declare ANIMATION_SUBSEQUENCE = 0;
 //
 //========= Ambient/Diffuse/Emission Light Control ===================
 //
@@ -423,14 +423,19 @@ spline {
 //
 // Turn on Video
 //
-//#declare VIDEO_IMAGE = "screen_emptyblue.jpg";
-//#if (clock <= 0.1 )
-//#declare em_clock = (clock)/0.1;
-//#declare VIDEO_EMISSION = 0.8*em_clock;
-//#else
-//#declare VIDEO_EMISSION = 0.8;
-//#end
+#declare SCREEN_OPEN = 1.0;
+#declare VIDEO_ON = 1;
+#declare VIDEO_EMISSION = 0.8;
 //
+#if( clock <= 0.1 ) #declare VIDEO_IMAGE = "screen_desktop.jpg"; #end
+#if( clock > 0.1 & clock <= 0.15 ) #declare VIDEO_IMAGE = "screen_exp_left_bld.jpg"; #end
+#if( clock > 0.15 & clock <= 0.25 ) #declare VIDEO_IMAGE = "left_the_building.jpg"; #end
+#if( clock > 0.25 & clock <= 0.3 ) #declare VIDEO_IMAGE = "screen_desktop.jpg"; #end
+#if( clock > 0.3 & clock <= 0.35 ) #declare VIDEO_IMAGE = "screen_exp_2wht.jpg"; #end
+#if( clock > 0.35 & clock <= 0.5 ) #declare VIDEO_IMAGE = "2_white.jpg"; #end
+#if( clock > 0.5 & clock <= 0.7 ) #declare VIDEO_IMAGE = "screen_searching.jpg"; #end
+#if( clock > 0.7 ) #declare VIDEO_IMAGE = "umc.jpg"; #end
+
 
 #end
 //
