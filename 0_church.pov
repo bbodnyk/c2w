@@ -24,7 +24,7 @@
 // 0 - Animation Off
 // 1 - Animation On
 //
-#declare ANIMATION = 1;
+#declare ANIMATION = 0;
 //
 // Animation Sequence
 //
@@ -37,7 +37,7 @@
 //  4 - Ending
 //  5 - Video Starting  
 //
-#declare ANIMATION_SEQUENCE = 1;
+#declare ANIMATION_SEQUENCE = 3;
 #declare ANIMATION_SUBSEQUENCE = 0;
 //
 //========= Ambient/Diffuse/Emission Light Control ===================
@@ -72,6 +72,7 @@
 #declare SIDEWALLLIGHTCOLOR =    <1,1,150/255>*1.0;    // Wall sconces light color
 #declare CHANDELIERLIGHTCOLOR =  <1,1,150/255>*1.0;    // Chandelier light color
 #declare VIDEOSCREEN_COLOR    =  <1,1,1>;
+#declare FLAME_DISTORTION =      <1,1,1>;              // Scale to distort from candle flame
 //
 //
 //========================== Camera Control ===========================
@@ -90,7 +91,7 @@
 // NOTE: Camera 6 is intended to be used only for animations. The controls
 //       for camera 6 are in the Animation section.
 //
-#declare CAMERA = 1;                      // 1 THRU 5
+#declare CAMERA = 2;                      // 1 THRU 5
 #declare CAMERAZOOM = 1.0;                  // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
 #declare PERSPECTIVE = 0;                 // Set to 1 for perspective camera
 //
@@ -108,7 +109,7 @@
 //      2 - Colored Walls, Green Walls, Blue Ceiling, Yellow Front 
 //      3 - Mural               
 //
-#declare COLOR_SCHEME = 0;
+#declare COLOR_SCHEME = 2;
 //
 // Colors for Color Scene 1
 //
@@ -150,23 +151,25 @@
 //                                       
 #declare ALTERSTUFF = 1;        // 0 (off) or 1 (on)
 #declare HANGINGLAMP = 1;       // 0 (off) or 1 (on)
-#declare PEWS = 1;              // 0 (off) or 1 (on)
+#declare PEWS = 0;              // 0 (off) or 1 (on)
 #declare PEWS_CHOIR = 1;        // 0 (off) or 1 (on)
 #declare RAILINGS = 1;          // 0 (off) or 1 (on)
-#declare HYMNALS = 1;           // 0 (off) or 1 (on)
+#declare HYMNALS = 0;           // 0 (off) or 1 (on)
 #declare LIGHTFIXTURES =1;      // 0 (off) or 1 (on)
 #declare CHANDELIER = 1;        // 0 (off) or 1 (on)
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN_OPEN = 1.0;     // range 0 (up) to 1 (down)
-#declare VIDEO_ON = 0;          // 0 (off) or 1 (on)
+#declare VIDEO_ON = 1;          // 0 (off) or 1 (on)
 //#declare VIDEO_IMAGE = "2_white.jpg";  // Must be 1123 x 682 pixel jpeg
 //#declare VIDEO_IMAGE = "screen_exp_left_bld.jpg";
 //#declare VIDEO_IMAGE = "screen_exp_2wht.jpg";
+//#declare VIDEO_IMAGE = "screen_exp_tort.jpg";
 //#declare VIDEO_IMAGE = "screen_desktop.jpg";
 //#declare VIDEO_IMAGE = "screen_emptyblue.jpg";
-#declare VIDEO_IMAGE = "screen_searching.jpg";
+//#declare VIDEO_IMAGE = "screen_searching.jpg";
 //#declare VIDEO_IMAGE = "welcome.jpg";
 //#declare VIDEO_IMAGE = "umc.jpg";
+#declare VIDEO_IMAGE = "umc_colored.jpg";
 #declare VIDEO_EMISSION = 0.8;  // brightness of video image
 #declare WINDOWS = 1;           // 0 (off) or 1 (on)
 #declare MURAL = 0;             // 0 (off) or 1 (on)
@@ -202,7 +205,8 @@
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN_OPEN = 1;     // range 0 (up) to 1 (down)
 #declare VIDEO_ON = 1;          // 0 (off) or 1 (on)
-#declare VIDEO_IMAGE = "screen_searching.jpg";
+//#declare VIDEO_IMAGE = "tort.jpg";
+#declare VIDEO_IMAGE = "screen_exp_tort.jpg";
 #declare VIDEO_EMISSION = .8;
 #declare WINDOWS = 0;
 #declare MURAL = 0;
@@ -429,11 +433,14 @@ spline {
 //
 #if( clock <= 0.1 ) #declare VIDEO_IMAGE = "screen_desktop.jpg"; #end
 #if( clock > 0.1 & clock <= 0.15 ) #declare VIDEO_IMAGE = "screen_exp_left_bld.jpg"; #end
-#if( clock > 0.15 & clock <= 0.25 ) #declare VIDEO_IMAGE = "left_the_building.jpg"; #end
-#if( clock > 0.25 & clock <= 0.3 ) #declare VIDEO_IMAGE = "screen_desktop.jpg"; #end
-#if( clock > 0.3 & clock <= 0.35 ) #declare VIDEO_IMAGE = "screen_exp_2wht.jpg"; #end
-#if( clock > 0.35 & clock <= 0.5 ) #declare VIDEO_IMAGE = "2_white.jpg"; #end
-#if( clock > 0.5 & clock <= 0.7 ) #declare VIDEO_IMAGE = "screen_searching.jpg"; #end
+#if( clock > 0.15 & clock <= 0.20 ) #declare VIDEO_IMAGE = "left_the_building.jpg"; #end
+#if( clock > 0.20 & clock <= 0.25 ) #declare VIDEO_IMAGE = "screen_desktop.jpg"; #end
+#if( clock > 0.25 & clock <= 0.30 ) #declare VIDEO_IMAGE = "screen_exp_tort.jpg"; #end
+#if( clock > 0.30 & clock <= 0.35 ) #declare VIDEO_IMAGE = "tort.jpg"; #end
+#if( clock > 0.35 & clock <= 0.40 ) #declare VIDEO_IMAGE = "screen_desktop.jpg"; #end
+#if( clock > 0.40 & clock <= 0.45 ) #declare VIDEO_IMAGE = "screen_exp_2wht.jpg"; #end
+#if( clock > 0.45 & clock <= 0.50 ) #declare VIDEO_IMAGE = "2_white.jpg"; #end
+#if( clock > 0.50 & clock <= 0.7 ) #declare VIDEO_IMAGE = "screen_searching.jpg"; #end
 #if( clock > 0.7 ) #declare VIDEO_IMAGE = "umc.jpg"; #end
 
 
@@ -457,6 +464,8 @@ spline {
 //
 #if( ANIMATION_SEQUENCE = 3 )
 #declare  COLOR_SCHEME = 0;
+#declare VIDEO_IMAGE = "umc.jpg";
+#declare VIDEO_ON = 1;
 //
 // Light Sphere
 //
@@ -531,6 +540,7 @@ object { LIGHT_SPHERE scale 10-(clock3*10) translate < 25-(clock3*24.3),4,0> }
 #declare LIGHT_SPHERE_INTENSITY = 1-clock3;
 light_source { < 25-(clock3*24.3),4,0> color rgb <LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY,LIGHT_SPHERE_INTENSITY> }
 #declare  COLOR_SCHEME = 2;
+#declare VIDEO_IMAGE = "umc_colored.jpg";
 #end
 
 #end
