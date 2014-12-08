@@ -26,7 +26,7 @@
 
 #include "church_texture.inc"
 
-
+#declare OBJECT_BOX = 0;   // Turn on simple objects
 
 //
 // Color Scheme Control
@@ -447,16 +447,17 @@ object { WALL_LIGHT scale <1/12,1/12,1/12> rotate < 0,180,0> translate <52.42,5.
 #end
 
 #if(CHANDELIER = 1)                    
-#include "chandelier.inc"                                                        
-object { CHANDELIER scale <1/12,1/12,1/12> scale 1.5 rotate <0,180,0>  translate <21.67,17.66,-12.05>}
-object { CHANDELIER scale <1/12,1/12,1/12> scale 1.5 rotate <0,0,0>  translate <21.67,17.66,12.05>}
+#include "pov_chandelier.inc"                                                        
+object { CHANDELIER scale <1/12,1/12,1/12> scale 1.5 rotate <0,180,0>  translate <21.67,10.25,-12.05>}
+object { CHANDELIER scale <1/12,1/12,1/12> scale 1.5 rotate <0,0,0>  translate <21.67,10.25,12.05>}
 #if(BACKLIGHTS = 1)
-object { CHANDELIER scale <1/12,1/12,1/12> scale 1.5 rotate <0,180,0> translate <37.67,17.66,-12.05>}
-object { CHANDELIER scale <1/12,1/12,1/12> scale 1.5 rotate <0,0,0> translate <37.67,17.66,12.05>}
-object { CHANDELIER scale <1/12,1/12,1/12> scale 1.5 rotate <0,180,0> translate <53.67,17.66,-12.05>}
-object { CHANDELIER scale <1/12,1/12,1/12> scale 1.5 rotate <0,0,0> translate <53.67,17.66,12.05>}
+object { CHANDELIER scale <1/12,1/12,1/12> scale 1.5 rotate <0,180,0> translate <37.67,10.25,-12.05>}
+object { CHANDELIER scale <1/12,1/12,1/12> scale 1.5 rotate <0,0,0> translate <37.67,10.25,12.05>}
+object { CHANDELIER scale <1/12,1/12,1/12> scale 1.5 rotate <0,180,0> translate <53.67,10.25,-12.05>}
+object { CHANDELIER scale <1/12,1/12,1/12> scale 1.5 rotate <0,0,0> translate <53.67,10.25,12.05>}
 #end
 #end
+
 //
 // Pew Hymnals, Bibles, Cards and Pencils
 //
