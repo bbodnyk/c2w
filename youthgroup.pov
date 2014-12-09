@@ -88,7 +88,7 @@
 // NOTE: Camera 6 is intended to be used only for animations. The controls
 //       for camera 6 are in the Animation section.
 //
-#declare CAMERA = 3;                      // 1 THRU 5
+#declare CAMERA = 2;                      // 1 THRU 5
 #declare CAMERAZOOM = 1;                // WIDEANGLE < 1.0 (NORMAL) < ZOOMIN
 #declare PERSPECTIVE = 1;                 // Set to 1 for perspective camera
 //
@@ -134,7 +134,7 @@
 #declare HANGINGLAMP_LIGHT = 0; // 0 (off) or 1 (on) - Eternal Light
 #declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 1;         // 0 (off) or 1 (on) - Above Jesus, pulpit and lecturn
-#declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on) - Upper side lights along length of church
+#declare SIDECEILINGLIGHTS = 1; // 0 (off) or 1 (on) - Upper side lights along length of church
 #declare SIDEWALLLIGHTS = 1;    // 0 (off) or 1 (on) - Wall sconces
 #declare CEILINGLIGHTS = 1;     // 0 (off) or 1 (on) - Chandeliers (Also need CHANDELIER=1)
 #declare CANDLE_ON = 1;         // 0 (off) or 1 (on) - Front Candle flame
@@ -179,7 +179,7 @@
 #declare HANGINGLAMP_LIGHT = 0; // 0 (off) or 1 (on) - Eyternal Light
 #declare SUNLIGHT = 0;          // 0 (off) or 1 (on) - Natural sunlight coming in from the windows
 #declare SPOTLIGHT = 1;         // 0 (off) or 1 (on) - Above Jesus, pulpit and lecturn
-#declare SIDECEILINGLIGHTS = 0; // 0 (off) or 1 (on) - Upper side lights along length of church
+#declare SIDECEILINGLIGHTS = 1; // 0 (off) or 1 (on) - Upper side lights along length of church
 #declare SIDEWALLLIGHTS = 1;    // 0 (off) or 1 (on) - Wall sconces
 #declare CEILINGLIGHTS = 1;     // 0 (off) or 1 (on) -  (Needs CHANDELIER=1 )
 #declare CANDLE_ON = 1;         // 0 (off) or 1 (on) 
@@ -197,7 +197,7 @@
 #declare PEWS_CHOIR = 0;        // 0 (off) or 1 (on)
 #declare RAILINGS = 0;          // 0 (off) or 1 (on)
 #declare HYMNALS = 0;           // 0 (off) or 1 (on)
-#declare LIGHTFIXTURES =0;      // 0 (off) or 1 (on)
+#declare LIGHTFIXTURES =1;      // 0 (off) or 1 (on)
 #declare CHANDELIER = 1;        // 0 (off) or 1 (on)
 #declare JESUS = 1;             // 0 (off) or 1 (on) (Automatically turned off for color scheme 3)
 #declare SCREEN_OPEN = 1;     // range 0 (up) to 1 (down)

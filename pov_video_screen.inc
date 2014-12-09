@@ -65,7 +65,7 @@ object { CHAIN translate <3,0,-50> }
 
 #if(ON = 0.0)
 #declare T_Video = texture { T_VIDEOSCREEN  finish { ambient EMISSION }  }
-#else #declare T_Video = texture { pigment { image_map { jpeg IMAGE } rotate <0,90,0> scale <1,75,125> translate <0,-3,-66>  } finish { ambient 0 diffuse 0 emission EMISSION} }
+#else #declare T_Video = texture { pigment { image_map { jpeg IMAGE } rotate <0,90,0> scale <1,75,125> translate <0,-7.75,-66>  } finish { ambient 0 diffuse 0 emission EMISSION} }
 #end
 //
 // Screen Portion
