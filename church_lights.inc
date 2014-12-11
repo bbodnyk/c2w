@@ -71,22 +71,22 @@ light_source {
   <14.25,11.5,-24>                 // light's position (translated below)                                                   
   color SPOTLIGHTCOLOR       // light's color
   spotlight               // this kind of light source
-  point_at <0, 6, -22>      // direction of spotlight
+  point_at <0, 6, -20>      // direction of spotlight
   radius 80                // hotspot (inner, in degrees)
   tightness 10            // tightness of falloff (1...100) lower is softer, higher is tighter
   falloff 120               // intensity falloff radius (outer, in degrees)
-  fade_distance 7 fade_power 2
+  fade_distance 15 fade_power 3
 }
 
 light_source {
   <14.25,11.5,24>                 // light's position (translated below)                                                   
   color SPOTLIGHTCOLOR       // light's color
   spotlight               // this kind of light source
-  point_at <0, 6, 22>      // direction of spotlight
+  point_at <0, 6, 20>      // direction of spotlight
   radius 80                // hotspot (inner, in degrees)
   tightness 10            // tightness of falloff (1...100) lower is softer, higher is tighter
   falloff 120               // intensity falloff radius (outer, in degrees)
-  fade_distance 7 fade_power 2
+  fade_distance 15 fade_power 3
 }  
 #end
 

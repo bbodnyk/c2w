@@ -20,7 +20,7 @@ translate <9,-.69,0> }
 cylinder { <0,0,0>,<0,2.0,0>,0.45 translate <9,.5,0> texture { T_White }}
 object { LIGHT_BULB scale <1.25,1.25,1.25> translate <9,2.5,0> }
 object { FLAME2 scale <1,1.5,1> translate <9,2.5,0> }
-//light_source { <9,3.0,0> color rgb <.1,.1,.1> }
+#if(CEILINGLIGHTS = 1)light_source { <9,3.0,0> color rgb CHANDELIERLIGHTCOLOR fade_distance 2.375 fade_power 3 shadowless} #end
 texture { T_Gold }
 
 }
@@ -42,7 +42,7 @@ translate <5.85,2.865,0> }
 cylinder { <0,0,0>,<0,2.0,0>,0.45 translate <5.85,4.465,0> texture { T_White }}
 object { LIGHT_BULB scale <1.25,1.25,1.25> translate <5.85,6.465,0> }
 object { FLAME2 scale <1,1.5,1> translate <5.85,6.465,0> }
-//light_source { <5.85,6.965,0> color rgb <1,1,1> }
+#if(CEILINGLIGHTS = 1)light_source { <5.85,6.965,0> color rgb CHANDELIERLIGHTCOLOR fade_distance 2.375 fade_power 3 shadowless} #end
 texture { T_Gold }
 }
 
@@ -50,15 +50,16 @@ texture { T_Gold }
 #declare CHAIN = 
 union {
 #declare link_count = 0;
-#while ( link_count < 28 )
+#while ( link_count < 30 )
 #declare ydiff = 1.8 * link_count;           
 torus { 0.5,0.05  rotate<90,0,0> scale <.5,1,1> translate <0,.9+ydiff,0> rotate<0,0,0>}
 torus { 0.5,0.05  rotate<0,0,90> scale <1,1,.5> translate <0,.9*2+ydiff,0> rotate<0,0,0>}
 #declare link_count = link_count + 1;
 #end
+superellipsoid { <.75,.1> rotate <90,0,0> scale <2,1,2> rotate <0,0,15> translate <0,55,0> }
 }
 
-#declare CHANDELIER =
+#declare CHANDELIER_LIGHT =
 union {
 lathe {
 linear_spline
@@ -98,7 +99,10 @@ object{ UPPER_ARM  rotate <0,ang,0>  }
 //
 object { CHAIN texture { T_Gold } rotate <0,90,0> translate <0,4.75,0>}
 
+/*
 #if(CEILINGLIGHTS = 1)
-light_source { <0,0,0> color rgb CHANDELIERLIGHTCOLOR area_light <-12,-0,-12><12,0,-12> 2, 2 adaptive 1 jitter fade_distance 10 fade_power 3 translate <0,1,0>}
+light_source { <0,0,0> color rgb CHANDELIERLIGHTCOLOR area_light <-12,-0,-12><12,0,-12> 2, 2 adaptive 1 jitter fade_distance 10 fade_power 3 translate <0,3,0>}
+//sphere { <0,3,0>,2 pigment { color rgb <0,1,1> } }
 #end
+*/
 }
